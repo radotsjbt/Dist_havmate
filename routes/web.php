@@ -16,11 +16,6 @@ Route::get('/', function () {
     ]);
 });
 
-// Show all customer data
-Route::get('/customer', [CustomerController::class, 'index']);
-
-// Single customer data
-Route::get('/customer/{id}/{Company_Name}', [CustomerController::class, 'show']);
 
 // Show the dashboard
 Route::get('/dashboard', function(){
@@ -97,5 +92,8 @@ Route::get('/dashboard/notification/notif', [NotificationController::class, 'sho
 // Show user profile
 Route::get('/dashboard/profile/index', [UserController::class, 'show'])->middleware('auth');
 
-// Show customer table
+// Show all customer 
 Route::get('/dashboard/customer/index', [CustomerController::class, 'index'])->middleware('auth');
+
+// Show detail customer 
+Route::get('/dashboard/customer/cust/{id}', [CustomerController::class, 'show'])->middleware('auth');

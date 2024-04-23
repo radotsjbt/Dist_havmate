@@ -60,6 +60,7 @@
     
                       <form class="row g-3 needs-validation" method="post" action="/regist">
                         @csrf
+                       
                         <div class="col-12">
                           <label for="yourUsername" class="form-label">Username</label>
                           <input type="text" name="username" class="form-control" id="yourUsername" required>
@@ -74,28 +75,36 @@
                           </div>
                         </div>
     
-    
                         <div class="col-12">
                           <label for="yourPassword" class="form-label">Password</label>
                           <input type="password" name="password" class="form-control" id="yourPassword" required>
                           <div class="invalid-feedback">Please enter your password!</div>
                         </div>
 
+                        <div class="col-12">
+                          <label for="yourPhone" class="form-label">Phone</label>
+                          <input type="text" name="phone" class="form-control" id="yourPhone" required>
+                          <div class="invalid-feedback">Please enter your phone number!</div>
+                        </div>
+
+                        <div class="col-12">
+                          <label for="yourAddress" class="form-label">Address</label>
+                          <input type="text" name="address" class="form-control" id="yourAddress" required>
+                          <div class="invalid-feedback">Please enter your address!</div>
+                        </div>
+
                         <div class="row mt-3">
-                          <label class="col-sm-2 col-form-label">Role</label>
+                          <label class="col-form-label">Regist as</label>
                           <div class="col-sm-10" name="role">
                             <select class="form-select" name= "role" aria-label="Default select example">
                               <option selected>Open this select menu</option>
-                              
                               <option name="Farmer" value="Farmer" >Farmer</option>
                               <option name="Distributor" value="Distributor" >Distributor</option>
-                              
                             </select>
-                          </div>
-                                            
+                          </div>                                            
                               <div class="invalid-feedback">Please choose your role!</div>
                         </div>
-    
+                        <br>
                         <div class="col-12">
                           <div class="form-check">
                             <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
@@ -106,9 +115,11 @@
                         <div class="col-12">
                           <button class="btn btn-primary w-100" type="submit">Create Account</button>
                         </div>
+                        <br>
                         <div class="col-12">
                           <p class="small mb-0"><a href="/login">Forgot password?</a></p>
-                          <p class="small mb-0">Already have an account? <a href="/login">Log in</a></p>
+                          
+                          <p class="small mb-1">Already have an account? <a href="/login">Log in</a></p>
                         </div>
                       </form>
     
@@ -120,12 +131,8 @@
                     <!-- You can delete the links only if you purchased the pro version. -->
                     <!-- Licensing information: https://bootstrapmade.com/license/ -->
                     <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                  </div>
-    
-                </div>
-              </div>
-            </div>
+                    Develop by <a href="/about">Havmate</a>
+                  
     
           </section>
     

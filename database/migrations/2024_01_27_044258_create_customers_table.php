@@ -13,17 +13,15 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('Cust_Name');
+            $table->string('Cust_ID'); //from regist process (User Model)
+            $table->string('Cust_Name'); //from regist form (username)
             $table->text('Cust_Address');
-            $table->string('Cust_Phone');
-            $table->string('Cust_Email');
-            $table->string('Company_Image');
-            $table->string('Company_Name');
-            $table->string('Purchase_Needs');
-            $table->string('Buy_Price');
-            $table->string('CustProd_Name');
-            $table->string('CustProd_Desc');
-            $table->string('CustProd_Image');
+            $table->string('Cust_Phone'); //from regist form (phone)
+            $table->string('Cust_Email'); //from regist form (email)
+            $table->text('Cust_Image')->default('default')->nullable();
+            $table->string('Purchase_Needs')->default('default')->nullable();
+            $table->string('CustProd_Name')->default('default')->nullable();
+            $table->text('CustProd_Desc')->default('default')->nullable();
             $table->timestamps();
         });
     }

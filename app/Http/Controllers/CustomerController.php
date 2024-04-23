@@ -9,20 +9,18 @@ use App\Models\User;
 class CustomerController extends Controller
 {
     
-
     public function index(){
 
         return view('/dashboard/customer/index', [
             "title" => "Distributor",
-            "us" => User::all()
+            "customer" => Customer::all()
         ]);
         
     }
 
-    public function show($id, $Company_Name){
-        return view('cust', [
-            "title" => Customer::find($Company_Name),
-            "post" => Customer::find($id)
+    public function show($id){
+        return view('/dashboard/customer/cust/{id}', [
+            "cust" => Customer::find($id)
         ]);
     }
 }
