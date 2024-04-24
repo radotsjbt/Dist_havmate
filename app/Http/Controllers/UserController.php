@@ -23,8 +23,8 @@ class UserController extends Controller
                 $user->email = request('email');
                 $user->password = request('password');
                 $user->role = request('role');
+
         //Condition the user's role when they're create account
-        
             if($user->role === 'Farmer'){
                 $user->User_ID = IdGenerator::generate([
                 'table' => 'users',
@@ -40,7 +40,7 @@ class UserController extends Controller
                 $farm->Farmer_Phone = $user->phone ;
                 $farm->Farmer_Address = $user->address;
 
-                // $user->save(); //insert to users table
+                
                 $farm->save(); //insert to farmers table
             }
             if($user->role === 'Distributor'){
@@ -51,7 +51,6 @@ class UserController extends Controller
                 'prefix' => 'CST'
                 ]);
                 
-
                 //Insert the same data to customer's table
                 $cust->Cust_ID = $user->User_ID ;
                 $cust->Cust_Name = $user->username;

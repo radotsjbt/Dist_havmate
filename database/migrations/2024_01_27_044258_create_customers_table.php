@@ -18,7 +18,6 @@ return new class extends Migration
             $table->text('Cust_Address');
             $table->string('Cust_Phone'); //from regist form (phone)
             $table->string('Cust_Email'); //from regist form (email)
-            $table->text('Cust_Image')->default('default')->nullable();
             $table->string('Purchase_Needs')->default('default')->nullable();
             $table->string('CustProd_Name')->default('default')->nullable();
             $table->text('CustProd_Desc')->default('default')->nullable();

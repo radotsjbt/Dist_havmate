@@ -59,11 +59,9 @@ class HarvestController extends Controller
      */
     public function show()
     {
-       
         return view('products', [
             "title" => "Products",
             "products" => Harvest::all()
-            
     ]);
     }
     public function showSingle(Harvest $id, $Harv_Name)

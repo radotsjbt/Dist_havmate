@@ -10,7 +10,6 @@ class CustomerController extends Controller
 {
     
     public function index(){
-
         return view('/dashboard/customer/index', [
             "title" => "Distributor",
             "customer" => Customer::all()
@@ -18,9 +17,12 @@ class CustomerController extends Controller
         
     }
 
-    public function show($id){
-        return view('/dashboard/customer/cust/{id}', [
-            "cust" => Customer::find($id)
+    public function showSingle($id)
+    {
+        return view('/dashboard/customer/cust', [
+            "title" => "Detail Customer",
+            "customer" => Customer::find($id)
+           
         ]);
     }
 }

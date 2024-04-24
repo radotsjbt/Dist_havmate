@@ -96,4 +96,4 @@ Route::get('/dashboard/profile/index', [UserController::class, 'show'])->middlew
 Route::get('/dashboard/customer/index', [CustomerController::class, 'index'])->middleware('auth');
 
 // Show detail customer 
-Route::get('/dashboard/customer/cust/{id}', [CustomerController::class, 'show'])->middleware('auth');
+Route::get('/dashboard/customer/cust/{id}', [CustomerController::class, 'showSingle'])->middleware('auth');

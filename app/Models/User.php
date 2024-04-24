@@ -56,6 +56,6 @@ class User extends Authenticatable
 
     // relation between user and customer
     public function customer(){
-        return $this->hasMany(Customers::class);
+        return $this->hasMany(Customer::class);
     }
 }
