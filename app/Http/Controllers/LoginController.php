@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -12,11 +13,17 @@ class LoginController extends Controller
             'email'=> 'required|email:dns',
             'password' => 'required'
         ]);
+        // $User_ID = auth()->user()->User_ID;
 
         if (Auth::attempt($credentials)) {
             
             $request->session()->regenerate(); //session regenerate is to prevent session fixation attacks
- 
+            
+            // $data = User::select('*')
+            // ->where('User_ID', $User_ID)
+            // ->get();
+
+
             return redirect()->intended('/dashboard');
         }
         

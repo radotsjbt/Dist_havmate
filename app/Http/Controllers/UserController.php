@@ -11,7 +11,7 @@ use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class UserController extends Controller
 {
-    public function store(Request $request){
+    public function store(){
     
         $user = new User(); 
         $farm = new Farmer();
@@ -57,6 +57,7 @@ class UserController extends Controller
                 $cust->Cust_Email = $user->email ;
                 $cust->Cust_Phone = $user->phone ;
                 $cust->Cust_Address = $user->address;
+             
 
                 $cust->save(); //insert to customers table
             }
@@ -70,4 +71,6 @@ class UserController extends Controller
             'profile' => User::all()     
             ]);
     }
+
+    
 }

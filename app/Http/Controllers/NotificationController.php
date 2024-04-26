@@ -10,6 +10,7 @@ class NotificationController extends Controller
     public function show()
     {
         return view('dashboard.notification.notif', [   
+            'title' => 'Order',
             'offer' => Offering::all()     
             ]);
     }
