@@ -2,6 +2,9 @@
 @include('dashboard.layouts.header')
 @include('dashboard.layouts.sidebar')
 
+@include('sweetalert::alert')
+
+
 <!DOCTYPE html>
 <html lang="en">
 <body>

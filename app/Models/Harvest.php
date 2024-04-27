@@ -32,7 +32,7 @@ class Harvest extends Model
         'Harv_Stock',
         'Harv_Price',
         'Image_Harv',
-        'Video_Harv'
+        
     ];
 
     /**

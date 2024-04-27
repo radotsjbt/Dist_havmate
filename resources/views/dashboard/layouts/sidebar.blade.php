@@ -21,6 +21,11 @@
             </a>
             <ul id="stock-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
               <li>
+                <a href="/dashboard/products/index/addProduct">
+                 </i><span>Add Product</span>
+                </a>
+              </li>
+              <li>
                 <a href="/dashboard/products/index">
                  </i><span>Stock</span>
                 </a>
@@ -63,7 +68,7 @@
       @endcan
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="/dashboard/profile/index">
+        <a class="nav-link collapsed" href="/dashboard/profile/index/{{ auth()->user()->id }}">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>

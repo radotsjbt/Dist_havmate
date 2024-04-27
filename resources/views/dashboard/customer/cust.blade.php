@@ -21,12 +21,14 @@
 
             <img src="{{ asset('assets/img/default.jpg') }}" alt="Profile" class="rounded-circle">
             <h2>{{ $customer->Cust_Name }}</h2>
-            <h3>{{ $customer->Purchase_Needs }}</h3> 
+            <h5>{{ $customer->Cust_ID}}</h5> 
             <div class="social-links mt-2">
                 <a href="/dashboard/offering/index/offer">
                     <button type="button" class="btn btn-primary">Offer</button>
                 </a>
+                <a href="/chat/{{ $customer->Cust_ID }}">
                 <button type="button" class="btn btn-primary">Chat</button>
+                </a>
               </div>  
           </div>
         </div>

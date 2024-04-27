@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Harvest;
 use App\Models\User;
 use App\Http\Requests\UpdateHarvestRequest;
+use Illuminate\Http\Request;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class HarvestController extends Controller
@@ -29,7 +30,7 @@ class HarvestController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store()
+    public function store(Request $request)
     {
         $harv = new Harvest();
 
@@ -38,20 +39,31 @@ class HarvestController extends Controller
          'field' => 'Harv_ID',
          'length' => 7,
          'prefix' => 'HRV'
-     ]);
-     $harv->Harv_Name = request('inputHarvName');
-     $harv->farmer_id = auth()->user()->id;
-     $harv->seller = auth()->user()->username;
-     $harv->Harv_Desc = request('inputHarvDesc');
-     $harv->Harv_Type = request('inputHarvType');
-     $harv->Harv_Stock = request('inputHarvStock');
-     $harv->Harv_Price = request('inputHarvPrice');
-     $harv->Image_Harv = request('inputGroupImage');
-     $harv->Video_Harv= request('inputGroupVideo');
+        ]);
+        $harv->Harv_Name = request('inputHarvName');
+        $harv->farmer_id = auth()->user()->id;
+        $harv->seller = auth()->user()->username;
+        $harv->Harv_Desc = request('inputHarvDesc');
+        $harv->Harv_Type = request('inputHarvType');
+        $harv->Harv_Stock = request('inputHarvStock');
+        $harv->Harv_Price = request('inputHarvPrice');
+        $harv->Image_Harv = request('inputGroupImage');
+     
+
+        if($request->file('inputGroupImage')){
+            $file= $request->file('inputGroupImage');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('public/inputGroupImage'), $filename);
+            $data['inputGroupImage']= $filename;
+
+            $harv->Image_Harv = $data['inputGroupImage'];
+        }
+        
+        // $data->save();
+        // return redirect()->route('images.view');
 
      $harv->save(); 
-
-     return redirect('/dashboard/products/index');
+     return redirect('dashboard/products/index');
     }
 
     /**
@@ -59,17 +71,23 @@ class HarvestController extends Controller
      */
     public function show()
     {
-        return view('products', [
+        return view('/dashboard/products/index', [
             "title" => "Products",
             "products" => Harvest::all()
     ]);
     }
+
     public function showSingle(Harvest $id, $Harv_Name)
     {
-
         return view('prod', [
             "title" => Harvest::find($Harv_Name),
             "product" => Harvest::find($id)
+        ]);
+    }
+
+    public function showForm(){
+        return view('dashboard/products/addProduct', [
+            "title" => "Farmer Product",
         ]);
     }
 

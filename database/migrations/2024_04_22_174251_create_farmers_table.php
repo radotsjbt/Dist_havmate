@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('Farmer_Address'); //from regist form (address)
             $table->string('Farmer_Phone'); //from regist form (phone)
             $table->string('Farmer_Email'); //from regist form (email)
-            $table->text('Farmer_Image')->default('default')->nullable();
             $table->timestamps();
         });
     }

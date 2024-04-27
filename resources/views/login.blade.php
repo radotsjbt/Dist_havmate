@@ -57,19 +57,14 @@
                   </div>
 
                   <form action="/login" method="post" class="row g-3 needs-validation">
+                    {{-- this cross site request forgery (csrf) to protect user from csrf attacks --}}
                     {{ csrf_field() }}
-                    {{-- cross site request forgery (csrf) to protect user from csrf attacks --}}
-                    @if(session()->has('success'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                      {{ session('success') }}
-                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                  @endif
-      
+                    @if(session()->has('Login Successfully'))
+                    
+                    @endif
                     @if(session()->has('loginError'))
-                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        {{ session('loginError') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      <div class="alert alert-danger" role="alert">
+                        Incorrect Username or Password!
                       </div>
                     @endif
 
@@ -79,7 +74,7 @@
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                         <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" 
                         placeholder="name@example.com" autofocus required value="{{ old('email')}}" id="yourEmail" required>
-                        <div class="invalid-feedback">Please enter your username!</div>
+                        <div class="invalid-feedback">Please enter your username correctly!</div>
                       </div>
                     </div>
 

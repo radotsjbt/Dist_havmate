@@ -1,73 +1,69 @@
 
-<link href={{ asset("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" ) }} rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+@extends('dashboard.layouts.main')
+@section('container')
 
-<div class="card-body p-5 mb-md-5 mt-md-4 pb-5">
-<form action="/dashboard/products/index/addProduct" method="post" 
-enctype="multipart/form-data" class="form-group ml-5">
-    @csrf
 
-<h3 >Add Your Product</h3>
 
-    <div class="form-row">
-      <div class="form-group col-md-6">
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Add your product, {{ auth()->user()->username }}!</h5>
+
+    <!-- Add product Form -->
+    <form action="/dashboard/products/addProduct" method="post" enctype="multipart/form-data" class="row g-3">
+      @csrf
+      <div class="col-md-12">
         <label for="inputHarvName">Harvest Name</label>
-        <input type="text" name="inputHarvName"class="form-control" id="inputHarvName" required>
+          <input type="text" name="inputHarvName"class="form-control" id="inputHarvName" placeholder="Ex : Tomato, Spinach" required>
+          <div class="invalid-feedback">Please enter your product name!</div>
       </div>
-      <br>
-      <div class="form-group col-md-6">
+
+      <div class="col-md-6">
         <label for="inputHarvDesc">Harvest Description</label>
-        <input type="text" name="inputHarvDesc" class="form-control" id="inputHarvDesc" required>
-        <div class="invalid-feedback">Please enter your product name!</div>
+        <input type="text" name="inputHarvDesc" class="form-control" id="inputHarvDesc" placeholder="Ex : High quality tomatoes " required>
       </div>
-   <br>
-   <div class="">
-   <label for="inputHarvType">Harvest Type</label>
-   <br>
-    <select class="custom-select custom-select-lg padding-5" name="inputHarvType">
-        <option selected>select the harvest type</option>
-        <option value="Sayuran">Sayuran</option>
-        <option value="Buah-buahan">Buah-buahan</option> 
-    </select>
-   </div>
-    <br>
-    <br>
-    <div class="form-group col-md-3">
-      <label for="inputHarvStock">Stock</label>
-      <input type="text" name="inputHarvStock" class="form-control" id="inputHarvStock" placeholder="ex : 20 kg" required>
-      <div class="invalid-feedback">Please input your product's stock!</div>
-    </div>
-    <br>
-    <div class="form-group col-md-3">
-        <label for="inputHarvPrice">Price</label>
-        <input type="text" name="inputHarvPrice" class="form-control" id="inputHarvPrice" placeholder="per 1 kg" required>
-        <div class="invalid-feedback">Please input your product's price!</div>
-    </div>
-    <br>
-    <br>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputImage">Image</span>
-        </div>
-        <div class="custom-file">
-          <input type="file" name="inputGroupImage" class="custom-file-input" id="inputGroupImage" aria-describedby="inputImage" required>
-          <label class="custom-file-label" for="inputGroupImage"></label>
-          <div class="invalid-feedback">Please upload your product's image!</div>
-        </div>
+
+      <div class="col-md-6">
+        <label for="inputHarvPrice">Price (/kg)</label>
+          <div class="input-group col-sm-10">
+            <span class="input-group-text" id="inputGroupPrepend">Rp</span>
+            <input type="text" name="inputHarvPrice" class="form-control" id="inputHarvPrice" placeholder="Ex : 12000" required>
+            <div class="invalid-feedback">Please input your product's price!</div>
+          </div>
       </div>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputVideo">Video</span>
-        </div>
-        <div class="custom-file">
-          <input type="file" name="inputGroupVideo" class="custom-file-input" id="inputGroupVideo" aria-describedby="inputVideo" required>
-          <label class="custom-file-label" for="inputGroupVideo"></label>
-          <div class="invalid-feedback">Please upload your product's video!</div>
+      
+      <div class="inputGroupImage col-md-6">
+        <div class="inputGroupImage col-md-12">
+          <label for="inputGroupImage">Harvest Result Image</label>
+          <input class="form-control" type="file" id="formFile">
         </div>
       </div>
 
-  
-    <button type="submit" class="btn btn-primary">Add</button>
-  </form>
+      <div class="col-md-4">
+        <label for="inputHarvType">Harvest Type</label>
+        <div class="input-group ">
+          <select class="form-select mt-0" id="floatingSelect" name="inputHarvType" aria-label="Harvest Type">
+            <option selected>Select one...</option>
+            <option value="Vegetable">Vegetable</option>
+            <option value="Fruit">Fruit</option> 
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <label for="inputHarvStock">Stock (/kg)</label>
+        <div class="input-group">
+          <input type="text" name="inputHarvStock" class="form-control" id="inputHarvStock" placeholder="Ex : 120" required>
+          <div class="invalid-feedback">Please input your product's stock!</div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <button type="submit" class="btn btn-primary">Add new product</button>
+      </div>
+
+</form>
+
+  </div>
 </div>
-  
+
+@endsection

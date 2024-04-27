@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('Harv_Name');
             $table->string('Harv_Desc');
             $table->string('Harv_Type');
-            $table->string('Harv_Stock');
-            $table->string('Harv_Price');
+            $table->integer('Harv_Stock');
+            $table->integer('Harv_Price');
             $table->string('Image_Harv');
-            $table->string('Video_Harv');
+            
 
             $table->rememberToken();
             $table->timestamps();

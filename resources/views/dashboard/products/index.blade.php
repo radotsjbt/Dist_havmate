@@ -2,10 +2,6 @@
 @extends('dashboard.layouts.main')
 @section('container')
 
-
-<a href="/dashboard/products/index/addProduct">Tambahkan Produk</a>
-
-
 <div class="table-responsive">
     <table class="table table-striped table-sm">
       <thead>
@@ -26,8 +22,8 @@
           <td>{{ $prod->Harv_Name}}</td>
           <td>{{ $prod->Harv_Stock}}</td>
           <td>{{ $prod->Harv_Price}}</td>
-          <td>{{ $prod->Image_Harv}}</td>
-          <td>{{ $prod->Video_Harv}}</td>
+          <td><img src="{{ url('public/Image/'.$data->image) }}"
+            style="height: 100px; width: 150px;"></td>
           <td>
             <a href="/dashboard/products/{{ $prod->id }}/offer" class="badge bg-warning">
                 <span data-feather="edit"></span>

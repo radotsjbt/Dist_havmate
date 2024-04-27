@@ -20,14 +20,9 @@
           <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
             <img src="{{ asset('assets/img/default.jpg') }}" alt="Profile" class="rounded-circle">
-            <h2>{{ $profile->Cust_Name }}</h2>
-            <h3>{{ $profile->Cust_ID}}</h3> 
-            <div class="social-links mt-2">
-                <a href="/dashboard/offering/index/offer">
-                    <button type="button" class="btn btn-primary">Offer</button>
-                </a>
-                <button type="button" class="btn btn-primary">Chat</button>
-              </div>  
+            <h2>{{ $profile->username }}</h2>
+            <h3>{{ $profile->User_ID}}</h3> 
+            
           </div>
         </div>
       </div>
@@ -43,14 +38,11 @@
                 <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
               </li>
               <li class="nav-item">
-                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-purchase">Purchase Needs</button>
-              </li>
-              <li class="nav-item">
-                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-product">Product</button>
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-product">Products</button>
               </li>
              
             </ul>
-@foreach($profile as $profile)
+
             {{-- overview --}}
             <div class="tab-content pt-2">
 
@@ -59,44 +51,35 @@
 
                 <div class="row">
                     <div class="col-lg-3 col-md-4 label">ID</div>
-                    <div class="col-lg-9 col-md-8">{{ $profile->Cust_ID}}</div>
+                    <div class="col-lg-9 col-md-8">{{ $profile->User_ID}}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label ">Name </div>
-                  <div class="col-lg-9 col-md-8">{{ $profile->Cust_Name }}</div>
+                  <div class="col-lg-9 col-md-8">{{ $profile->username }}</div>
                 </div>
           
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Address</div>
-                  <div class="col-lg-9 col-md-8">{{ $profile->Cust_Address}}</div>
+                  <div class="col-lg-9 col-md-8">{{ $profile->address}}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Phone</div>
-                  <div class="col-lg-9 col-md-8">{{ $profile->Cust_Phone }}</div>
+                  <div class="col-lg-9 col-md-8">{{ $profile->phone }}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Email</div>
-                  <div class="col-lg-9 col-md-8">{{ $profile->Cust_Email}}</div>
+                  <div class="col-lg-9 col-md-8">{{ $profile->email}}</div>
                 </div>
 
               </div>
-@endforeach
-              {{-- Purchase Needs --}}
-                <div class="tab-pane fade profile-purchase" id="profile-purchase">
-                  <h5 class="card-title">Purchase Needs</h5>
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Purchase needs</div>
-                    <div class="col-lg-9 col-md-8">nul</div>
-                  </div>
-                </div>
+
               
                 {{-- Products --}}
                     <div class="tab-pane fade profile-product" id="profile-product">
                       <h5 class="card-title">Products</h5>
-      
                       <div class="row">
                         <div class="col-lg-3 col-md-4 label ">Product Name</div>
                         <div class="col-lg-9 col-md-8">nul</div>
