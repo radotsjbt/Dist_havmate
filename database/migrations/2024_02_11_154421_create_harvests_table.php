@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('Harv_ID'); 
             $table->foreignId('Farmer_Id');   
-            $table->string('seller');       
+            $table->string('Farmer_Name');      
             $table->string('Harv_Name');
             $table->string('Harv_Desc');
             $table->string('Harv_Type');

@@ -30,6 +30,7 @@ class OfferingController extends Controller
         $off->Qty= request('inputHarvQty');
         $off->Offer_Price= request('inputTotalPrice');
         $off->Notes= request('inputNotes');
+        $off->status= request('inputNotes');
 
         $off->save(); 
 

@@ -23,7 +23,7 @@
           <select class="form-select mt-0" id="floatingSelect" name="inputHarvName" aria-label="Harvest Type">
             <option selected>Choose your product</option>
               @foreach($product as $item)
-                  @if(auth()->user()->username === $item->seller)
+                  @if(auth()->user()->username === $item->Farmer_Name)
                       <option value="{{ $item->Harv_Name }}">{{ $item->Harv_Name }}</option>
                   @endif
               @endforeach 
@@ -59,46 +59,6 @@
 
   </div>
 </div>
-    {{-- <div class="form-row">
-      <label for="inputQty">Quantity</label>
-      <input type="text" name="inputQty" class="form-control" id="inputQty" required>
-      <br>
-      <br>
-      <label for="inputHarvName">Harvest Name</label>
-      <br>
-    <select class="custom-select custom-select-lg padding-5" name="inputHarvName">
-        <option selected>Choose your product</option>
-        {{-- Looping for customer name on user table --}}
-        {{-- @foreach($product as $item)
-            @if(auth()->user()->username === $item->seller)
-                <option value="{{ $item->Harv_Name }}">{{ $item->Harv_Name }}</option>
-            @endif
-        @endforeach --}}
-    {{-- </select>
-    <br>
-   <br>
-    </div>
-   <div class="form-group col-md-6">
-    <label for="inputQty">Quantity</label>
-    <input type="text" name="inputQty" class="form-control" id="inputQty" required>
-  </div>
-    
-    <br>
-    <div class="form-group col-md-3">
-      <label for="inputTotalPrice">Total Price</label>
-      <input type="text" name="inputTotalPrice" class="form-control" id="inputTotalPrice" placeholder="in Rupiah" required>
-    </div>
-    <br>
-    <div class="form-group col-md-3">
-        <label for="inputNotes">Notes</label>
-        <input type="text" name="inputNotes" class="form-control" id="inputNotes" placeholder="(opsional)">
-    </div>
-    <br>
-
-  
-    <button type="submit" class="btn btn-primary" >Offer</button>
-  </form>
-</div>  --}}
 @endsection
 
 

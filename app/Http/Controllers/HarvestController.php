@@ -46,7 +46,7 @@ class HarvestController extends Controller
         ]);
         $harv->Harv_Name = request('inputHarvName');
         $harv->Farmer_Id = auth()->user()->id;
-        $harv->seller = auth()->user()->username;
+        $harv->Farmer_Name = auth()->user()->username;
         $harv->Harv_Desc = request('inputHarvDesc');
         $harv->Harv_Type = request('inputHarvType');
         $harv->Harv_Stock = request('inputHarvStock');

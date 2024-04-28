@@ -14,13 +14,14 @@ return new class extends Migration
         Schema::create('offering', function (Blueprint $table) {
             $table->id();
             $table->string('Offer_ID'); 
-            $table->string('Cust_Name');   
+            $table->string('Dist_Name');   
             $table->foreignId('Farmer_Id');  
             $table->string('Farmer_Name');     
             $table->string('Harv_Name');
             $table->integer('Qty');
             $table->integer('Offer_Price');
             $table->text('Notes');
+            $table->string('status')->default('Waiting');
 
             $table->timestamps();
         });

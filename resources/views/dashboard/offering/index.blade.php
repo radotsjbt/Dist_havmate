@@ -27,7 +27,7 @@
               <td>{{ $off->Harv_Name}}</td>
               <td>{{ $off->Qty}}</td>
               <td>{{ $off->Offer_Price}}</td>
-              <td>default</td>           
+              <td>{{ $off->status }}</td>           
           </tr>
          @endif
          @endforeach

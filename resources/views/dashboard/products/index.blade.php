@@ -20,7 +20,7 @@
       </thead>
       <tbody>
         @foreach ($products as $prod)
-         @if(auth()->user()->username === $prod->seller)
+         @if(auth()->user()->username === $prod->Farmer_Name)
             <tr>
               <td>{{ $prod->Harv_ID}}</th>
               <td>{{ $prod->Harv_Name}}</td>
