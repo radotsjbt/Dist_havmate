@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('harvests', function (Blueprint $table) {
             $table->id();
-            $table->text('Harv_ID'); 
-            $table->foreignId('farmer_id');   
+            $table->string('Harv_ID'); 
+            $table->foreignId('Farmer_Id');   
             $table->string('seller');       
             $table->string('Harv_Name');
             $table->string('Harv_Desc');

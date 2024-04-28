@@ -1,4 +1,5 @@
 
+@extends('dashboard.layouts.template')
 @extends('layouts.main')
 @section('container')
     <body>
@@ -37,10 +38,10 @@
       <main>
         <div class="container">
     
-          <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+          <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center ">
             <div class="container">
               <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                <div class="col-lg-8 col-md-6 d-flex flex-column align-items-center justify-content-center">
     
                   <div class="d-flex justify-content-center py-4">
                     <a href="index.html" class="logo d-flex align-items-center w-auto">
@@ -61,12 +62,12 @@
                       <form class="row g-3 needs-validation" method="post" action="/regist">
                         @csrf
                        
-                        <div class="col-12">
+                        <div class="col-6">
                           <label for="yourUsername" class="form-label">Username</label>
                           <input type="text" name="username" class="form-control" id="yourUsername" required>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-6">
                           <label for="yourEmail" class="form-label">Your Email</label>
                           <div class="input-group has-validation">
                             <span class="input-group-text" id="inputGroupPrepend">@</span>
@@ -75,13 +76,13 @@
                           </div>
                         </div>
     
-                        <div class="col-12">
+                        <div class="col-6">
                           <label for="yourPassword" class="form-label">Password</label>
                           <input type="password" name="password" class="form-control" id="yourPassword" required>
                           <div class="invalid-feedback">Please enter your password!</div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-6">
                           <label for="yourPhone" class="form-label">Phone</label>
                           <input type="text" name="phone" class="form-control" id="yourPhone" required>
                           <div class="invalid-feedback">Please enter your phone number!</div>
@@ -89,13 +90,13 @@
 
                         <div class="col-12">
                           <label for="yourAddress" class="form-label">Address</label>
-                          <input type="text" name="address" class="form-control" id="yourAddress" required>
+                          <input type="text-area" name="address" class="form-control" id="yourAddress" required>
                           <div class="invalid-feedback">Please enter your address!</div>
                         </div>
 
                         <div class="row mt-3">
                           <label class="col-form-label">Regist as</label>
-                          <div class="col-sm-10" name="role">
+                          <div class="col-sm-6" name="role">
                             <select class="form-select" name= "role" aria-label="Default select example">
                               <option selected>Open this select menu</option>
                               <option name="Farmer" value="Farmer" >Farmer</option>
@@ -105,7 +106,7 @@
                               <div class="invalid-feedback">Please choose your role!</div>
                         </div>
                         <br>
-                        <div class="col-12">
+                        <div class="col-6">
                           <div class="form-check">
                             <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
                             <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
@@ -131,7 +132,7 @@
                     <!-- You can delete the links only if you purchased the pro version. -->
                     <!-- Licensing information: https://bootstrapmade.com/license/ -->
                     <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                    Develop by <a href="/about">Havmate</a>
+                    Develop by <a href="/about">Havmate Team</a>
                   
     
           </section>

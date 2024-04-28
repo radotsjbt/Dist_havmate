@@ -33,13 +33,10 @@
               <td>
 
                 {{-- delete button --}}
-                <form action="/dashboard/products/index" method="post" >
-                  {{-- <a href="/dashboard/products/index/{{ $prod->id }}"> --}}
-                    <button type="submit" class="btn btn-danger">
-                      <i class="bi bi-trash3"></i> Delete
-                    </button>
-                  {{-- </a> --}}
-                </form>
+
+                <a href="/dashboard/products/index/{{ $prod->id }}" class="btn btn-danger">
+                  <i class="bi bi-trash3"></i> Delete
+                </a>
 
                 <button type="button" class="btn btn-primary">
                   <i class="bi bi-pen"></i> Edit

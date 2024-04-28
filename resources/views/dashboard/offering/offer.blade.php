@@ -1,30 +1,67 @@
 
+@extends('dashboard.layouts.main')
+
+@section('container')
 
 
-<link href={{ asset("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" ) }} rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<link href={{ asset("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css") }} rel="stylesheet" >
-<link href="css/style.css" rel="stylesheet">
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Send your product, {{ auth()->user()->username }}!</h5>
 
-<div class="card-body p-5 mb-md-5 mt-md-4 pb-5">
-<form action="/dashboard/offering/index/offer" method="post" 
-enctype="multipart/form-data" class="form-group ml-5">
-    @csrf
+    <!-- Add product Form -->
+    <form action= "/dashboard/offering/index/{{ $dist->id }}" method="post" 
+    enctype="multipart/form-data" class="row g-3">
+      @csrf
+      <div class="col-md-6">
+        <label for="inputDistName">Distributor Name</label>
+          <input type="text" name="inputDistName"class="form-control" id="inputDistName" value="{{ $dist->Dist_Name }}" disabled>
+      </div>
 
-<h3 >Send your Product, {{ auth()->user()->username }}!</h3>
+      <div class="col-md-6">
+        <label for="inputHarvName">Harvest Result</label>
+        <div class="input-group ">
+          <select class="form-select mt-0" id="floatingSelect" name="inputHarvName" aria-label="Harvest Type">
+            <option selected>Choose your product</option>
+              @foreach($product as $item)
+                  @if(auth()->user()->username === $item->seller)
+                      <option value="{{ $item->Harv_Name }}">{{ $item->Harv_Name }}</option>
+                  @endif
+              @endforeach 
+          </select>
+        </div>
+      </div>
 
-    <div class="form-row">
-      <label for="inputCustName">Customer Name</label>
-   <br>
-    <select class="custom-select custom-select-lg padding-5" name="inputCustName">
-        <option selected>Choose your customer</option>
-        {{-- Looping for customer name on user table --}}
-        @foreach($user as $item)
-            @if($item->role === 'Distributor' )
-                <option value="{{ $item->username }}">{{ $item->username }}</option>
-            @endif
-        @endforeach
-    </select>
+      <div class="col-md-6">
+        <label for="inputHarvQty">Quantity (/kg)</label>
+        <input type="text" name="inputHarvQty" class="form-control" id="inputHarvQty" placeholder="ex : 20" required>
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputTotalPrice">Total Price</label>
+          <div class="input-group col-sm-10">
+            <span class="input-group-text" id="inputGroupPrepend">Rp</span>
+            <input type="text" name="inputTotalPrice" class="form-control" id="inputTotalPrice" placeholder="ex : 240000" required>
+            <div class="invalid-feedback">Please input your product's price!</div>
+          </div>
+      </div>
+      
+      <div class="inputNotes col-md-6">
+        <label for="inputNotes">Notes</label>
+        <input type="text" name="inputNotes" class="form-control" id="inputNotes">
+      </div>
+
+
+      <div class="text-center mt-5">
+        <button type="submit" class="btn btn-primary">Send offering</button>
+      </div>
+
+</form>
+
+  </div>
+</div>
+    {{-- <div class="form-row">
+      <label for="inputQty">Quantity</label>
+      <input type="text" name="inputQty" class="form-control" id="inputQty" required>
       <br>
       <br>
       <label for="inputHarvName">Harvest Name</label>
@@ -32,12 +69,12 @@ enctype="multipart/form-data" class="form-group ml-5">
     <select class="custom-select custom-select-lg padding-5" name="inputHarvName">
         <option selected>Choose your product</option>
         {{-- Looping for customer name on user table --}}
-        @foreach($product as $item)
+        {{-- @foreach($product as $item)
             @if(auth()->user()->username === $item->seller)
                 <option value="{{ $item->Harv_Name }}">{{ $item->Harv_Name }}</option>
             @endif
-        @endforeach
-    </select>
+        @endforeach --}}
+    {{-- </select>
     <br>
    <br>
     </div>
@@ -61,6 +98,7 @@ enctype="multipart/form-data" class="form-group ml-5">
   
     <button type="submit" class="btn btn-primary" >Offer</button>
   </form>
-</div>
+</div>  --}}
+@endsection
 
 

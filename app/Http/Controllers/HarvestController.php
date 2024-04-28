@@ -8,6 +8,9 @@ use App\Http\Requests\UpdateHarvestRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
+use RealRashid\SweetAlert\Facades\Alert;
+
+    
 
 class HarvestController extends Controller
 {
@@ -88,18 +91,17 @@ class HarvestController extends Controller
 
     public function showForm(){
         return view('dashboard/products/addProduct', [
-            "title" => "Farmer Product",
+            "title" => "Add Product",
         ]);
     }
 
     public function delete($id){
-        $delete = DB::table('harvests')->where('id', '=', $id)->delete();
 
-        return view('/dashboard/products/index',[
-            "title" => "Products",
-            "delete" => $delete,
-            // "products" => Harvest::all()
-        ]);
+        // Alert::warning('Warning Title', 'Do you want to delete this product?');    
+      
+            DB::table('harvests')->where('id', '=', $id)->delete();
+      
+        return redirect()->back();
     }
 
     /**

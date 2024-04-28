@@ -37,10 +37,7 @@
               <li class="nav-item">
                 <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
               </li>
-              <li class="nav-item">
-                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-product">Products</button>
-              </li>
-             
+                     
             </ul>
 
             {{-- overview --}}
@@ -76,16 +73,7 @@
 
               </div>
 
-              
-                {{-- Products --}}
-                    <div class="tab-pane fade profile-product" id="profile-product">
-                      <h5 class="card-title">Products</h5>
-                      <div class="row">
-                        <div class="col-lg-3 col-md-4 label ">Product Name</div>
-                        <div class="col-lg-9 col-md-8">nul</div>
-                      </div>
-                    </div>
-               
+            
           </div><!-- End Bordered Tabs -->
         </div>
 
