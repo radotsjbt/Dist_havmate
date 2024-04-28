@@ -6,6 +6,7 @@ use App\Models\Harvest;
 use App\Models\User;
 use App\Http\Requests\UpdateHarvestRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class HarvestController extends Controller
@@ -41,29 +42,29 @@ class HarvestController extends Controller
          'prefix' => 'HRV'
         ]);
         $harv->Harv_Name = request('inputHarvName');
-        $harv->farmer_id = auth()->user()->id;
+        $harv->Farmer_Id = auth()->user()->id;
         $harv->seller = auth()->user()->username;
         $harv->Harv_Desc = request('inputHarvDesc');
         $harv->Harv_Type = request('inputHarvType');
         $harv->Harv_Stock = request('inputHarvStock');
         $harv->Harv_Price = request('inputHarvPrice');
-        $harv->Image_Harv = request('inputGroupImage');
-     
+        
 
-        if($request->file('inputGroupImage')){
-            $file= $request->file('inputGroupImage');
-            $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('public/inputGroupImage'), $filename);
-            $data['inputGroupImage']= $filename;
-
-            $harv->Image_Harv = $data['inputGroupImage'];
+        $filename = '';
+        if ($request->file('inputGroupImage')) {
+            $image = $request->file('inputGroupImage');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('/assets/images/'), $filename);
+            $filename = $request->getSchemeAndHttpHost() . '/assets/images/' . $filename;
+           
+            $harv->Image_Harv = $filename;
         }
         
-        // $data->save();
-        // return redirect()->route('images.view');
-
      $harv->save(); 
-     return redirect('dashboard/products/index');
+     return view('/dashboard/products/index',[
+        "title" => "Products",
+        "products" => Harvest::all()
+     ]);
     }
 
     /**
@@ -91,6 +92,15 @@ class HarvestController extends Controller
         ]);
     }
 
+    public function delete($id){
+        $delete = DB::table('harvests')->where('id', '=', $id)->delete();
+
+        return view('/dashboard/products/index',[
+            "title" => "Products",
+            "delete" => $delete,
+            // "products" => Harvest::all()
+        ]);
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -108,11 +118,5 @@ class HarvestController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Harvest $harvest)
-    {
-        //
-    }
+   
 }

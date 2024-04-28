@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('Farmer_Name');     
             $table->string('Harv_Name');
             $table->integer('Qty');
-            $table->string('Total_Price');
+            $table->integer('Offer_Price');
             $table->text('Notes');
 
             $table->timestamps();

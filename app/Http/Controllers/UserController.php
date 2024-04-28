@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Customer;
+use App\Models\Distributor;
 use App\Models\Farmer;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
@@ -21,7 +21,7 @@ class UserController extends Controller
         $farm = new Farmer();
 
         // create new customer
-        $cust = new Customer();
+        $dist = new Distributor();
 
         $user->username = request('username');
         $user->phone = request('phone');
@@ -53,17 +53,17 @@ class UserController extends Controller
                 'table' => 'users',
                 'length' => 7,
                 'field' => 'User_ID',
-                'prefix' => 'CST'
+                'prefix' => 'DSB'
                 ]);
                 
                 //Insert the data to the customer's table
-                $cust->Cust_ID = $user->User_ID ;
-                $cust->Cust_Name = $user->username;
-                $cust->Cust_Email = $user->email ;
-                $cust->Cust_Phone = $user->phone;
-                $cust->Cust_Address = $user->address;
+                $dist->Dist_ID = $user->User_ID ;
+                $dist->Dist_Name = $user->username;
+                $dist->Dist_Email = $user->email ;
+                $dist->Dist_Phone = $user->phone;
+                $dist->Dist_Address = $user->address;
              
-                $cust->save(); //insert to customers table
+                $dist->save(); //insert to customers table
             }
         $user->save(); //insert to users table
         return redirect('/login');

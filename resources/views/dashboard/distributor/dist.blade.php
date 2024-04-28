@@ -5,7 +5,7 @@
 {{-- Detail Customer --}}
 @section('container')
 
-<a href="/dashboard/customer/index">
+<a href="/dashboard/distributor/index">
     <button type="button" class="btn btn-primary mb-3" >
         <i class="ri-arrow-left-line"></i>
         Back
@@ -20,13 +20,13 @@
           <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
             <img src="{{ asset('assets/img/default.jpg') }}" alt="Profile" class="rounded-circle">
-            <h2>{{ $customer->Cust_Name }}</h2>
-            <h5>{{ $customer->Cust_ID}}</h5> 
+            <h2>{{ $distributor->Dist_Name }}</h2>
+            <h5>{{ $distributor->Dist_ID}}</h5> 
             <div class="social-links mt-2">
                 <a href="/dashboard/offering/index/offer">
                     <button type="button" class="btn btn-primary">Offer</button>
                 </a>
-                <a href="/chat/{{ $customer->Cust_ID }}">
+                <a href="/chat/{{ $distributor->Dist_ID }}">
                 <button type="button" class="btn btn-primary">Chat</button>
                 </a>
               </div>  
@@ -61,27 +61,27 @@
 
                 <div class="row">
                     <div class="col-lg-3 col-md-4 label">ID</div>
-                    <div class="col-lg-9 col-md-8">{{ $customer->Cust_ID}}</div>
+                    <div class="col-lg-9 col-md-8">{{ $distributor->Dist_ID}}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label ">Name </div>
-                  <div class="col-lg-9 col-md-8">{{ $customer->Cust_Name }}</div>
+                  <div class="col-lg-9 col-md-8">{{ $distributor->Dist_Name }}</div>
                 </div>
           
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Address</div>
-                  <div class="col-lg-9 col-md-8">{{ $customer->Cust_Address}}</div>
+                  <div class="col-lg-9 col-md-8">{{ $distributor->Dist_Address}}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Phone</div>
-                  <div class="col-lg-9 col-md-8">{{ $customer->Cust_Phone }}</div>
+                  <div class="col-lg-9 col-md-8">{{ $distributor->Dist_Phone }}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Email</div>
-                  <div class="col-lg-9 col-md-8">{{ $customer->Cust_Email}}</div>
+                  <div class="col-lg-9 col-md-8">{{ $distributor->Dist_Email}}</div>
                 </div>
 
               </div>
@@ -91,7 +91,7 @@
                   <h5 class="card-title">Purchase Needs</h5>
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Purchase needs</div>
-                    <div class="col-lg-9 col-md-8">{{ $customer->Purchase_Needs }}</div>
+                    <div class="col-lg-9 col-md-8">{{ $distributor->Purchase_Needs }}</div>
                   </div>
                 </div>
               
@@ -101,7 +101,7 @@
       
                       <div class="row">
                         <div class="col-lg-3 col-md-4 label ">Product Name</div>
-                        <div class="col-lg-9 col-md-8">{{ $customer->CustProd_Name}}</div>
+                        <div class="col-lg-9 col-md-8">{{ $distributor->DistProd_Name}}</div>
                       </div>
                     </div>
                

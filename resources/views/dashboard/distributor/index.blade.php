@@ -10,7 +10,7 @@
   <div class="col-md-8">
     <div class="search">
       <i class="fa fa-search"></i>
-      <input type="text" class="form-control" placeholder="Search your customer here...">
+      <input type="text" class="form-control" placeholder="Search distributor here...">
       <button class="btn btn-primary">Search</button>
     </div>
   </div>
@@ -22,12 +22,12 @@
 
 {{-- Show the distributor lists from database --}}    
     <div class="flex-container" >  
-       @foreach ($customer as $cust) 
+       @foreach ($distributor as $dist) 
           <div class="card">
-            <a href = "/dashboard/customer/cust/{{ $cust->id}}">
-              <img src="{{ asset("assets/img/card.jpg") }}" class="card-img-top" alt="...">
+            <a href = "/dashboard/distributor/dist/{{ $dist->id}}">
+              <img src="{{ asset("assets/img/default.jpg") }}" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title"> {{ $cust->Cust_Name }}</h5>
+                <h5 class="card-title"> {{ $dist->Dist_Name }}</h5>
                 <p class="card-text">
                 </p>
               </div>

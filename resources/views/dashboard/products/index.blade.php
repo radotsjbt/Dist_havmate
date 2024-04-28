@@ -2,14 +2,18 @@
 @extends('dashboard.layouts.main')
 @section('container')
 
-<div class="table-responsive">
-    <table class="table table-striped table-sm">
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Your Product</h5>
+   
+    <!-- Bordered Table -->
+    <table class="table table-bordered">
       <thead>
         <tr>
-          <th scope="col">Harvest ID</th>
+          <th scope="col">Id</th>
           <th scope="col">Harvest Result</th>
+          <th scope="col">Price</th>
           <th scope="col">Stock</th>
-          <th scope="col">Price (/kg)</th>
           <th scope="col">Image</th>
           <th scope="col">Action</th>
         </tr>
@@ -17,33 +21,35 @@
       <tbody>
         @foreach ($products as $prod)
          @if(auth()->user()->username === $prod->seller)
-             <tr>
-          <td>{{ $prod->Harv_ID}}</td>
-          <td>{{ $prod->Harv_Name}}</td>
-          <td>{{ $prod->Harv_Stock}}</td>
-          <td>{{ $prod->Harv_Price}}</td>
-          <td><img src="{{ url('public/Image/'.$data->image) }}"
-            style="height: 100px; width: 150px;"></td>
-          <td>
-            <a href="/dashboard/products/{{ $prod->id }}/offer" class="badge bg-warning">
-                <span data-feather="edit"></span>
-                <form action="/dashboard/products/{{ $prod->id }}" method="post" class=" d-inline" >
-                {{-- @method('delete') --}}
-                @csrf
-                <button type="submit" class="badge-primary" onclick="return confirm('Are you sure to offer this product?')"> 
-                <a href="/dashboard/products">
-                    <span data-feather="x-circle">Offer</span>
-                </button>
+            <tr>
+              <td>{{ $prod->Harv_ID}}</th>
+              <td>{{ $prod->Harv_Name}}</td>
+              <td>{{ $prod->Harv_Price}}</td>
+              <td>{{ $prod->Harv_Stock}}</td>
+              <td>
+                <img src="{{ $prod->Image_Harv}}"
+                style="height: 100px; width: 150px;">
+              </td>
+              <td>
+
+                {{-- delete button --}}
+                <form action="/dashboard/products/index" method="post" >
+                  {{-- <a href="/dashboard/products/index/{{ $prod->id }}"> --}}
+                    <button type="submit" class="btn btn-danger">
+                      <i class="bi bi-trash3"></i> Delete
+                    </button>
+                  {{-- </a> --}}
                 </form>
-            </a>
-          </td>
-        </tr>
-        @endif
+
+                <button type="button" class="btn btn-primary">
+                  <i class="bi bi-pen"></i> Edit
+                </button>
+              </td>
+            </tr>
+          @endif
         @endforeach
-       
-        
       </tbody>
     </table>
-  </div>
+    <!-- End Bordered Table -->
 
 @endsection

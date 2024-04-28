@@ -23,7 +23,6 @@ return new class extends Migration
             $table->integer('Harv_Price');
             $table->string('Image_Harv');
             
-
             $table->rememberToken();
             $table->timestamps();
         });

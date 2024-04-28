@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DistributorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HarvestController;
 use App\Http\Controllers\LoginController;
@@ -10,8 +10,7 @@ use App\Http\Controllers\OfferingController;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NotificationController;
-use App\Models\Customer;
-use PhpParser\Node\Stmt\Use_;
+
 
 Route::get('/', function () {
     return view('home', [
@@ -56,16 +55,19 @@ Route::get('/userProfile', function () {
 
 // Farmer
 // Show all products data
-Route::get('/dashboard/products/index', [DashboardProductsController::class, 'show'])->middleware('FarmerCheck'); 
+Route::get('/dashboard/products/index', [HarvestController::class, 'show'])->middleware('FarmerCheck'); 
+
+// Show single product data
+Route::get('/products/{id}/{Harv_Name}', [HarvestController::class, 'showSingle']);
 
 // view add products form
 Route::get('/dashboard/products/index/addProduct', [HarvestController::class, 'showForm'])->middleware('auth');
 
 // post new product to database
-Route::post('/dashboard/products/addProduct', [HarvestController::class, 'store'])->middleware('auth');
+Route::post('/dashboard/products/index', [HarvestController::class, 'store'])->middleware('auth');
 
-// Single product data
-Route::get('/products/{id}/{Harv_Name}', [HarvestController::class, 'showSingle']);
+// delete product data
+Route::post('/dashboard/products/index', [HarvestController::class, 'delete'])->middleware('auth');
 
 // Show offering 
 Route::get('/dashboard/offering/index',[OfferingController::class, 'show']);
@@ -92,10 +94,10 @@ Route::get('/dashboard/notification', [NotificationController::class, 'show'])->
 Route::post('/dashboard/notification/notif', [NotificationController::class, 'show'])->middleware('auth');
 
 // Show all customer to the farmer
-Route::get('/dashboard/customer/index', [CustomerController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/distributor/index', [DistributorController::class, 'index'])->middleware('auth');
 
 // Show detail customer to the farmer
-Route::get('/dashboard/customer/cust/{id}', [CustomerController::class, 'showSingle'])->middleware('auth');
+Route::get('/dashboard/distributor/dist/{id}', [DistributorController::class, 'showSingle'])->middleware('auth');
 
 // Show form for customer's needs
-Route::post('/dashboard/notification/notif', [CustomerController::class, 'updateData'])->middleware('auth');
+Route::post('/dashboard/notification/notif', [DistributorController::class, 'updateData'])->middleware('auth');

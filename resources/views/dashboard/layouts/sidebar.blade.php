@@ -16,10 +16,10 @@
       
         <li class="nav-item">
             <a class="nav-link collapsed {{ Request::is('dashboard/products/index') ? 'active' : '' }}"  
-            aria-current="page" href="/dashboard/products/index" data-bs-target="#stock-nav" data-bs-toggle="collapse" href="#">
+            aria-current="page" href="/dashboard/products/index" data-bs-target="#products-nav" data-bs-toggle="collapse" href="#">
               <i class="bi bi-menu-button-wide"></i><span>Products</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="stock-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <ul id="products-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
               <li>
                 <a href="/dashboard/products/index/addProduct">
                  </i><span>Add Product</span>
@@ -47,7 +47,7 @@
             </a>
           </li>
           <li>
-            <a href="/dashboard/customer/index">
+            <a href="/dashboard/distributor/index">
               <span>Send Offering</span>
             </a>
           </li>

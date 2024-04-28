@@ -9,7 +9,7 @@
     <h5 class="card-title">Add your product, {{ auth()->user()->username }}!</h5>
 
     <!-- Add product Form -->
-    <form action="/dashboard/products/addProduct" method="post" enctype="multipart/form-data" class="row g-3">
+    <form action="/dashboard/products/index" method="post" enctype="multipart/form-data" class="row g-3">
       @csrf
       <div class="col-md-12">
         <label for="inputHarvName">Harvest Name</label>
@@ -34,7 +34,7 @@
       <div class="inputGroupImage col-md-6">
         <div class="inputGroupImage col-md-12">
           <label for="inputGroupImage">Harvest Result Image</label>
-          <input class="form-control" type="file" id="formFile">
+          <input class="form-control" type="file" id="inputGroupImage" name="inputGroupImage">
         </div>
       </div>
 
