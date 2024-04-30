@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Distributor;
 use App\Models\Farmer;
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class UserController extends Controller
@@ -66,12 +68,43 @@ class UserController extends Controller
                 $dist->save(); //insert to customers table
             }
         $user->save(); //insert to users table
-        return redirect('/login');
+        return redirect('/auth/login');
     }
+
+    public function authenticate(Request $request){
+        $credentials = $request->validate([
+            'email'=> 'required|email:dns',
+            'password' => 'required'
+        ]);
+       
+
+        if (Auth::attempt($credentials)) {
+
+            //alert if the user succes to login
+            Alert::success('Login Successfully');
+
+            $request->session()->regenerate(); //session regenerate is to prevent session fixation attacks
+
+            // the user will go to the dashboard
+            return redirect()->intended('/dashboard');
+        }
+        //if the user failed to login
+        return back()->with('loginError','Invalid Username and Password!');
+        
+    }
+
+    public function logout(){
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        
+        return redirect('/auth/login');
+    }
+
 
     // show the profile of the user
     public function show($id){
-        return view('dashboard.profile.index', [ 
+        return view('/dashboard/profile/index', [ 
             'title' => 'User Profile',  
             'profile' => User::find($id)     
             ]);

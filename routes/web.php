@@ -12,39 +12,37 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NotificationController;
 
 
-Route::get('/', function () {
-    return view('home', [
+Route::get('/', function() {
+    return view('/home/main', [
         "title" => "Home"
     ]);
 });
 
-
-// Show the dashboard
-Route::get('/dashboard', [DashboardController::class, 'show'])->middleware('auth');
-
-
 //view registration page
-Route::get('/regist', function () {
-    return view('regist', [
+Route::get('/auth/regist', function () {
+    return view('/auth/regist', [
         "title" => "Register"
     ]);
 })->middleware('guest');
 
 //post the new user's data to database using controller
-Route::post('/regist', [UserController::class, 'store']);
+Route::post('/auth/regist', [UserController::class, 'store']);
 
 //view login page
-Route::get('/login', function () {
-    return view('login', [
+Route::get('/auth/login', function () {
+    return view('/auth/login', [
         "title" => "Login"
     ]);
 });
 
 //Post Login
-Route::post('/login',[LoginController::class,'authenticate']);
+Route::post('/auth/login',[UserController::class,'authenticate']);
+
+// Show the dashboard
+Route::get('/dashboard', [DashboardController::class, 'show'])->middleware('auth');
 
 //Logout
-Route::post('/logout', [LoginController::class,'logout']);
+Route::post('/logout', [UserController::class,'logout']);
 
 // User Profile
 Route::get('/userProfile', function () {

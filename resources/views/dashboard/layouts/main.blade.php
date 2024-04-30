@@ -1,6 +1,6 @@
-@include('dashboard.layouts.template')
+
 @include('dashboard.layouts.header')
-@include('dashboard.layouts.sidebar')
+@extends('dashboard.layouts.sidebar')
 
 @include('sweetalert::alert')
 

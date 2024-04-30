@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.template')
+@include('dashboard.layouts.template')
 
 <html>
 <head>
@@ -9,7 +9,6 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
- 
 </head>
 <body>
   <!-- ======= Header ======= -->
@@ -30,7 +29,7 @@
       <ul class="d-flex align-items-center">
         {{-- search icon --}}
         <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
+          <a class="nav-link nav-icon search-bar-toggle" href="#">
             <i class="bi bi-search"></i>
           </a>
         </li>
@@ -197,7 +196,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="/dashboard/profile/index">
+              <a class="dropdown-item d-flex align-items-center" href="/dashboard/profile/index/{{ auth()->user()->id }}">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>

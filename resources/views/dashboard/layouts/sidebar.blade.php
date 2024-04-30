@@ -59,14 +59,14 @@
       @can('DistributorCheck')
       <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link {{ Request::is('dashboard/offering/index') ? 'active' : '' }}"  aria-current="page" href="/dashboard/notification/notif">
+            <a class="nav-link {{ Request::is('dashboard/offering/index') ? 'active' : '' }}"  aria-current="page" href="/dashboard/offering/index">
                 <span data-feather="layers"></span>
                 Offering
               </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('dashboard/order/index') ? 'active' : '' }}"  aria-current="page" href="/dashboard/notification/notif">
+          <a class="nav-link {{ Request::is('dashboard/order/index') ? 'active' : '' }}"  aria-current="page" href="/dashboard/ordering/index">
               <span data-feather="layers"></span>
               Order
             </a>
