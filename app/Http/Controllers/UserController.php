@@ -39,7 +39,7 @@ class UserController extends Controller
                 'prefix' => 'FMR'
                 ]);
                 
-                //Insert the data to the farmer's table
+                //And also insert the data to the farmer's table
                 $farm->Farmer_ID = $user->User_ID;
                 $farm->Farmer_Name = $user->username;
                 $farm->Farmer_Email = $user->email;
@@ -56,7 +56,7 @@ class UserController extends Controller
                 'prefix' => 'DSB'
                 ]);
                 
-                //Insert the data to the customer's table
+                //And also insert the data to the distributor's table 
                 $dist->Dist_ID = $user->User_ID ;
                 $dist->Dist_Name = $user->username;
                 $dist->Dist_Email = $user->email ;

@@ -63,11 +63,18 @@ Route::get('/products/{id}/{Harv_Name}', [HarvestController::class, 'showSingle'
 // view add products form
 Route::get('/dashboard/products/index/addProduct', [HarvestController::class, 'showForm'])->middleware('auth');
 
-// post new product to database
+// add new product to database
 Route::post('/dashboard/products/index', [HarvestController::class, 'store'])->middleware('auth');
 
 // delete product data
 Route::get('/dashboard/products/index/{id}', [HarvestController::class, 'delete'])->middleware('auth');
+
+// edit product data
+Route::get('/dashboard/products/editProd/{id}', [HarvestController::class, 'edit'])->middleware('auth');
+
+// update product data
+Route::post('/dashboard/products/update/{id}', [HarvestController::class, 'update'])->middleware('auth');
+
 
 // Show offering 
 Route::get('/dashboard/offering/index',[OfferingController::class, 'show']);
@@ -77,6 +84,8 @@ Route::get('/dashboard/offering/offer/{id}', [OfferingController::class, 'showFo
 
 //send offering to the customer
 Route::post('/dashboard/offering/index/{id}',[OfferingController::class, 'sendOffer'])->middleware('auth');
+
+
 
 //notif pusher offering
 Route::get('/dashboard/index', [DashboardProductsController::class, 'show'])->middleware('auth');
