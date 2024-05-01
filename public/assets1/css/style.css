@@ -290,14 +290,14 @@ h6 {
     cursor: pointer;
     display: none;
     line-height: 0;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .mobile-nav-toggle.bi-x {
     color: #fff;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 900px) {
     .mobile-nav-toggle {
         display: block;
     }

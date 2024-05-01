@@ -11,6 +11,8 @@
     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
       <li class="nav-heading">{{ auth()->user()->role }} Pages</li>
     </h6>
+
+    {{-- If the user is farmer --}}
       @can('FarmerCheck')
       <ul class="nav flex-column">
       
@@ -56,6 +58,7 @@
       </ul>
       @endcan
 
+      {{-- If the user is distributor --}}
       @can('DistributorCheck')
       <ul class="nav flex-column">
         <li class="nav-item">
@@ -96,5 +99,5 @@
         </a>
       </li><!-- End Contact Page Nav -->
 
-    </ul>
-  </aside><!-- End Sidebar-->
+  </ul>
+</aside><!-- End Sidebar-->

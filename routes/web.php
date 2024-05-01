@@ -45,9 +45,9 @@ Route::get('/dashboard', [DashboardController::class, 'show'])->middleware('auth
 Route::post('/logout', [UserController::class,'logout']);
 
 // User Profile
-Route::get('/userProfile', function () {
-    return view('dashboard.profile.userProfile');
-});
+// Route::get('/userProfile', function () {
+//     return view('dashboard.profile.userProfile');
+// });
 
 
 

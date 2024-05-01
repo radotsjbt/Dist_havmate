@@ -1,3 +1,4 @@
+
 <html>
 <body>
 <!-- Favicons -->
@@ -5,8 +6,8 @@
 <link href="{{ asset("assets/img/apple-touch-icon.png") }}" rel="apple-touch-icon">
 
 <!-- Google Fonts -->
-<link href={{ asset('https://fonts.gstatic.com') }} rel="preconnect">
-<link href={{ asset('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i') }} rel="stylesheet">
+<link href="{{ asset('https://fonts.gstatic.com') }}" rel="preconnect">
+<link href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i') }}" rel="stylesheet">
 
 <!-- Vendor CSS Files -->
 <link href="{{ asset("assets/vendor/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet">
@@ -21,7 +22,7 @@
 <link href="{{ asset("assets/css/style.css") }}" rel="stylesheet">
 
 {{-- Sweet alert --}}
-<script src={{ asset("https://unpkg.com/sweetalert/dist/sweetalert.min.js") }}></script>
+<script src="{{ asset("https://unpkg.com/sweetalert/dist/sweetalert.min.js") }}"></script>
 
 <!-- Vendor JS Files -->
 <script src="{{ asset("assets/vendor/apexcharts/apexcharts.min.js") }}"></script>

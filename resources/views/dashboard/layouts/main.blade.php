@@ -1,9 +1,9 @@
 
 @include('dashboard.layouts.header')
-@extends('dashboard.layouts.sidebar')
+@include('dashboard.layouts.sidebar')
+@include('dashboard.layouts.template')
 
 @include('sweetalert::alert')
-
 
 <!DOCTYPE html>
 <html lang="en">

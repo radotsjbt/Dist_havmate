@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href={{ asset("assets1/img/favicon1.png") }} rel="icon">
+  <link href={{ asset("assets1/img/favicon.png") }} rel="icon">
   <link href={{ asset("assets1/img/apple-touch-icon.png") }} rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -27,8 +27,15 @@
 
   <!-- Template Main CSS File -->
   <link href={{ asset("assets1/css/style.css") }} rel="stylesheet">
+</head>
 
-  
+<body>
+<div class="container">
+  @yield('container')
+</div>
+</body>
+
+
   <!-- Vendor JS Files -->
   <script src={{ asset("assets1/vendor/aos/aos.js") }}></script>
   <script src={{ asset("assets1/vendor/bootstrap/js/bootstrap.bundle.min.js") }}></script>

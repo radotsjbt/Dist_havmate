@@ -10,7 +10,7 @@
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
               <div class="d-flex justify-content-center py-4">
-                <a href="/home/main" class="logo d-flex align-items-center w-auto">
+                <a href="/" class="logo d-flex align-items-center w-auto">
                   <img src="{{ asset("assets/img/logo.png") }}" alt="">
                   <span class="d-none d-lg-block">Havmate</span>
                 </a>
@@ -78,7 +78,7 @@
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                Developed by <a href="/home/about">Havmate Team</a>
+                Developed by <a href="/">Havmate Team</a>
               </div>
 
             </div>
