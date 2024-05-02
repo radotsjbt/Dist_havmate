@@ -1,7 +1,6 @@
 @include('dashboard.layouts.template')
 
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -28,13 +27,7 @@
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
-        {{-- search icon --}}
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle" href="#">
-            <i class="bi bi-search"></i>
-          </a>
-        </li>
-        <!-- End Search Icon-->
+       
 
         {{-- notification --}}
         <li class="nav-item dropdown">

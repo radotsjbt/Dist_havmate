@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href={{ asset("assets1/img/favicon.png") }} rel="icon">
+  <link href={{ asset("assets1/img/logo-2.png") }} rel="icon">
   <link href={{ asset("assets1/img/apple-touch-icon.png") }} rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -30,8 +30,8 @@
 </head>
 
 <body>
-<div class="container">
-  @yield('container')
+<div class="content">
+  @yield('content')
 </div>
 </body>
 

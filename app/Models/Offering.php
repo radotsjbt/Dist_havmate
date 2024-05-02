@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Offering extends Model
 {
+    public $table = 'offering';
+
     protected $fillable = [
-        'Cust_Name',
+        'Dist_Name',
         'Harv_Name',
         'Qty',
         'Total_Price',
@@ -26,7 +28,6 @@ class Offering extends Model
         'remember_token'
     ];
 
-    public $table ='offering';
 
     // relation between offering and user (1 to 1)
     public function user(){
@@ -34,8 +35,8 @@ class Offering extends Model
     }
 
     //relation between offering and customer (1 to 1)
-    public function customer(){
-        return $this->belongsTo(Customers::class);
+    public function distributor(){
+        return $this->belongsTo(Distributor::class);
     }
 
     //relation between offering and products (many to many)

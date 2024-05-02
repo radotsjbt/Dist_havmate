@@ -1,15 +1,15 @@
 
 @extends('home.template')
 
-@section('container')
+@section('content')
 <body>
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h3 class="logo me-auto"><a href="#">Havmate</a></h3>
+      <h3 class="logo me-auto"><a href="#"><img src="assets1/img/logo.png" style="margin-right:10px;" alt="" class="img-fluid">Havmate</a></h3>
       <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets1/img/logo.png" alt="" class="img-fluid"></a>-->
+      <a href="index.html" class="logo me-auto"></a>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -29,14 +29,14 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="150">
-          <h1>Havmate</h1>
+          <h1>Breaking the Boundary for Farmers to the Market</h1>
           <h2>Better Solutions For Farmers</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="/auth/login" class="btn-get-started">Get Started</a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="{{ asset("assets1/img/hero-img.png") }}" class="img-fluid animated" alt="">
+          <img src="{{ asset("assets1/img/farmss.png") }}" class="img-fluid animated" alt="">
         </div>
       </div>
     </div>

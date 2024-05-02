@@ -8,7 +8,7 @@ use App\Models\Distributor;
 
 class DistributorController extends Controller
 {
-    public function index(){
+    public function showDistributor(){
         return view('/dashboard/distributor/index', [
             "title" => "Distributor",
             "distributor" => Distributor::all()

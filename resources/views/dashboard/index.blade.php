@@ -1,17 +1,20 @@
-@extends('dashboard.layouts.template')
-@extends('dashboard.layouts.main')
 
+@extends('dashboard.layouts.main')
+@extends('dashboard.layouts.template')
 
 @section('container')
 
+@can('FarmerCheck')
+<body>
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
   <h1 class="h2">Welcome back, {{ auth()->user()->username }} !</h1>
 
- 
 </div>
 <div>
   <h5>Hello this is dashboard</h5>
 </div>
+</body>
+@endcan
 
 @can('DistributorCheck')
 
@@ -52,6 +55,5 @@
                       <button type="submit" class="btn btn-primary">Submit</button>
             </form>
   @endif
-  </body>
-  
+  </body> 
 @endsection

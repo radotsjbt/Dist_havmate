@@ -66,6 +66,18 @@
                 <span data-feather="layers"></span>
                 Offering
               </a>
+              <ul id="offering-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                  <a href="/dashboard/offering/index">
+                    </i><span>Offering Status</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/dashboard/distributor/index">
+                    <span>Send Offering</span>
+                  </a>
+                </li>
+              </ul>
         </li>
 
         <li class="nav-item">

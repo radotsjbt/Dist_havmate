@@ -10,6 +10,7 @@ use App\Models\Farmer;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -104,6 +105,52 @@ class UserController extends Controller
 
     // show the profile of the user
     public function show($id){
+        return view('/dashboard/profile/index', [ 
+            'title' => 'User Profile',  
+            'profile' => User::find($id)     
+            ]);
+    }
+
+    public function update(Request $request, $id){
+        $user = User::find($id);
+
+        $usID = $user->User_ID;
+
+
+        $username = $request->input('username'); 
+        $address = $request->input('address'); 
+        $phone = $request->input('phone'); 
+        $email = $request->input('email'); 
+        
+        if($user->role === 'Farmer'){
+            $Farmer_Name = $user->username;
+            $Farmer_Address = $user->address;
+            $Farmer_Phone = $user->phone;
+            $Farmer_Email = $user->email;
+
+            // update to table farmers
+            DB::update('update farmers set Farmer_Name=?, Farmer_Address=?,  Farmer_Phone=?, Farmer_Email=? where Farmer_ID=?', [$Farmer_Name, $Farmer_Address,  $Farmer_Phone, $Farmer_Email, $usID]);
+
+        }
+        if($user->role === 'Distributor'){
+            $Dist_Name = $request->input('username');
+            $Dist_Address = $request->input('address');
+            $Dist_Phone = $request->input('phone');
+            $Dist_Email = $request->input('email');
+
+            // update to table distributors
+            DB::update('update distributors set Dist_Name=?, Dist_Address= ?,  Dist_Phone=?, Dist_Email=? where Dist_ID=?', [$Dist_Name, $Dist_Address, $Dist_Phone, $Dist_Email,$usID]);
+
+        }
+        $username = $user->username; 
+        $address = $user->address; 
+        $phone = $user->phone; 
+        $email = $user->email; 
+        
+        // update the data on database (table users)
+        DB::update('update users set username=?, address=?,  phone=?, email=? where id=?', [$username, $address, $phone, $email, $id]);
+
+
         return view('/dashboard/profile/index', [ 
             'title' => 'User Profile',  
             'profile' => User::find($id)     

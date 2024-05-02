@@ -15,6 +15,7 @@
           <th scope="col">Quantity</th>
           <th scope="col">Total Price</th>
           <th scope="col">Status</th>
+          <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -27,7 +28,20 @@
               <td>{{ $off->Harv_Name}}</td>
               <td>{{ $off->Qty}}</td>
               <td>{{ $off->Offer_Price}}</td>
-              <td>{{ $off->status }}</td>           
+              <td>{{ $off->status }}</td> 
+              <td>
+
+                {{-- delete button --}}
+                <a href="/dashboard/offering/index/{{ $off->id }}" class="btn btn-danger">
+                  <i class="bi bi-trash3"></i> Delete
+                </a>
+
+                {{-- edit button --}}
+                <a href="/dashboard/offering/editOff/{{ $off->id }}" class="btn btn-primary">
+                  <i class="bi bi-pen"></i> Edit
+                </a>
+               
+              </td>          
           </tr>
          @endif
          @endforeach

@@ -44,10 +44,13 @@ Route::get('/dashboard', [DashboardController::class, 'show'])->middleware('auth
 //Logout
 Route::post('/logout', [UserController::class,'logout']);
 
-// User Profile
-// Route::get('/userProfile', function () {
-//     return view('dashboard.profile.userProfile');
-// });
+// Show detail user profile
+Route::get('/dashboard/profile/index/{id}', [UserController::class, 'show'])->middleware('auth');
+
+// Update user profile
+Route::post('/dashboard/profile/update/{id}', [UserController::class, 'update'])->middleware('auth');
+
+
 
 
 
@@ -62,34 +65,41 @@ Route::get('/products/{id}/{Harv_Name}', [HarvestController::class, 'showSingle'
 Route::get('/dashboard/products/index/addProduct', [HarvestController::class, 'showForm'])->middleware('auth');
 
 // add new product to database
-Route::post('/dashboard/products/index', [HarvestController::class, 'store'])->middleware('auth');
+Route::post('/dashboard/products/index', [HarvestController::class, 'addProduct'])->middleware('auth');
 
 // delete product data
-Route::get('/dashboard/products/index/{id}', [HarvestController::class, 'delete'])->middleware('auth');
+Route::get('/dashboard/products/index/{id}', [HarvestController::class, 'deleteProduct'])->middleware('auth');
 
 // edit product data
-Route::get('/dashboard/products/editProd/{id}', [HarvestController::class, 'edit'])->middleware('auth');
+Route::get('/dashboard/products/editProd/{id}', [HarvestController::class, 'editProduct'])->middleware('auth');
 
 // update product data
-Route::post('/dashboard/products/update/{id}', [HarvestController::class, 'update'])->middleware('auth');
+Route::post('/dashboard/products/update/{id}', [HarvestController::class, 'updateProduct'])->middleware('auth');
 
 
+// Offering
 // Show offering 
 Route::get('/dashboard/offering/index',[OfferingController::class, 'show']);
 
 //show offering form
 Route::get('/dashboard/offering/offer/{id}', [OfferingController::class, 'showForm']);
 
-//send offering to the customer
+//send offering to the customer1
 Route::post('/dashboard/offering/index/{id}',[OfferingController::class, 'sendOffer'])->middleware('auth');
 
+// delete offering data
+Route::get('/dashboard/offering/index/{id}', [OfferingController::class, 'delete'])->middleware('auth');
+
+// edit offering data
+Route::get('/dashboard/offering/editOff/{id}', [OfferingController::class, 'edit'])->middleware('auth');
+
+// update offering data
+Route::post('/dashboard/offering/update/{id}', [OfferingController::class, 'update'])->middleware('auth');
 
 
-//notif pusher offering
-Route::get('/dashboard/index', [DashboardProductsController::class, 'show'])->middleware('auth');
+// notif pusher offering
+// Route::get('/dashboard/index', [DashboardProductsController::class, 'show'])->middleware('auth');
 
-// Show detail user profile
-Route::get('/dashboard/profile/index/{id}', [UserController::class, 'show'])->middleware('auth');
 
 
 
@@ -101,7 +111,7 @@ Route::get('/dashboard/notification', [NotificationController::class, 'show'])->
 Route::post('/dashboard/notification/notif', [NotificationController::class, 'show'])->middleware('auth');
 
 // Show all customer to the farmer
-Route::get('/dashboard/distributor/index', [DistributorController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/distributor/index', [DistributorController::class, 'showDistributor'])->middleware('auth');
 
 // Show detail customer to the farmer
 Route::get('/dashboard/distributor/dist/{id}', [DistributorController::class, 'showSingle'])->middleware('auth');

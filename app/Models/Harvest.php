@@ -21,8 +21,8 @@ class Harvest extends Model
         return $this->hasMany(Offering::class);
     }
     // relation between products and customer
-    public function customer(){
-        return $this->hasMany(Customer::class);
+    public function distributor(){
+        return $this->hasMany(Distributor::class);
     }
 
     protected $fillable = [

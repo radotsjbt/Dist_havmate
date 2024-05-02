@@ -37,6 +37,9 @@
               <li class="nav-item">
                 <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
               </li>
+              <li class="nav-item">
+                <button class="nav-link " data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+              </li>
                      
             </ul>
 
@@ -73,7 +76,43 @@
 
               </div>
 
-            
+              <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+
+                <!-- Profile Edit Form -->
+                <form action="/dashboard/profile/update/{{ $profile->id }}" method="post">
+                  <div class="row mb-3">
+                    <label for="username" class="col-md-4 col-lg-3 col-form-label">Name</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="username" type="text" class="form-control" id="username" value="{{ $profile->username }}">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="address" class="col-md-4 col-lg-3 col-form-label">Address</label>
+                    <div class="col-md-8 col-lg-9">
+                      <textarea name="address" class="form-control" id="address" style="height: 100px" value="{{ $profile->address }}">{{ $profile->address }}</textarea>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="phone" type="text" class="form-control" id="phone" value="{{ $profile->phone }}">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="email" type="text" class="form-control" id="email" value="{{ $profile->email }}">
+                    </div>
+                  </div>
+
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                  </div>
+                </form><!-- End Profile Edit Form -->
+              </div>
           </div><!-- End Bordered Tabs -->
         </div>
 

@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('farmers', function (Blueprint $table) {
             $table->id();
-            $table->string('Farmer_ID'); //from regist process (User Model)
-            $table->string('Farmer_Name'); //from regist form (username)
-            $table->string('Farmer_Address'); //from regist form (address)
-            $table->string('Farmer_Phone'); //from regist form (phone)
-            $table->string('Farmer_Email'); //from regist form (email)
+            $table->string('Farmer_ID'); 
+            $table->string('Farmer_Name'); 
+            $table->string('Farmer_Address'); 
+            $table->string('Farmer_Phone'); 
+            $table->string('Farmer_Email'); 
             $table->timestamps();
         });
     }

@@ -21,10 +21,12 @@ class HarvestController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function addProduct(Request $request)
     {
+        // create new product
         $harv = new Harvest();
 
+        // Generate the ID
         $harv->Harv_ID = IdGenerator::generate([
             'table' => 'harvests',
             'field' => 'Harv_ID',
@@ -39,7 +41,7 @@ class HarvestController extends Controller
         $harv->Harv_Stock = request('inputHarvStock');
         $harv->Harv_Price = request('inputHarvPrice');
 
-
+        // upload the image
         $filename = '';
         if ($request->file('inputGroupImage')) {
             $image = $request->file('inputGroupImage');
@@ -83,9 +85,8 @@ class HarvestController extends Controller
         ]);
     }
 
-    public function delete($id)
+    public function deleteProduct($id)
     {
-
         // Alert::warning('Warning Title', 'Do you want to delete this product?');    
         DB::table('harvests')->where('id', '=', $id)->delete();
 
@@ -95,7 +96,7 @@ class HarvestController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function editProduct($id)
     {
         return view('dashboard/products/editProd', [
             'title' => 'Edit Product',
@@ -106,7 +107,7 @@ class HarvestController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function updateProduct(Request $request, $id)
     {
         //get post by ID
         $harv = Harvest::find($id);
@@ -116,7 +117,7 @@ class HarvestController extends Controller
         $Harv_Price = $request->input('inputHarvPrice'); 
         $Harv_Type = $request->input('inputHarvType'); 
         $Harv_Stock = $request->input('inputHarvStock'); 
-        // $Image_Harv = $request->input('inputGroupImage'); 
+        // Image_Harv = $request->input('inputGroupImage'); $
 
         //check if there is new image uploaded
         if ($request->file('inputGroupImage')) {
@@ -140,7 +141,7 @@ class HarvestController extends Controller
         // update the data on database
         DB::update('update harvests set Harv_Name = ?, Harv_Desc=? , Harv_Price=?, Harv_Type=?, Harv_Stock=?, Image_Harv=? where id=?', [$Harv_Name, $Harv_Desc, $Harv_Price, $Harv_Type, $Harv_Stock, $Image_Harv, $id]);
 
-        return view('dashboard/products/index', [
+        return view('/dashboard/products/index', [
             'title' => 'Products',
             'products' => Harvest::all()
         ]);

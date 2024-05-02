@@ -1,7 +1,7 @@
 
 @include('dashboard.layouts.header')
 @include('dashboard.layouts.sidebar')
-@include('dashboard.layouts.template')
+{{-- @include('dashboard.layouts.template') --}}
 
 @include('sweetalert::alert')
 

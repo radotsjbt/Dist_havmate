@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('Qty');
             $table->integer('Offer_Price');
             $table->text('Notes');
-            $table->string('status')->default('Waiting');
+            $table->string('status');
 
             $table->timestamps();
         });

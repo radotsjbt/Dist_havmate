@@ -101,7 +101,7 @@ h6 {
 
 .back-to-top:hover {
     background: #6bc1e9;
-    color: #fff;
+    color: #AA8B56;
 }
 
 .back-to-top.active {
@@ -118,17 +118,20 @@ h6 {
     transition: all 0.5s;
     z-index: 997;
     padding: 15px 0;
+    background: #331B17;
 }
 
 #header.header-scrolled,
 #header.header-inner-pages {
-    background: rgba(40, 58, 90, 0.9);
+    /* brown background */
+    background: #331B17;
+    opacity: 65%;
 }
 
 #header .logo {
     font-size: 30px;
     margin: 0;
-    padding: 0;
+    padding: 5px;
     line-height: 1;
     font-weight: 500;
     letter-spacing: 2px;
@@ -140,7 +143,7 @@ h6 {
 }
 
 #header .logo img {
-    max-height: 40px;
+    max-height: 35px;
 }
 
 
@@ -193,7 +196,7 @@ h6 {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-    color: #47b2e4;
+    color: #fff;
 }
 
 .navbar .getstarted,
@@ -203,14 +206,15 @@ h6 {
     border-radius: 50px;
     color: #fff;
     font-size: 14px;
-    border: 2px solid #47b2e4;
+    border: 2px solid #fff;
     font-weight: 600;
 }
 
 .navbar .getstarted:hover,
 .navbar .getstarted:focus:hover {
-    color: #fff;
-    background: #31a9e1;
+    color: #331B17;
+    border: 2px solid #F6B478;
+    background: #F6B478;
 }
 
 .navbar .dropdown ul {
@@ -248,7 +252,7 @@ h6 {
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover>a {
-    color: #47b2e4;
+    color: #fff;
 }
 
 .navbar .dropdown:hover>ul {
@@ -398,9 +402,11 @@ h6 {
   --------------------------------------------------------------*/
 
 #hero {
+    margin-top: 50px;
     width: 100%;
     height: 80vh;
-    background: #37517e;
+    /* brown backgroound */
+    background: #fff;
 }
 
 #hero .container {
@@ -412,11 +418,11 @@ h6 {
     font-size: 48px;
     font-weight: 700;
     line-height: 56px;
-    color: #fff;
+    color: #331B17;
 }
 
 #hero h2 {
-    color: rgba(255, 255, 255, 0.6);
+    color: #331B17;
     margin-bottom: 50px;
     font-size: 24px;
 }
@@ -432,33 +438,12 @@ h6 {
     transition: 0.5s;
     margin: 10px 0 0 0;
     color: #fff;
-    background: #47b2e4;
+    background: #331B17;
 }
 
 #hero .btn-get-started:hover {
-    background: #209dd8;
-}
-
-#hero .btn-watch-video {
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    transition: 0.5s;
-    margin: 10px 0 0 25px;
-    color: #fff;
-    line-height: 1;
-}
-
-#hero .btn-watch-video i {
-    line-height: 0;
-    color: #fff;
-    font-size: 32px;
-    transition: 0.3s;
-    margin-right: 8px;
-}
-
-#hero .btn-watch-video:hover i {
-    color: #47b2e4;
+    color: #331B17;
+    background: #F6B478;
 }
 
 #hero .animated {
@@ -1852,4 +1837,13 @@ section {
     #footer .credits {
         padding-top: 4px;
     }
+}
+
+#footer .credits {
+    text-align: center;
+    float: none;
+}
+
+#footer .credits {
+    padding-top: 4px;
 }
