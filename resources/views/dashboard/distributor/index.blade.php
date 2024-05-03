@@ -11,7 +11,7 @@
     <div class="search">
       <i class="fa fa-search"></i>
       <input type="text" class="form-control" placeholder="Search distributor here...">
-      <button class="btn btn-primary">Search</button>
+      <button class="btn">Search</button>
     </div>
   </div>
 </div>

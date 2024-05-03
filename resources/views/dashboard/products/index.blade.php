@@ -7,7 +7,7 @@
     <h5 class="card-title">Your Product</h5>
    
     <!-- Bordered Table -->
-    <table class="table table-bordered table-border-dark">
+    <table class="table table-bordered align-middle">
       <thead>
         <tr>
           <th scope="col">Harvest Id</th>
@@ -33,12 +33,12 @@
               <td>
 
                 {{-- delete button --}}
-                <a href="/dashboard/products/index/{{ $prod->id }}" class="btn btn-danger">
+                <a href="/dashboard/products/index/{{ $prod->id }}" class="btn-delete">
                   <i class="bi bi-trash3"></i> Delete
                 </a>
 
                 {{-- edit button --}}
-                <a href="/dashboard/products/editProd/{{ $prod->id }}" class="btn btn-primary">
+                <a href="/dashboard/products/editProd/{{ $prod->id }}" class="btn-edit">
                   <i class="bi bi-pen"></i> Edit
                 </a>
                

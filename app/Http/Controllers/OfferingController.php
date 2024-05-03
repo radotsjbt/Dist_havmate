@@ -17,7 +17,10 @@ class OfferingController extends Controller
     { 
         $off = new Offering();
         
-        $dist = Distributor::find($id)->Dist_Name;
+        $farm = auth()->user()->id;
+        $dist = Distributor::find($id);
+        $harv= Harvest::find($farm);
+        
 
         $off->Offer_ID = IdGenerator::generate([
          'table' => 'offering',
@@ -25,9 +28,11 @@ class OfferingController extends Controller
          'length' => 7,
          'prefix' => 'OFR'
      ]);
-        $off->Dist_Name= $dist;
-        $off->Farmer_Id = auth()->user()->id;
+        $off->Dist_Id = $id;
+        $off->Dist_Name= $dist->Dist_Name;
+        $off->Farmer_Id = $farm;
         $off->Farmer_Name = auth()->user()->username;
+        $off->Harv_Id = $harv->id;
         $off->Harv_Name = request('inputHarvName');
         $off->Qty= request('inputHarvQty');
         $off->Offer_Price= request('inputTotalPrice');

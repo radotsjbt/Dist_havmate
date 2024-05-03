@@ -83,7 +83,7 @@
         <div class="row">
           <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets1/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets1/img/team/tata.jpeg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Taftaniza Auzalya</h4>
                 <span>Team Leader</span>
@@ -98,7 +98,7 @@
 
           <div class="col-lg-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets1/img/team/team-2.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets1/img/team/siska.png" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Siska Andriani</h4>
                 <span>Vice Team Leader</span>
@@ -113,7 +113,7 @@
 
           <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="300">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets1/img/team/team-3.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets1/img/team/devrika.jpeg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Devrika Febrianti</h4>
                 <span>Member</span>
@@ -128,7 +128,7 @@
 
           <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="400">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets1/img/team/team-4.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets1/img/team/radot.png" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Radot Sijabat</h4>
                 <span>Member</span>
@@ -140,7 +140,6 @@
               </div>
             </div>
           </div>
-
         </div>
 
       </div>

@@ -17,7 +17,7 @@
 
 body {
     font-family: "Open Sans", sans-serif;
-    background: #f6f9ff;
+    background: #E7FFDC;
     color: #444444;
 }
 
@@ -70,7 +70,7 @@ h6 {
     font-size: 24px;
     margin-bottom: 0;
     font-weight: 600;
-    color: #012970;
+    color: #0D261D;
 }
 
 
@@ -237,12 +237,25 @@ h6 {
     border-radius: 5px;
     box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
 }
-
+.card p{
+    color: #0D261D;
+}
+.card a{
+    color: #0D261D;
+   
+}
+.card a:hover{
+    color: #0D261D;
+    text-decoration: underline;
+}
+.card .credits{
+    color: #0D261D;
+}
 .card-header,
 .card-footer {
     border-color: #ebeef4;
     background-color: #fff;
-    color: #798eb3;
+    color: #0D261D;
     padding: 15px;
 }
 
@@ -250,12 +263,12 @@ h6 {
     padding: 20px 0 15px 0;
     font-size: 18px;
     font-weight: 500;
-    color: #012970;
+    color: #0D261D;
     font-family: "Poppins", sans-serif;
 }
 
 .card-title span {
-    color: #899bbd;
+    color: #0D261D;
     font-size: 14px;
     font-weight: 400;
 }
@@ -264,10 +277,106 @@ h6 {
     padding: 0 20px 20px 20px;
 }
 
-.card-img-overlay {
-    background-color: rgba(255, 255, 255, 0.6);
+.card-body .btn-login,
+.card-body .btn-regist {
+    padding: 5px;
+    display: justify;
+    margin-top: 5px;
+    position: center;
+    height: 35px;
+    background: #0D261D;
+    color: #fff;
+    font-weight: 400;
+    border-radius: 6px;
+    border:none;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
 }
 
+.card-body .btn-delete {
+    margin-top: 20px;
+    padding: 5px;
+    width: 10px;
+    height: 8px;
+    background: red;
+    color: #fff;
+    border-color: red;
+    border-radius: 7px;
+    font-weight: 300;
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+}
+.card-body .btn-edit {
+    margin-top: 20px;
+    padding: 5px;
+    width: 10px;
+    height: 8px;
+    background: blue;
+    color: #fff;
+    border-color: blue;
+    border-radius: 7px;
+    font-weight: 300;
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+}
+
+
+.card-body .btn-edit:hover {
+    margin-top: 10px;
+    padding: 5px;
+    width: 10px;
+    height: 8px;
+    background: #fff;
+    color: blue;
+    border-color: blue;
+    border-radius: 6px;
+    font-weight: 300;
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+}
+
+.card-body .btn-delete:hover {
+    margin-top: 10px;
+    padding: 5px;
+    width: 10px;
+    height: 8px;
+    background: #fff;
+    color: red;
+    border-color: red;
+    border-radius: 6px;
+    font-weight: 300;
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+}
+
+.card-body .btn-login:hover,
+.card-body .btn-regist:hover {
+    padding: 5px;
+    height: 35px;
+    background: #fff;
+    color: #0D261D;
+    border: solid #0D261D;
+    font-weight: 400;
+    border-radius: 6px;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+}
+
+@media (max-width: 900px) {
+    .btn {
+        display:block;
+    }
+}
+
+
+/* .card-body .input:focus {
+    border: solid #0D261D;
+    box-shadow :#0D261D;
+} */
+
+.card-img-overlay {
+    background-color: #0D261D;
+}
 
 /* Alerts */
 
@@ -302,7 +411,7 @@ h6 {
 }
 
 .accordion-button:not(.collapsed) {
-    color: #012970;
+    color: #0D261D;
     background-color: #f6f9ff;
 }
 
@@ -329,28 +438,31 @@ h6 {
 .breadcrumb {
     font-size: 14px;
     font-family: "Nunito", sans-serif;
-    color: #899bbd;
+    color: #84B26E;
     font-weight: 600;
 }
 
 .breadcrumb a {
-    color: #899bbd;
+    color:  #84B26E;
     transition: 0.3s;
 }
 
 .breadcrumb a:hover {
-    color: #51678f;
+    color: #0D261D;
 }
 
 .breadcrumb .breadcrumb-item::before {
-    color: #899bbd;
+    color: #0D261D;
 }
 
 .breadcrumb .active {
-    color: #51678f;
-    font-weight: 600;
+    color: #0D261D;
+    font-weight: 500;
 }
-
+.breadcrumb .active a{
+    color: #0D261D;
+    
+}
 
 /* Bordered Tabs */
 
@@ -398,7 +510,7 @@ h6 {
 .logo span {
     font-size: 26px;
     font-weight: 700;
-    color: #012970;
+    color: #0D261D;
     font-family: "Nunito", sans-serif;
 }
 
@@ -417,7 +529,7 @@ h6 {
     font-size: 32px;
     padding-left: 10px;
     cursor: pointer;
-    color: #012970;
+    color: #0D261D;
 }
 
 .header .search-bar {
@@ -453,7 +565,7 @@ h6 {
 .header .search-form input {
     border: 0;
     font-size: 14px;
-    color: #012970;
+    color: #0D261D;
     border: 1px solid rgba(1, 41, 112, 0.2);
     padding: 7px 38px 7px 8px;
     border-radius: 3px;
@@ -476,7 +588,7 @@ h6 {
 }
 
 .header .search-form button i {
-    color: #012970;
+    color: #0D261D;
 }
 
 
@@ -495,13 +607,13 @@ h6 {
 
 .header-nav .nav-icon {
     font-size: 22px;
-    color: #012970;
+    color: #0D261D;
     margin-right: 25px;
     position: relative;
 }
 
 .header-nav .nav-profile {
-    color: #012970;
+    color: #0D261D;
 }
 
 .header-nav .nav-profile img {
@@ -651,7 +763,7 @@ h6 {
 .sidebar::-webkit-scrollbar {
     width: 5px;
     height: 8px;
-    background-color: #fff;
+    background-color: #;
 }
 
 .sidebar::-webkit-scrollbar-thumb {
@@ -710,9 +822,9 @@ h6 {
     align-items: center;
     font-size: 15px;
     font-weight: 600;
-    color: #4154f1;
+    color:  #0D261D;
     transition: 0.3;
-    background: #f6f9ff;
+    background: #E7FFDC;
     padding: 10px 15px;
     border-radius: 4px;
 }
@@ -720,25 +832,26 @@ h6 {
 .sidebar-nav .nav-link i {
     font-size: 16px;
     margin-right: 10px;
-    color: #4154f1;
+    color: #0D261D;
+    
 }
 
 .sidebar-nav .nav-link.collapsed {
-    color: #012970;
+    color: #0D261D;
     background: #fff;
 }
 
 .sidebar-nav .nav-link.collapsed i {
-    color: #899bbd;
+    color: #0D261D;
 }
 
 .sidebar-nav .nav-link:hover {
-    color: #4154f1;
-    background: #f6f9ff;
+    color: #0D261D;
+    background-color:#E7FFDC;
 }
 
 .sidebar-nav .nav-link:hover i {
-    color: #4154f1;
+    color: #0D261D;
 }
 
 .sidebar-nav .nav-link .bi-chevron-down {
@@ -761,7 +874,7 @@ h6 {
     align-items: center;
     font-size: 14px;
     font-weight: 600;
-    color: #012970;
+    color: #0D261D;
     transition: 0.3;
     padding: 10px 0 10px 40px;
     transition: 0.3s;
@@ -776,11 +889,13 @@ h6 {
 
 .sidebar-nav .nav-content a:hover,
 .sidebar-nav .nav-content a.active {
-    color: #4154f1;
+    color: #0D261D;
+    background-color:#E7FFDC;
 }
 
 .sidebar-nav .nav-content a.active i {
-    background-color: #4154f1;
+    color: #0D261D;
+    background-color:#E7FFDC;
 }
 
 
@@ -837,7 +952,7 @@ h6 {
 
 .dashboard .info-card h6 {
     font-size: 28px;
-    color: #012970;
+    color: #0D261D;
     font-weight: 700;
     margin: 0;
     padding: 0;
@@ -937,7 +1052,7 @@ h6 {
 }
 
 .dashboard .news h4 a {
-    color: #012970;
+    color: #0D261D;
     transition: 0.3s;
 }
 
@@ -1015,7 +1130,7 @@ h6 {
     background-color: #fff;
     border-radius: 0.25rem;
     text-align: center;
-    color: #012970;
+    color: #0D261D;
     padding: 15px 0;
 }
 
@@ -1066,7 +1181,7 @@ h6 {
 }
 
 .profile .profile-card .social-links a:hover {
-    color: #012970;
+    color: #0D261D;
 }
 
 .profile .profile-overview .row {
@@ -1075,7 +1190,7 @@ h6 {
 }
 
 .profile .profile-overview .card-title {
-    color: #012970;
+    color: #0D261D;
 }
 
 .profile .profile-overview .label {
@@ -1124,7 +1239,7 @@ h6 {
 
 .contact .info-box h3 {
     font-size: 20px;
-    color: #012970;
+    color: #0D261D;
     font-weight: 700;
     margin: 20px 0 10px 0;
 }
@@ -1239,7 +1354,7 @@ h6 {
 .error-404 h2 {
     font-size: 24px;
     font-weight: 700;
-    color: #012970;
+    color: #0D261D;
     margin-bottom: 30px;
 }
 
@@ -1273,14 +1388,14 @@ h6 {
 
 .footer .copyright {
     text-align: center;
-    color: #012970;
+    color: #0D261D;
 }
 
 .footer .credits {
     padding-top: 5px;
     text-align: center;
     font-size: 13px;
-    color: #012970;
+    color: #0D261D;
 }
 
 .flex-container {
@@ -1354,12 +1469,12 @@ h6 {
 .search input {
     height: 45;
     text-indent: 20px;
-    border: 2px solid #d6d4d4;
+    border: 1px  #0D261D;
 }
 
 .search input:focus {
     box-shadow: none;
-    border: 2px solid blue;
+    border: 1px solid #0D261D;
 }
 
 .search .fa-search {
@@ -1374,7 +1489,20 @@ h6 {
     right: 5px;
     height: 35px;
     width: 90px;
-    background: #4154f1;
+    color: #fff;
+    font-weight:400;
+    background: #0D261D;
+}
+.search button:hover {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 35px;
+    width: 90px;
+    color : #0D261D;
+    font-weight:500;
+    border: 1.5px solid #0D261D;
+    shadow: #84B26E;
 }
 
 
@@ -1383,3 +1511,8 @@ h6 {
         flex-direction: column;
     }
 } */
+
+.text-center btn{
+    color:#fff;
+    width:50px;
+}

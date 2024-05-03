@@ -11,7 +11,7 @@
 
               <div class="d-flex justify-content-center py-4">
                 <a href="/" class="logo d-flex align-items-center w-auto">
-                  <img src="{{ asset("assets/img/logo.png") }}" alt="">
+                  <img src="{{ asset("assets/img/logo-2.png") }}" alt="">
                   <span class="d-none d-lg-block">Havmate</span>
                 </a>
               </div><!-- End Logo -->
@@ -59,8 +59,8 @@
                         <label class="form-check-label" for="rememberMe">Remember me</label>
                       </div>
                     </div>
-                    <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit" >
+                    <div class="col-12"><br>
+                      <button class="btn-login w-50 position-relative top-98 start-50 translate-middle" type="submit" >
                         Login
                       </button>
                     </div>
@@ -73,14 +73,7 @@
               </div>
 
               
-              <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                Developed by <a href="/">Havmate Team</a>
-              </div>
-
+            
             </div>
           </div>
         </div>

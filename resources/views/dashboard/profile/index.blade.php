@@ -79,7 +79,8 @@
               <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                 <!-- Profile Edit Form -->
-                <form action="/dashboard/profile/update/{{ $profile->id }}" method="post">
+                <form action="/dashboard/profile/update/{{ auth()->user()->id }}" method="post">
+                @csrf
                   <div class="row mb-3">
                     <label for="username" class="col-md-4 col-lg-3 col-form-label">Name</label>
                     <div class="col-md-8 col-lg-9">
@@ -112,6 +113,7 @@
                     <button type="submit" class="btn btn-primary">Save Changes</button>
                   </div>
                 </form><!-- End Profile Edit Form -->
+
               </div>
           </div><!-- End Bordered Tabs -->
         </div>
