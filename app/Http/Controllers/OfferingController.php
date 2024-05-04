@@ -54,6 +54,7 @@ class OfferingController extends Controller
 
     }
 
+
     public function showForm($id)
     {
         return view('dashboard/offering/offer', [ 
@@ -70,6 +71,7 @@ class OfferingController extends Controller
             'offering' => Offering::all(),
         ]);
     }
+
     public function delete($id)
     {
         // Alert::warning('Warning Title', 'Do you want to delete this product?');    

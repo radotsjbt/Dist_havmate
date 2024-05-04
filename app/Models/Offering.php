@@ -39,9 +39,9 @@ class Offering extends Model
         return $this->belongsTo(Distributor::class);
     }
 
-    //relation between offering and products (many to many)
+    //relation between offering and products (1 to 1)
     public function harvest(){
-        return $this->hasMany(Harvest::class);
+        return $this->belongsTo(Harvest::class);
     }
 
     

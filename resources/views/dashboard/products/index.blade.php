@@ -2,6 +2,7 @@
 @extends('dashboard.layouts.main')
 @section('container')
 
+@can('FarmerCheck')
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">Your Product</h5>
@@ -49,5 +50,42 @@
       </tbody>
     </table>
     <!-- End Bordered Table -->
+  </div>
+</div>
+@endcan
+
+
+@can('DistributorCheck')
+
+{{-- search bar --}}
+<div class="row height d-flex justify-content-center align-items-center">
+
+  <div class="col-md-8">
+    <div class="search">
+      <i class="fa fa-search"></i>
+      <input type="text" class="form-control" placeholder="Search distributor here...">
+      <button class="btn">Search</button>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+{{-- Show the distributor lists from database --}}    
+    <div class="flex-container" >  
+       @foreach ($products as $prod) 
+          <div class="card">
+            <a href = "/dashboard/products/prod/{{ $prod->id}}">
+              <img src="{{ $prod->Image_Harv }}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"> {{ $prod->Harv_Name }}</h5>
+                <p class="card-text">
+                </p>
+              </div>
+            </a>
+          </div>
+      @endforeach           
+    </div>
+@endcan
 
 @endsection

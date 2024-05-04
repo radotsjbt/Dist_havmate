@@ -60,33 +60,41 @@
 
       {{-- If the user is distributor --}}
       @can('DistributorCheck')
-      <ul class="nav flex-column">
-        <li class="nav-item">
-            <a class="nav-link {{ Request::is('dashboard/offering/index') ? 'active' : '' }}"  aria-current="page" href="/dashboard/offering/index">
-                <span data-feather="layers"></span>
-                Offering
-              </a>
-              <ul id="offering-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                  <a href="/dashboard/offering/index">
-                    </i><span>Offering Status</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/dashboard/distributor/index">
-                    <span>Send Offering</span>
-                  </a>
-                </li>
-              </ul>
-        </li>
 
-        <li class="nav-item">
-          <a class="nav-link {{ Request::is('dashboard/order/index') ? 'active' : '' }}"  aria-current="page" href="/dashboard/ordering/index">
-              <span data-feather="layers"></span>
-              Order
+     <ul class="nav flex-column">
+       <li class="nav-item">
+        <a class="nav-link collapsed {{ Request::is('dashboard/offering/index') ? 'active' : '' }}"  
+         href="/dashboard/offering/index">
+          <i class="bi bi-arrow-down-up"></i><span>Offering Status</span>
+        </a>
+        {{-- <ul id="offering-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/dashboard/offering/index">
+              </i><span>Offering Status</span>
             </a>
-      </li>
+          </li>
+        </ul> --}}
+      
 
+        <ul class="nav flex-column">
+          <li class="nav-item">
+           <a class="nav-link collapsed {{ Request::is('dashboard/ordering/index') ? 'active' : '' }}"  
+           aria-current="page" href="/dashboard/ordering/index" data-bs-target="#ordering-nav" data-bs-toggle="collapse" href="#">
+                  <i class="bi bi-cart4"></i><span>Order</span><i class="bi bi-chevron-down ms-auto"></i>
+           </a>
+           <ul id="ordering-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+             <li>
+               <a href="/dashboard/ordering/index">
+                 </i><span>Order Status</span>
+               </a>
+             </li>
+             <li>
+               <a href="/dashboard/products/index">
+                 <span>Send Order</span>
+               </a>
+             </li>
+           </ul>
+          </li>
       </ul>
       @endcan
 

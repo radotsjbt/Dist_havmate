@@ -4,7 +4,6 @@
 @section('container')
 
 {{-- search bar --}}
-
 <div class="row height d-flex justify-content-center align-items-center">
 
   <div class="col-md-8">
@@ -35,5 +34,4 @@
           </div>
       @endforeach           
     </div>
-    
 @endsection

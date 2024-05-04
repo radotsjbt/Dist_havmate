@@ -3,14 +3,15 @@
 use App\Http\Controllers\DistributorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HarvestController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardProductsController;
 use App\Http\Controllers\OfferingController;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NotificationController;
-
+use App\Models\Harvest;
+use App\Models\Order;
 
 Route::get('/', function() {
     return view('/home/main', [
@@ -57,9 +58,6 @@ Route::post('/dashboard/profile/update/{id}', [UserController::class, 'update'])
 // Farmer
 // Show all products data
 Route::get('/dashboard/products/index', [HarvestController::class, 'show'])->middleware('FarmerCheck'); 
-
-// Show single product data
-Route::get('/products/{id}/{Harv_Name}', [HarvestController::class, 'showSingle']);
 
 // view add products form
 Route::get('/dashboard/products/index/addProduct', [HarvestController::class, 'showForm'])->middleware('auth');
@@ -118,3 +116,29 @@ Route::get('/dashboard/distributor/dist/{id}', [DistributorController::class, 's
 
 // Show form for customer's needs
 Route::post('/dashboard/notification/notif', [DistributorController::class, 'updateData'])->middleware('auth');
+
+
+// Order
+// Show order status
+Route::get('/dashboard/ordering/index', [OrderController::class, 'showAll'])->middleware('auth');
+
+// Show products from farmers
+Route::get('/dashboard/products/index', [HarvestController::class, 'show'])->middleware('auth');
+
+// Show detail product for order
+Route::get('/dashboard/products/prod/{id}', [HarvestController::class, 'showSingle'])->middleware('auth');
+
+// Show order form
+Route::get('/dashboard/ordering/order/{id}', [OrderController::class, 'showForm'])->middleware('auth');
+
+// Send order to farmer
+Route::post('/dashboard/ordering/index/{id}', [OrderController::class, 'sendOrder'])->middleware('auth');
+
+// delete order data
+Route::get('/dashboard/ordering/index/{id}', [OrderController::class, 'deleteOrder'])->middleware('auth');
+
+// edit order data
+Route::get('/dashboard/ordering/editOrder/{id}', [OrderController::class, 'editOrder'])->middleware('auth');
+
+// update order data
+Route::post('/dashboard/ordering/update/{id}', [OrderController::class, 'updateOrder'])->middleware('auth');

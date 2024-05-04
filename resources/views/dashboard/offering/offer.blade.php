@@ -23,6 +23,7 @@
           <select class="form-select mt-0" id="floatingSelect" name="inputHarvName" aria-label="Harvest Type">
             <option selected>Choose your product</option>
               @foreach($product as $item)
+              {{-- check the user's product --}}
                   @if(auth()->user()->username === $item->Farmer_Name)
                       <option value="{{ $item->Harv_Name }}">{{ $item->Harv_Name }}</option>
                   @endif

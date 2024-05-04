@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Harvest;
-use App\Models\Offering;
+use App\Models\Farmer;
 use App\Models\User;
 use App\Http\Requests\UpdateHarvestRequest;
 use Illuminate\Http\Request;
@@ -70,12 +70,17 @@ class HarvestController extends Controller
         ]);
     }
 
-    public function showSingle(Harvest $id, $Harv_Name)
+    public function showSingle($id)
     {
-        return view('prod', [
-            "title" => Harvest::find($Harv_Name),
-            "product" => Harvest::find($id)
-        ]);
+        $prod = Harvest::find($id);
+        $farm = $prod->Farmer_Id;
+
+            return view('/dashboard/products/prod', [
+                "title" => 'Detail Product',
+                "products" => Harvest::find($id),
+                "farmer" => Farmer::find($farm)
+            ]);
+
     }
 
     public function showForm()

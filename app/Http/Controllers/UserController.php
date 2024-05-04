@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Distributor;
@@ -37,7 +36,6 @@ class UserController extends Controller
                 ]);
                 
                 //And also insert the data to the farmer's table
-                // $farm->Farmer_ID = $user->User_ID;
                 $user->User_ID= $farm->Farmer_ID;
                 $farm->Farmer_Name = $user->username;
                 $farm->Farmer_Email = $user->email;
@@ -137,19 +135,25 @@ class UserController extends Controller
             DB::update('update farmers set Farmer_Name=?, Farmer_Address=?,  Farmer_Phone=?, Farmer_Email=? where Farmer_ID=?', [$Farmer_Name, $Farmer_Address,  $Farmer_Phone, $Farmer_Email, $usID]);
 
             // // update to table harvests
-            DB::update('update harvests set Farmer_Name=? where Farmer_Id=?', [$Farmer_Name, $id]);
+            DB::update('update harvests, offering set Farmer_Name=? where Farmer_Id=?', [$Farmer_Name, $id]);
 
-            // update to table offering
-            DB::update('update offering set Farmer_Name=? where Farmer_Id=?', [$Farmer_Name, $id]);
+           
         }
         if($user->role === 'Distributor'){
-            $Dist_Name = $request->input('username');
-            $Dist_Address = $request->input('address');
-            $Dist_Phone = $request->input('phone');
-            $Dist_Email = $request->input('email');
+
+            $Dist_Name = $username;
+            $Dist_Address = $address;
+            $Dist_Phone = $phone;
+            $Dist_Email = $email;
 
             // update to table distributors
-            DB::update('update distributors set Dist_Name=?, Dist_Address= ?,  Dist_Phone=?, Dist_Email=? where Dist_ID=?', [$Dist_Name, $Dist_Address, $Dist_Phone, $Dist_Email,$usID]);
+            DB::update('update distributors set Dist_Name=?, Dist_Address= ?,  Dist_Phone=?, Dist_Email=? where Dist_Id=?', [$Dist_Name, $Dist_Address, $Dist_Phone, $Dist_Email, $usID]);
+
+             // update to table orders
+             DB::update('update orders set Dist_Name=? where Dist_Id=?', [$Dist_Name, $id]);
+
+            // update to table offering
+            DB::update('update offering set Dist_Name=? where Dist_Id=?', [$Dist_Name, $id]);
 
         }
         
