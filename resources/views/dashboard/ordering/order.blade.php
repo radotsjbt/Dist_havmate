@@ -19,12 +19,21 @@
 
       <div class="col-md-6">
         <label for="inputHarvStock">Stock (/kg)</label>
-          <input type="text" name="inputHarvStock"class="form-control" id="inputHarvStock" disabled>
+          <input type="text" name="inputHarvStock"class="form-control" id="inputHarvStock" value="{{ $product->Harv_Stock }}" disabled>
       </div>
 
       <div class="col-md-6">
         <label for="inputQty">Quantity (/kg)</label>
           <input type="text" name="inputQty"class="form-control" id="inputQty" placeholder="ex : 250">
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputTotalPrice">Price</label>
+          <div class="input-group col-sm-10">
+            <span class="input-group-text" id="inputGroupPrepend">Rp</span>
+            <input id="price" readonly type="text" class="form-control" value="{{ $product->Harv_Price }}"
+                    name="price" disabled>
+          </div>
       </div>
 
       <div class="col-md-6">
@@ -48,6 +57,35 @@
 
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+      // Attach a change event listener to the input field
+      $('#inputQty').change(function() {
+          // Get the current value of the input field
+
+          if (parseInt($('#inputQty').val()) > parseInt($('#inputHarvStock').val())) {
+              const res = parseInt($('#inputQty').val()) - parseInt($('#inputHarvStock').val());
+              Swal.fire({
+                  title: 'Out of Stock',
+                  text: 'kamu membutuhkan sekitar ' + res + 'pcs lagi',
+                  icon: 'info',
+                  confirmButtonText: 'OK'
+              }).then((result) => {
+                  if (result.isConfirmed) {
+                      $('#inputQty').val($('#inputHarvStock').val())
+                  }
+              });
+
+          }
+          let inputValue = $(this).val();
+          const price = $('#price').val();
+          const res = parseInt(inputValue) * parseInt(price);
+          let total_value = $('#inputTotalPrice').val(res);
+          console.log('The input value has changed to: ' + res);
+      });
+  });
+</script>
 @endsection
 
 

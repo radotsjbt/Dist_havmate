@@ -19,6 +19,12 @@
 <!-- Template Main CSS File -->
 <link href="{{ asset("assets/css/style.css") }}" rel="stylesheet">
 
+<!-- Include SweetAlert2 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+<!-- Include SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 {{-- Sweet alert --}}
 <script src="{{ asset("https://unpkg.com/sweetalert/dist/sweetalert.min.js") }}"></script>
 
@@ -31,6 +37,8 @@
 <script src="{{ asset("assets/vendor/simple-datatables/simple-datatables.js") }}"></script>
 <script src="{{ asset("assets/vendor/tinymce/tinymce.min.js") }}"></script>
 <script src="{{ asset("assets/vendor/php-email-form/validate.js") }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 
 <!-- Template Main JS File -->
 <script src="{{ asset("assets/js/main.js") }}"></script>

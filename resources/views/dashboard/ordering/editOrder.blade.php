@@ -27,6 +27,15 @@
       </div>
 
       <div class="col-md-6">
+        <label for="inputTotalPrice">Price</label>
+          <div class="input-group col-sm-10">
+            <span class="input-group-text" id="inputGroupPrepend">Rp</span>
+            <input id="price" readonly type="text" class="form-control" value="{{ $ord->product?->Harv_Price }}"
+                    name="price" disabled>
+          </div>
+      </div>
+
+      <div class="col-md-6">
         <label for="inputTotalPrice">Total Price</label>
           <div class="input-group col-sm-10">
             <span class="input-group-text" id="inputGroupPrepend">Rp</span>
@@ -49,6 +58,22 @@
 
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+      // Attach a change event listener to the input field
+      $('#inputHarvQty').change(function() {
+          // Get the current value of the input field
+
+          
+          let inputValue = $(this).val();
+          const price = $('#price').val();
+          const res = parseInt(inputValue) * parseInt(price);
+          let total_value = $('#inputTotalPrice').val(res);
+          console.log('The input value has changed to: ' + res);
+      });
+  });
+</script>
 @endsection
 
 

@@ -12,6 +12,10 @@ class Harvest extends Model
 
     public $table ='harvests';
 
+    public function farmer(){
+        return $this->hasOne(User::class,'id','Farmer_Id');
+    }
+
     // relation between products and user
     public function user(){
         return $this->belongsTo(User::class);

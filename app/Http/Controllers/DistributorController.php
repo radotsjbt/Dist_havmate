@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Harvest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Distributor;
 
 class DistributorController extends Controller
 {
+
+    public function detailProduk($id){
+        $product = Harvest::find($id);
+        // dd($product);
+        return view('radot_products.detail', [
+            "title" => "Detail Produk",
+            "product" => $product
+        ]);
+    }
     public function showDistributor(){
         return view('/dashboard/distributor/index', [
             "title" => "Distributor",

@@ -200,7 +200,7 @@
             </li>
 
             <li>
-              <form action="/logout" method="POST">
+              <form action="/logout" method="GET">
                 @csrf
                 <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i>
                   <span>Log Out</span></button>

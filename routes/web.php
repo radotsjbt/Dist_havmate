@@ -4,6 +4,7 @@ use App\Http\Controllers\DistributorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HarvestController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\RadotProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardProductsController;
 use App\Http\Controllers\OfferingController;
@@ -12,6 +13,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NotificationController;
 use App\Models\Harvest;
 use App\Models\Order;
+
+
+use App\Events\MessageSent;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\RadotDistributorController;
+use App\Http\Controllers\RadotOfferingController;
+use App\Http\Controllers\OrderingController;
+use App\Http\Controllers\ProductController;
+use App\Models\Message;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Broadcast;
+use Illuminate\Support\Facades\Request;
 
 Route::get('/', function() {
     return view('/home/main', [
@@ -43,7 +57,7 @@ Route::post('/auth/login',[UserController::class,'authenticate']);
 Route::get('/dashboard', [DashboardController::class, 'show'])->middleware('auth');
 
 //Logout
-Route::post('/logout', [UserController::class,'logout']);
+Route::get('/logout', [UserController::class,'logout']);
 
 // Show detail user profile
 Route::get('/dashboard/profile/index/{id}', [UserController::class, 'show'])->middleware('auth');
@@ -130,15 +144,56 @@ Route::get('/dashboard/products/prod/{id}', [HarvestController::class, 'showSing
 
 // Show order form
 Route::get('/dashboard/ordering/order/{id}', [OrderController::class, 'showForm'])->middleware('auth');
+Route::get('/orderProduk/{id}', [OrderController::class, 'showForm'])->middleware('auth')->name('orderProduk');
 
 // Send order to farmer
 Route::post('/dashboard/ordering/index/{id}', [OrderController::class, 'sendOrder'])->middleware('auth');
 
 // delete order data
 Route::get('/dashboard/ordering/index/{id}', [OrderController::class, 'deleteOrder'])->middleware('auth');
+Route::get('/detailProduk/{id}', [DistributorController::class, 'detailProduk'])->middleware('auth')->name('detailProduk');
+// Route::get('/orderProduk/{id}', [DistributorController::class, 'orderProduk'])->middleware('auth')->name('orderProduk');
+Route::get('/chat/{id}', [DistributorController::class, 'chat'])->middleware('auth')->name('chat');
 
 // edit order data
 Route::get('/dashboard/ordering/editOrder/{id}', [OrderController::class, 'editOrder'])->middleware('auth');
 
 // update order data
 Route::post('/dashboard/ordering/update/{id}', [OrderController::class, 'updateOrder'])->middleware('auth');
+
+Route::get('/chat', [ChatController::class, 'getDistributors'])->middleware('auth')->name('chat.page');
+Route::post('/send-message', [ChatController::class, 'sendMessage'])->middleware('auth');
+Route::resource('distributors',RadotDistributorController::class);
+Route::resource('products',RadotProductController::class);
+// Route::get('dashboard',[AuthController::class,'dashboard'])->name('dashboard');
+Route::get('login',[AuthController::class,'login'])->name('login');
+Route::get('/fetch-messages/{receiverId}', [ChatController::class, 'fetchMessages']);
+Route::get('logout',[AuthController::class,'logout'])->name('logout');
+Route::post('post-login',[AuthController::class,'postlogin'])->name('post.login');
+Route::post('/import-excel', [RadotDistributorController::class, 'store'])->name('import.excel');
+Route::get('order-form/{id}',[RadotProductController::class,'order_page'])->name('order.form');
+Route::post('order-post',[RadotProductController::class,'ordering'])->name('order.post');
+
+Route::get('offering',[RadotOfferingController::class,'index'])->name('offering.index');
+Route::post('offering-submit',[RadotOfferingController::class,'store'])->name('offering.store');
+
+Route::get('history-ordering',[OrderingController::class,'index'])->name('ordering.history');
+Route::post('accept-ordering/{id}',[OrderingController::class,'acceptOrdering'])->name('accept.ordering');
+Route::post('decline-ordering/{id}',[OrderingController::class,'declineOrdering'])->name('decline.ordering');
+Route::post('accept-offering/{id}',[OfferingController::class,'acceptOffering'])->name('offering.accept');
+Route::post('decline-offering/{id}',[OfferingController::class,'declineOffering'])->name('offering.decline');
+Route::post('search-product',[RadotProductController::class,'searchProduct'])->name('search.product');
+Route::get('history-ordering-distributor',[OrderingController::class,'historyOrderingForDistributor'])->name('history.distributor');
+Route::get('get-history-offering-distributor',[RadotOfferingController::class,'getHistoryDistributor'])->name('historydistributor.offering');
+
+Route::get('farmer-recomendation',[RadotProductController::class,'recomendationFarmer'])->name('farmer.recomendation');
+Route::get('/broadcast', function() {
+    $message = Message::create([
+        'farmer_id' => 56,
+        'distributor_id' => 45,
+        'message' => "halooo"
+    ]);
+    event(new MessageSent($message));
+
+    return 'ok';
+});

@@ -43,4 +43,8 @@ class Order extends Model
     public function harvest(){
         return $this->belongsTo(Harvest::class);
     }
+
+    public function product(){
+        return $this->hasOne(Harvest::class,'id','Harv_Id');
+    }
 }

@@ -89,7 +89,7 @@
                </a>
              </li>
              <li>
-               <a href="/dashboard/products/index">
+               <a href="/dashboard">
                  <span>Send Order</span>
                </a>
              </li>
