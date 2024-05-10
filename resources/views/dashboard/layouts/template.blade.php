@@ -43,3 +43,34 @@
 <!-- Template Main JS File -->
 <script src="{{ asset("assets/js/main.js") }}"></script>
 
+
+<script>
+
+$(document).ready(function() {
+    // Function to update the badge number
+    function updateBadgeNumber(number) {
+        $('#notificationBadge').text(number);
+    }
+
+    // AJAX call to fetch the data
+    $.ajax({
+        url: '{{route('getNotificationCount')}}', // Replace with your server endpoint
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            // Assuming the response contains the number you want to display
+            var number = response.count;
+
+            console.log(response.count);
+            // Update the badge number
+            updateBadgeNumber(number);
+        },
+        error: function(xhr, status, error) {
+            // Handle errors
+            console.error(xhr.responseText);
+        }
+    });
+});
+
+</script>
+

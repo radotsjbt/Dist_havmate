@@ -197,3 +197,5 @@ Route::get('/broadcast', function() {
 
     return 'ok';
 });
+
+Route::get('/get-notification-count', [OfferingController::class, 'getNotificationCount'])->name('getNotificationCount');

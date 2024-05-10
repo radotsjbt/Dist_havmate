@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 use App\Events\OfferingNotification;
 use App\Models\Harvest;
@@ -13,10 +14,15 @@ use Illuminate\Support\Facades\DB;
 
 class OfferingController extends Controller
 {
+
+    public function getNotificationCount(){
+        $notificationCount = Offering::where('Dist_Id','=',Auth::user()->id)->get()->count(); // Replace with your actual logic to get the count
+        // dd($notificationCount);
+        return response()->json(['count' => $notificationCount]);
+    }
     public function sendOffer($id)
     { 
         $off = new Offering();
-        
         $farm = auth()->user()->id;
         // dd($farm);
         $dist = Distributor::find($id);
