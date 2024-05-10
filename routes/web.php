@@ -91,7 +91,7 @@ Route::post('/dashboard/products/update/{id}', [HarvestController::class, 'updat
 
 // Offering
 // Show offering 
-Route::get('/dashboard/offering/index',[OfferingController::class, 'show']);
+Route::get('/dashboard/offering/index',[OfferingController::class, 'show'])->name('offering_index');
 
 //show offering form
 Route::get('/dashboard/offering/offer/{id}', [OfferingController::class, 'showForm']);

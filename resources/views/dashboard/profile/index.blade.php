@@ -5,7 +5,7 @@
 {{-- Detail Customer --}}
 @section('container')
 
-<a href="/dashboard/index">
+<a href="/dashboard">
     <button type="button" class="btn btn-primary mb-3" >
         <i class="ri-arrow-left-line"></i>
         Back
