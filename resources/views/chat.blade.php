@@ -1,5 +1,5 @@
-@extends('layout')
-@section('content')
+@extends('dashboard.layouts.main')
+@section('container')
     <style>
         #messages {
             max-height: 500px;

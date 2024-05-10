@@ -24,7 +24,12 @@ class ChatController extends Controller
         } else {
             abort(403, 'Unauthorized access.');
         }
-        return view('chat', compact('contacts'));
+        // return view('chat', compact('contacts'));
+        // dd($contacts);
+        return view('chat', [ 
+            'title' => 'Chat',  
+               'contacts' => $contacts,
+            ]);
     }
 
     public function fetchMessages($receiverId)
