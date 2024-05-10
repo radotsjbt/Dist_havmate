@@ -22,7 +22,7 @@
         <tr>
           @foreach ($offering as $off)
           {{-- check the user with their offering data --}}
-          @if(auth()->user()->username === $off->Farmer_Name)
+          @if(auth()->user()->username === $off->Farmer_Name || (auth()->user()->id === $off->Dist_Id))  
           <tr>
               <td>{{ $off->Offer_ID}}</td>
               <td>{{ $off->Dist_Name}}</td>

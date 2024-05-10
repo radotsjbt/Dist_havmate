@@ -166,9 +166,9 @@ Route::post('/send-message', [ChatController::class, 'sendMessage'])->middleware
 Route::resource('distributors',RadotDistributorController::class);
 Route::resource('products',RadotProductController::class);
 // Route::get('dashboard',[AuthController::class,'dashboard'])->name('dashboard');
-Route::get('login',[AuthController::class,'login'])->name('login');
+// Route::get('login',[AuthController::class,'login'])->name('login');
 Route::get('/fetch-messages/{receiverId}', [ChatController::class, 'fetchMessages']);
-Route::get('logout',[AuthController::class,'logout'])->name('logout');
+// Route::get('logout',[AuthController::class,'logout'])->name('logout');
 Route::post('post-login',[AuthController::class,'postlogin'])->name('post.login');
 Route::post('/import-excel', [RadotDistributorController::class, 'store'])->name('import.excel');
 Route::get('order-form/{id}',[RadotProductController::class,'order_page'])->name('order.form');

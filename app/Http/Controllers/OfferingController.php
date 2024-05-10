@@ -18,8 +18,9 @@ class OfferingController extends Controller
         $off = new Offering();
         
         $farm = auth()->user()->id;
+        // dd($farm);
         $dist = Distributor::find($id);
-        $harv= Harvest::find($farm);
+        
         
 
         $off->Offer_ID = IdGenerator::generate([
@@ -32,6 +33,9 @@ class OfferingController extends Controller
         $off->Dist_Name= $dist->Dist_Name;
         $off->Farmer_Id = $farm;
         $off->Farmer_Name = auth()->user()->username;
+        
+        $harv= Harvest::where('Harv_Name','=',request('inputHarvName'))->first();
+        
         $off->Harv_Id = $harv->id;
         $off->Harv_Name = request('inputHarvName');
         $off->Qty= request('inputHarvQty');
@@ -66,6 +70,7 @@ class OfferingController extends Controller
     }
  
     public function show(){
+        // dd(Offering::all());
         return view('/dashboard/offering/index', [
             'title' => 'Offering Status',  
             'offering' => Offering::all(),
