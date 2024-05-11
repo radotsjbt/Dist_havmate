@@ -132,6 +132,8 @@ Route::get('/dashboard/distributor/dist/{id}', [DistributorController::class, 's
 Route::post('/dashboard/notification/notif', [DistributorController::class, 'updateData'])->middleware('auth');
 
 
+Route::get('/dashboard/distributor/rekomendasi', [DistributorController::class, 'rekomendasi'])->middleware('auth')->name('rekomendasi');
+
 // Order
 // Show order status
 Route::get('/dashboard/ordering/index', [OrderController::class, 'showAll'])->middleware('auth');

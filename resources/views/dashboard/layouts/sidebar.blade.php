@@ -105,6 +105,13 @@
         </a>
       </li><!-- End Profile Page Nav -->
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{route('rekomendasi')}}">
+          <i class="bi bi-person"></i>
+          <span>Rekomendasi</span>
+        </a>
+      </li>
+
       <li class="nav-item" hidden>
         <a class="nav-link collapsed" href="pages-faq.html">
           <i class="bi bi-question-circle"></i>

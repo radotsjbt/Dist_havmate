@@ -26,6 +26,14 @@ class DistributorController extends Controller
         
     }
 
+    public function rekomendasi(){
+        return view('/dashboard/distributor/rekomendasi', [
+            "title" => "Rekomendasi",
+            "distributor" => Distributor::all()
+        ]);
+        
+    }
+
     public function showSingle($id)
     {
         return view('/dashboard/distributor/dist', [
