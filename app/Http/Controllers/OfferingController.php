@@ -13,12 +13,19 @@ use Illuminate\Support\Facades\DB;
 
 class OfferingController extends Controller
 {
+    // Farmer page
     public function sendOffer($id)
     { 
+        // create new offering
         $off = new Offering();
         
+        // save the user id (farmer) to the variable
         $farm = auth()->user()->id;
+
+        // find distributor data based on the id from the route
         $dist = Distributor::find($id);
+
+        // find the farmer's product based on the id
         $harv= Harvest::find($farm);
         
 
@@ -50,7 +57,7 @@ class OfferingController extends Controller
 
     //  event(new OfferingNotification($data));
 
-     return redirect('/dashboard/offering/index');
+     return redirect('/dashboard/offering/fromFarmer/index');
 
     }
 
@@ -65,7 +72,7 @@ class OfferingController extends Controller
             ]);
     }
  
-    public function show(){
+    public function showToFarmer(){
         return view('/dashboard/offering/index', [
             'title' => 'Offering Status',  
             'offering' => Offering::all(),
@@ -106,6 +113,26 @@ class OfferingController extends Controller
         return view('/dashboard/offering/index', [
             'title' => 'Offering Status',
             'offering' => Offering::all()
+        ]);
+    }
+
+    // Distributor page
+    public function showToDistributor(){
+        return view('/dashboard/offering/index', [
+            'title' => 'Offering Status',  
+            'offering' => Offering::all(),
+        ]);
+    }
+
+    public function acceptOffering($id){
+      
+
+        // update into offering table
+        DB::update('update offering set status=? where id=?', ["Accept", $id]);
+
+        return view('/dashboard/offering/index', [
+            'title' => 'Offering Status',  
+            'offering' => Offering::all(),
         ]);
     }
 }

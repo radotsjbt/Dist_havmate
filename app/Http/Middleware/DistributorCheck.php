@@ -15,10 +15,11 @@ class DistributorCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
-
+        // if the user not login as the distributor
        if(!auth()->check() || auth()->user()->role!== 'Distributor'){
             abort('403');
         }
+            // if the user distributor, continue the request
              return $next($request);
     }
 }

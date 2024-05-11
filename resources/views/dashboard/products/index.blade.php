@@ -34,13 +34,13 @@
               <td>
 
                 {{-- delete button --}}
-                <a href="/dashboard/products/index/{{ $prod->id }}" class="btn-delete">
-                  <i class="bi bi-trash3"></i> Delete
+                <a href="/dashboard/products/index/{{ $prod->id }}" class="btn btn-danger" style="color: white;">
+                  <i class="bi bi-trash3" style="color: white;"></i> Delete
                 </a>
 
                 {{-- edit button --}}
-                <a href="/dashboard/products/editProd/{{ $prod->id }}" class="btn-edit">
-                  <i class="bi bi-pen"></i> Edit
+                <a href="/dashboard/products/editProd/{{ $prod->id }}" class="btn btn-primary" style="color: white;">
+                  <i class="bi bi-pen" style="color: white;"></i> Edit
                 </a>
                
               </td>
@@ -63,7 +63,7 @@
   <div class="col-md-8">
     <div class="search">
       <i class="fa fa-search"></i>
-      <input type="text" class="form-control" placeholder="Search distributor here...">
+      <input type="text" class="form-control" placeholder="Search products here...">
       <button class="btn">Search</button>
     </div>
   </div>

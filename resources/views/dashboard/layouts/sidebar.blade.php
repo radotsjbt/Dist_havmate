@@ -44,7 +44,7 @@
         </a>
         <ul id="offering-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="/dashboard/offering/index">
+            <a href="/dashboard/offering/toDistributor/index">
               </i><span>Offering Status</span>
             </a>
           </li>
@@ -64,7 +64,7 @@
      <ul class="nav flex-column">
        <li class="nav-item">
         <a class="nav-link collapsed {{ Request::is('dashboard/offering/index') ? 'active' : '' }}"  
-         href="/dashboard/offering/index">
+         href="/dashboard/offering/fromFarmer/index">
           <i class="bi bi-arrow-down-up"></i><span>Offering Status</span>
         </a>
         {{-- <ul id="offering-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">

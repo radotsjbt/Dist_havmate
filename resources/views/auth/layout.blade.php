@@ -31,7 +31,7 @@
 <link href="{{ asset("assets/css/style.css") }}" rel="stylesheet">
 
 {{-- Sweet alert --}}
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="{{ asset("https://cdn.jsdelivr.net/npm/sweetalert2@11") }}"></script>
 
 <!-- Vendor JS Files -->
 <script src="{{ asset("assets/vendor/apexcharts/apexcharts.min.js") }}"></script>
