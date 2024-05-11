@@ -66,7 +66,7 @@
       </div>
 
       <div class="text-center mt-5">
-        <button type="submit" class="btn btn-primary">Send order</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </div>
 
 </form>
