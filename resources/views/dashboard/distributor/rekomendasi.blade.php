@@ -9,8 +9,7 @@
     <h5 class="card-title">Rekomendasi Produk!</h5>
 
     <!-- Ordering Form -->
-    <form action= "" method="post" 
-    enctype="multipart/form-data" class="row g-3">
+    <form action= "" method="post" enctype="multipart/form-data" class="row g-3">
       @csrf
       <div class="col-md-6">
         <label for="inputProdName">Distributor Name</label>

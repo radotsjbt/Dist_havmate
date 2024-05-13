@@ -30,7 +30,7 @@
             <p class="card-text">{{ $product->Harv_ID }}</p>
             <div class="d-flex justify-content-center">
                 <a href="{{ route('orderProduk', $product->id) }}" class="btn btn-primary me-2">Order</a>
-                <a href="{{ route('chat', $product->id) }}" class="btn btn-primary">Chat</a>
+                <a href="{{ route('getChatById', $product->Farmer_Id) }}" class="btn btn-primary">Chat</a>
             </div>
             <!-- You can add more details here -->
         </div>

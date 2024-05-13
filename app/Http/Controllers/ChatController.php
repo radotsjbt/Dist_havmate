@@ -17,8 +17,9 @@ class ChatController extends Controller
     public function getDistributors()
     {
         $user = Auth::user();
+        // dd($user);
         if ($user->role == 'Distributor') {
-            $contacts = User::where('role','=','Petani')->get();
+            $contacts = User::where('role','=','Farmer')->get();
         } elseif ($user->role == 'Distributor') {
             $contacts = User::where('role','=','Distributor')->get();
         } else {
@@ -26,6 +27,26 @@ class ChatController extends Controller
         }
         // return view('chat', compact('contacts'));
         // dd($contacts);
+        return view('chat', [ 
+            'title' => 'Chat',  
+               'contacts' => $contacts,
+            ]);
+    }
+
+
+    public function getChatById($id)
+    {
+        $user = Auth::user();
+        // dd($user);
+        if ($user->role == 'Distributor') {
+            $contacts = User::where('id','=',$id)->where('role','=','Farmer')->get();
+        } elseif ($user->role == 'Distributor') {
+            $contacts = User::where('id','=',$id)->where('role','=','Distributor')->get();
+        } else {
+            abort(403, 'Unauthorized access.');
+        }
+        // return view('chat', compact('contacts'));
+        // dd($id);
         return view('chat', [ 
             'title' => 'Chat',  
                'contacts' => $contacts,
@@ -46,8 +67,10 @@ class ChatController extends Controller
 
     public function sendMessage(Request $request)
     {
-        $receiverRole = Auth::user()->role == 'Distributor' ? 'Petani' : 'Distributor';
+        $receiverRole = Auth::user()->role == 'Distributor' ? 'Farmer' : 'Distributor';
+        
         $receiverUser = User::where('role','=',$receiverRole)->where('id', $request->receiver)->firstOrFail();
+        // dd($receiverUser);
         $message = Message::create([
             'sender_id' => Auth::user()->id,  // Misalkan Anda menambahkan 'sender_id' ke skema Message
             'receiver_id' => $receiverUser->id,

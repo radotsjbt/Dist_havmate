@@ -33,7 +33,7 @@
         <div class="mb-3">
             <select id="receiver" class="form-select" onchange="loadChatHistory()">
                 @foreach ($contacts as $contact)
-                    <option value="{{ $contact->id }}">{{ $contact->name }}</option>
+                    <option value="{{ $contact->id }}">{{ $contact->username }}</option>
                 @endforeach
             </select>
         </div>

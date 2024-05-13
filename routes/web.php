@@ -108,6 +108,9 @@ Route::get('/dashboard/offering/editOff/{id}', [OfferingController::class, 'edit
 // update offering data
 Route::post('/dashboard/offering/update/{id}', [OfferingController::class, 'update'])->middleware('auth');
 
+Route::get('/dashboard/offering/accept/{id}', [OfferingController::class, 'accept'])->middleware('auth');
+Route::get('/dashboard/offering/accept/{id}', [OfferingController::class, 'accept'])->middleware('auth');
+
 
 // notif pusher offering
 // Route::get('/dashboard/index', [DashboardProductsController::class, 'show'])->middleware('auth');
@@ -148,6 +151,8 @@ Route::get('/dashboard/products/prod/{id}', [HarvestController::class, 'showSing
 Route::get('/dashboard/ordering/order/{id}', [OrderController::class, 'showForm'])->middleware('auth');
 Route::get('/orderProduk/{id}', [OrderController::class, 'showForm'])->middleware('auth')->name('orderProduk');
 
+
+
 // Send order to farmer
 Route::post('/dashboard/ordering/index/{id}', [OrderController::class, 'sendOrder'])->middleware('auth');
 
@@ -155,7 +160,9 @@ Route::post('/dashboard/ordering/index/{id}', [OrderController::class, 'sendOrde
 Route::get('/dashboard/ordering/index/{id}', [OrderController::class, 'deleteOrder'])->middleware('auth');
 Route::get('/detailProduk/{id}', [DistributorController::class, 'detailProduk'])->middleware('auth')->name('detailProduk');
 // Route::get('/orderProduk/{id}', [DistributorController::class, 'orderProduk'])->middleware('auth')->name('orderProduk');
-Route::get('/chat/{id}', [DistributorController::class, 'chat'])->middleware('auth')->name('chat');
+// Route::get('/chat/{id}', [DistributorController::class, 'chat'])->middleware('auth')->name('chat');
+
+Route::get('/chat/{id}', [ChatController::class, 'getChatById'])->middleware('auth')->name('getChatById');
 
 // edit order data
 Route::get('/dashboard/ordering/editOrder/{id}', [OrderController::class, 'editOrder'])->middleware('auth');
@@ -164,7 +171,7 @@ Route::get('/dashboard/ordering/editOrder/{id}', [OrderController::class, 'editO
 Route::post('/dashboard/ordering/update/{id}', [OrderController::class, 'updateOrder'])->middleware('auth');
 
 Route::get('/chat', [ChatController::class, 'getDistributors'])->middleware('auth')->name('chat.page');
-Route::post('/send-message', [ChatController::class, 'sendMessage'])->middleware('auth');
+Route::post('/send-message', [ChatController::class, 'sendMessage'])->name('send-message');
 Route::resource('distributors',RadotDistributorController::class);
 Route::resource('products',RadotProductController::class);
 // Route::get('dashboard',[AuthController::class,'dashboard'])->name('dashboard');

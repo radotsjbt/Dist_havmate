@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Auth;
 use Illuminate\Http\Request;
 use App\Events\OfferingNotification;
@@ -99,6 +100,60 @@ class OfferingController extends Controller
             'product' => Harvest::all(),
         ]);
     }
+
+    public function accept($id)
+    {
+        $offering = Offering::find($id);
+
+        $ord = new Order();
+        
+        $dist = auth()->user()->id;
+        $harv = Harvest::find($offering->Harv_Id);
+        
+        // dd($offering);
+
+        $ord->Order_ID = IdGenerator::generate([
+         'table' => 'orders',
+         'field' => 'Order_ID',
+         'length' => 7,
+         'prefix' => 'ORD'
+     ]);
+        $ord->Dist_Id = auth()->user()->id;
+        $ord->Dist_Name= auth()->user()->username;
+        $ord->Farmer_Id = $harv->Farmer_Id;
+        $ord->Farmer_Name = $harv->Farmer_Name;
+        $ord->Harv_Id = $id;
+        $ord->Harv_Name = $harv->Harv_Name;
+        $ord->Qty= $offering->Qty;
+        $ord->Total_Price= $offering->Offer_Price;
+        $ord->Notes= 'base on order';
+        $ord->status= 'Waiting';
+
+        $ord->save();
+
+        $offering->status ="Accept";
+        $offering->update();
+
+
+        return view('/dashboard/offering/index', [
+            'title' => 'Offering Status',  
+            'offering' => Offering::all(),
+        ]);
+    }
+
+
+    public function decline($id)
+    {
+        $offering = Offering::find($id);
+        $offering->status ="Decline";
+        $offering->update();
+
+        return view('/dashboard/offering/index', [
+            'title' => 'Offering Status',  
+            'offering' => Offering::all(),
+        ]);
+    }
+
 
     public function update(Request $request, $id)
     {

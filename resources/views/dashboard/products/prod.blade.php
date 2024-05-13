@@ -26,7 +26,7 @@
                 <a href="/dashboard/ordering/order/{{ $products->id }}" >
                     <button type="button" class="btn btn-primary">Order</button>
                 </a>
-                <a href="/chat/{{ $products->Farmer_ID }}">
+                <a href="/getChatById/{{ $products->Farmer_ID }}">
                 <button type="button" class="btn btn-primary">Chat</button>
                 </a>
               </div>  
