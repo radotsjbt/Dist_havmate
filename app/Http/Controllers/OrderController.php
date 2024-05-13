@@ -61,6 +61,45 @@ class OrderController extends Controller
             ]);
     }
 
+    public function new_order()
+    {
+        return view('dashboard/ordering/new_order', [ 
+            'title' => 'Send Order',  
+            'products' => Harvest::all(),
+            'user' => User::all(),   
+            ]);
+    }
+
+    public function sendOrderNew(Request $request)
+    {
+        $ord = new Order();
+        
+        $dist = auth()->user()->id;
+        $harv = Harvest::find($request->Harv_Id);
+        // dd($harv);
+
+        $ord->Order_ID = IdGenerator::generate([
+         'table' => 'orders',
+         'field' => 'Order_ID',
+         'length' => 7,
+         'prefix' => 'ORD'
+     ]);
+        $ord->Dist_Id = auth()->user()->id;
+        $ord->Dist_Name= auth()->user()->username;
+        $ord->Farmer_Id = $harv->Farmer_Id;
+        $ord->Farmer_Name = $harv->Farmer_Name;
+        $ord->Harv_Id = $harv->id;
+        $ord->Harv_Name = $harv->Harv_Name;
+        $ord->Qty= request('inputQty');
+        $ord->Total_Price= request('inputTotalPrice');
+        $ord->Notes= request('inputNotes');
+        $ord->status= 'Waiting';
+        // dd($ord);
+
+        $ord->save(); 
+     return redirect('/dashboard/ordering/index');
+    }
+
     public function deleteOrder($id)
     {
         // Alert::warning('Warning Title', 'Do you want to delete this product?');    

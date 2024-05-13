@@ -89,7 +89,7 @@
                </a>
              </li>
              <li>
-               <a href="/dashboard">
+               <a href="{{route('new_order')}}">
                  <span>Send Order</span>
                </a>
              </li>

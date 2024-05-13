@@ -150,6 +150,8 @@ Route::get('/dashboard/products/prod/{id}', [HarvestController::class, 'showSing
 // Show order form
 Route::get('/dashboard/ordering/order/{id}', [OrderController::class, 'showForm'])->middleware('auth');
 Route::get('/orderProduk/{id}', [OrderController::class, 'showForm'])->middleware('auth')->name('orderProduk');
+Route::get('/new_order', [OrderController::class, 'new_order'])->middleware('auth')->name('new_order');
+Route::post('/sendOrderNew', [OrderController::class, 'sendOrderNew'])->middleware('auth')->name('sendOrderNew');
 
 
 
@@ -162,7 +164,7 @@ Route::get('/detailProduk/{id}', [DistributorController::class, 'detailProduk'])
 // Route::get('/orderProduk/{id}', [DistributorController::class, 'orderProduk'])->middleware('auth')->name('orderProduk');
 // Route::get('/chat/{id}', [DistributorController::class, 'chat'])->middleware('auth')->name('chat');
 
-Route::get('/chat/{id}', [ChatController::class, 'getChatById'])->middleware('auth')->name('getChatById');
+Route::get('/chat/{id}', [ChatController::class, 'getChatById'])->name('getChatById');
 
 // edit order data
 Route::get('/dashboard/ordering/editOrder/{id}', [OrderController::class, 'editOrder'])->middleware('auth');
@@ -170,7 +172,7 @@ Route::get('/dashboard/ordering/editOrder/{id}', [OrderController::class, 'editO
 // update order data
 Route::post('/dashboard/ordering/update/{id}', [OrderController::class, 'updateOrder'])->middleware('auth');
 
-Route::get('/chat', [ChatController::class, 'getDistributors'])->middleware('auth')->name('chat.page');
+Route::get('/chat', [ChatController::class, 'getDistributors'])->name('chat.page');
 Route::post('/send-message', [ChatController::class, 'sendMessage'])->name('send-message');
 Route::resource('distributors',RadotDistributorController::class);
 Route::resource('products',RadotProductController::class);
@@ -198,13 +200,46 @@ Route::get('get-history-offering-distributor',[RadotOfferingController::class,'g
 Route::get('farmer-recomendation',[RadotProductController::class,'recomendationFarmer'])->name('farmer.recomendation');
 Route::get('/broadcast', function() {
     $message = Message::create([
-        'farmer_id' => 56,
-        'distributor_id' => 45,
+        'receiver_id' => 2,
+        'sender_id' => 1,
         'message' => "halooo"
     ]);
     event(new MessageSent($message));
 
     return 'ok';
 });
+
+// Route::post('/broadcasting/auth', function (Request $request) {
+//     return Broadcast::auth($request);
+// })->middleware('auth');
+
+// Route::post('/broadcasting/auth', function (Request $request) {
+//     $user = Auth::user(); // Assuming you're using Laravel's authentication
+//     dd($user);
+//     if (!$user) {
+//         // If user is not authenticated, return a 403 Forbidden response
+//         return response()->json(['error' => 'Unauthorized'], 403);
+//     }
+    
+//     $socket_id = $request->input('socket_id');
+//     $channel_name = $request->input('channel_name');
+    
+//     // Here you might perform additional checks, such as verifying if the user has access to the channel
+    
+//     $pusher = new Pusher\Pusher(
+//         env('PUSHER_APP_KEY'),
+//         env('PUSHER_APP_SECRET'),
+//         env('PUSHER_APP_ID'),
+//         [
+//             'cluster' => env('PUSHER_APP_CLUSTER'),
+//             'encrypted' => true
+//         ]
+//     );
+    
+//     // Generate the authentication token for the user and channel
+//     $auth = $pusher->socket_auth($channel_name, $socket_id, ['user_id' => $user->id]);
+    
+//     return response()->json($auth);
+// });
 
 Route::get('/get-notification-count', [OfferingController::class, 'getNotificationCount'])->name('getNotificationCount');

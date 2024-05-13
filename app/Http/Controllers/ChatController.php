@@ -20,7 +20,7 @@ class ChatController extends Controller
         // dd($user);
         if ($user->role == 'Distributor') {
             $contacts = User::where('role','=','Farmer')->get();
-        } elseif ($user->role == 'Distributor') {
+        } elseif ($user->role == 'Farmer') {
             $contacts = User::where('role','=','Distributor')->get();
         } else {
             abort(403, 'Unauthorized access.');
