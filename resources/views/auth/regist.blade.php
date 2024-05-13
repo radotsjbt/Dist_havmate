@@ -91,28 +91,8 @@
           </section>
         
         </div>
-      </main><!-- End #main -->
-
-      <body>
-        {{-- Sweet alert --}}
-  <script src="{{ asset("https://cdn.jsdelivr.net/npm/sweetalert2@11") }}"></script>
-  
-      <script type="text/javascript">
-        $(function(){
-          $(document).on('click', '#regist-btn', function(e){
-            e.preventDefault();
-            var link = $(this).attr("href");
-              Swal.fire({
-                  position: "center",
-                  icon: "success",
-                  title: "Your data has been saved",
-                  showConfirmButton: false,
-                  timer: 1500
-              });
-            })
-        })
-    </script>
-    </body>
+      </main><!-- End #main --
+ 
     
 @endsection
   

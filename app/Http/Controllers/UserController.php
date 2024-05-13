@@ -64,13 +64,7 @@ class UserController extends Controller
              
                 $dist->save(); //insert to distributors table
             }
-// if($user->role ==='Farmer'){
-//     $user->User_ID = $farm->Farmer_ID;
-// }
-// if($user->role === 'Distributor'){
-//     $user->User_ID = $dist->Dist_ID;
-// }
-        
+   
         $user->save(); //insert to users table
         return redirect('/auth/login');
     }
@@ -162,10 +156,6 @@ class UserController extends Controller
         DB::update('update users set username=?, address=?,  phone=?, email=? where id=?', [$username, $address, $phone, $email, $id]);
 
 
-        // return view('/dashboard/profile/index', [ 
-        //     'title' => 'User Profile',  
-        //     'profile' => User::find($id)     
-        //     ]);
         return back();
     }
 

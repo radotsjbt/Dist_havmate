@@ -19,7 +19,7 @@
 
       <div class="col-md-6">
         <label for="inputHarvStock">Stock (/kg)</label>
-          <input type="text" name="inputHarvStock"class="form-control" id="inputHarvStock" disabled>
+          <input type="text" name="inputHarvStock" data-stock="{{ $product->Harv_Stock }}" class="form-control" id="inputHarvStock" disabled>
       </div>
 
       <div class="col-md-6">

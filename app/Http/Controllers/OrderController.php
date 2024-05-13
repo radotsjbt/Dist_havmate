@@ -10,6 +10,7 @@ use Haruncpi\LaravelIdGenerator\IdGenerator;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class OrderController extends Controller
 {
@@ -20,7 +21,7 @@ class OrderController extends Controller
     {
         $ord = new Order();
         
-        $dist = auth()->user()->id;
+
         $harv = Harvest::find($id);
         
 
@@ -45,10 +46,11 @@ class OrderController extends Controller
      return redirect('/dashboard/ordering/index');
     }
 
-    public function showAll(){
+    public function showToFarmer() : View
+    {
         return view('/dashboard/ordering/index', [
             'title' => 'Order Status',  
-            'ordering' => Order::all(),
+            'ordering' => Order::paginate(10),
         ]);
     }
 
@@ -62,8 +64,7 @@ class OrderController extends Controller
     }
 
     public function deleteOrder($id)
-    {
-        // Alert::warning('Warning Title', 'Do you want to delete this product?');    
+    {   
         DB::table('orders')->where('id', '=', $id)->delete();
 
         return redirect()->back();

@@ -55,7 +55,7 @@
         <label for="inputTotalPrice">Total Price</label>
           <div class="input-group col-sm-10">
             <span class="input-group-text" id="inputGroupPrepend">Rp</span>
-            <input type="text" name="inputTotalPrice" class="form-control" id="inputTotalPrice" onchange="totalPrice()" readonly>
+            <input type="text" name="inputTotalPrice" class="form-control" id="inputTotalPrice"  readonly>
             
           </div>
       </div>
@@ -87,29 +87,26 @@
           $('[name=inputHarvPrice]').val(price);
           $('[name=inputHarvStock]').val(stock);   
 
-
            // when the inputTotalPrice onfocus, calculate the total price
            $('#inputTotalPrice').on('focus', function(){
-              
+            
               // collect the quantity value from user input
               const qty = document.getElementById('inputHarvQty').value;
                 $('[name=inputHarvQty]').val(qty);
 
-                // if products are out-of-stock
+                    // if products are out-of-stock
                     if(qty > stock){
-                      const needStock = (qty - stock);
+                      const needStock = qty - stock;
                         Swal.fire({
                         icon: "info",
                         title: "Out of Stock",
                         text: "You need " + needStock + " kg more!",
-                        showConfirmButton: true
-                
-                        }).then((result)=> {
-                          if (result.isConfirmed) {
-                            // set the number of qty 
+                        
+                        }).then(
+                            // set the number of qty = 0
                             $('#inputHarvQty').val(0)
-                          }
-                        });
+                          
+                        );
               
                     }else{
                       // calculate the total price based on the quantity
@@ -123,14 +120,6 @@
            
   });
               
-              // function calculate(){
-                  
-              //     let qty = $(document.getElementById('inputHarvQty'));
-                    
-                
-              //   }
-           
-      
 </script>
 
 @endsection

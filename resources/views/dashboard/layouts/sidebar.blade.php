@@ -15,7 +15,13 @@
     {{-- If the user is farmer --}}
       @can('FarmerCheck')
       <ul class="nav flex-column">
-      
+        
+          <li class="nav-item">
+           <a class="nav-link collapsed {{ Request::is('dashboard/ordering/index') ? 'active' : '' }}"  
+            href="/dashboard/ordering/fromDistributor/index">
+             <i class="bi bi-cart4"></i><span>Incoming Orders</span>
+           </a>
+
         <li class="nav-item">
             <a class="nav-link collapsed {{ Request::is('dashboard/products/index') ? 'active' : '' }}"  
             aria-current="page" href="/dashboard/products/index" data-bs-target="#products-nav" data-bs-toggle="collapse" href="#">
@@ -65,16 +71,8 @@
        <li class="nav-item">
         <a class="nav-link collapsed {{ Request::is('dashboard/offering/index') ? 'active' : '' }}"  
          href="/dashboard/offering/fromFarmer/index">
-          <i class="bi bi-arrow-down-up"></i><span>Offering Status</span>
-        </a>
-        {{-- <ul id="offering-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="/dashboard/offering/index">
-              </i><span>Offering Status</span>
-            </a>
-          </li>
-        </ul> --}}
-      
+          <i class="bi bi-arrow-down-up"></i><span>Incoming Offers</span>
+        </a>   
 
         <ul class="nav flex-column">
           <li class="nav-item">
@@ -94,7 +92,7 @@
                </a>
              </li>
            </ul>
-          </li>
+        </li>
       </ul>
       @endcan
 
@@ -106,18 +104,19 @@
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
-          <i class="bi bi-question-circle"></i>
-          <span>F.A.Q</span>
+        <a class="nav-link collapsed" href="/dashboard/chat/index/{{ auth()->user()->id }}">
+          <i class="bi bi-chat"></i>
+          <span>Chat</span>
         </a>
-      </li><!-- End F.A.Q Page Nav -->
-
+      </li><!-- End Chat Page Nav -->
+     
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
+        <a class="nav-link collapsed" href="/dashboard/notification/index/{{ auth()->user()->id }}">
+          <i class="bi bi-bell"></i>
+          <span>Notification</span>
         </a>
-      </li><!-- End Contact Page Nav -->
+      </li><!-- End Notification Page Nav -->
+     
 
   </ul>
 </aside><!-- End Sidebar-->

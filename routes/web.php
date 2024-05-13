@@ -101,7 +101,7 @@ Route::post('/dashboard/offering/update/{id}', [OfferingController::class, 'upda
 Route::get('/dashboard/offering/fromFarmer/acceptOffering/{id}', [OfferingController::class, 'acceptOffering'])->middleware('auth');
 
 // decline offering
-Route::get('/dashboard/offering/fromFarmer/declineOffering/{id}', [OfferingController::class, 'declineOrder'])->middleware('auth');
+Route::get('/dashboard/offering/fromFarmer/declineOffering/{id}', [OfferingController::class, 'declineOffering'])->middleware('auth');
 
 
 // notif pusher offering
@@ -129,7 +129,7 @@ Route::post('/dashboard/notification/notif', [DistributorController::class, 'upd
 
 // Order
 // Show order status
-Route::get('/dashboard/ordering/index', [OrderController::class, 'showAll'])->middleware('auth');
+Route::get('/dashboard/ordering/fromDistributor/index', [OrderController::class, 'showToFarmer'])->middleware('auth');
 
 // Show products from farmers
 Route::get('/dashboard/products/index', [HarvestController::class, 'show'])->middleware('auth');
