@@ -49,6 +49,11 @@ Route::get('/auth/login', function () {
         "title" => "Login"
     ]);
 });
+Route::get('/login', function () {
+    return view('/auth/login', [
+        "title" => "Login"
+    ]);
+});
 
 //Post Login
 Route::post('/auth/login',[UserController::class,'authenticate']);
