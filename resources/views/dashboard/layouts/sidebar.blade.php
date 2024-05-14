@@ -105,7 +105,7 @@
         </a>
       </li><!-- End Profile Page Nav -->
 
-      <li class="nav-item">
+      <li class="nav-item" hidden>
         <a class="nav-link collapsed" href="{{route('rekomendasi')}}">
           <i class="bi bi-person"></i>
           <span>Rekomendasi</span>

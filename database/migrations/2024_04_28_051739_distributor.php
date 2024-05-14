@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('Qty')->nullable();
             $table->string('Purchase_Price')->default('default')->nullable();
             $table->string('DistProd_Name')->default('default')->nullable();
-            $table->text('DistProd_Desc')->default('default')->nullable();
+            $table->text('DistProd_Desc')->nullable();
             $table->timestamps();
         });
     }

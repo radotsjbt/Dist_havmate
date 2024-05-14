@@ -27,8 +27,6 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <script src="{{-- asset('build/assets/app2.js') --}}"></script>
 
     <!-- <script src="https://js.pusher.com/7.0/pusher.min.js"></script> -->
 
