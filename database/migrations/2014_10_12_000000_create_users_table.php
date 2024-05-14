@@ -24,6 +24,15 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role');
+            
+            $table->string('web')->nullable();
+            $table->string('image_url')->nullable();
+            $table->string('product_name')->nullable();
+            $table->string('product_desc')->nullable();
+            $table->string('qty')->nullable();
+            $table->string('needs')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -14,7 +14,7 @@
           <th scope="col">Harvest Name</th>
           <th scope="col">Quantity</th>
           <th scope="col">Total Price</th>
-          <!-- <th scope="col">Status</th> -->
+          <th scope="col">Status</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
@@ -29,7 +29,7 @@
               <td>{{ $off->Harv_Name}}</td>
               <td>{{ $off->Qty}}</td>
               <td>{{ $off->Offer_Price}}</td>
-              <!-- <td>{{ $off->status }}</td>  -->
+              <td>{{ $off->status }}</td> 
               <td>
 
                 {{-- delete button --}}

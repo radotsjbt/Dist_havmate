@@ -161,6 +161,16 @@ class UserController extends Controller
         // update the data on database (table users)
         DB::update('update users set username=?, address=?,  phone=?, email=? where id=?', [$username, $address, $phone, $email, $id]);
 
+        $user->web =  $request->input('web');
+        $user->image_url =  $request->input('image_url');
+        $user->product_name =  $request->input('product_name');
+        $user->product_desc =  $request->input('product_desc');
+        $user->qty =  $request->input('qty');
+        $user->needs =  $request->input('needs');
+        $user->latitude =  $request->input('latitude');
+        $user->longitude =  $request->input('longitude');
+        $user->update();
+
 
         // return view('/dashboard/profile/index', [ 
         //     'title' => 'User Profile',  

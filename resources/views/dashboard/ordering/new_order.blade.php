@@ -16,7 +16,7 @@
         <label for="inputProdName">Product Name (Harv Name) (Harv Stock)</label>
         <select class="select2 form-control" name="Harv_Id" id="Harv_Id">
           @foreach ($products as $p )
-          <option value="{{$p->id}}">{{$p->Harv_Name.' ('.$p->Farmer_Name.') '.' ('.$p->Harv_Stock.') '}}</option>
+          <option value="{{$p->id}}">{{$p->Harv_Name.' ('.$p->Farmer_Name.'-'. $p->farmer?->phone .'-'. $p->farmer?->address .') '.' ('.$p->Harv_Stock.') '}}</option>
           @endforeach
         </select>
       </div>

@@ -74,6 +74,45 @@
                   <div class="col-lg-9 col-md-8">{{ $profile->email}}</div>
                 </div>
 
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">Web</div>
+                  <div class="col-lg-9 col-md-8">{{ $profile->web}}</div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">image_url</div>
+                  <div class="col-lg-9 col-md-8">{{ $profile->image_url}}</div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">product_name</div>
+                  <div class="col-lg-9 col-md-8">{{ $profile->product_name}}</div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">product_desc</div>
+                  <div class="col-lg-9 col-md-8">{{ $profile->product_desc}}</div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">qty</div>
+                  <div class="col-lg-9 col-md-8">{{ $profile->qty}}</div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">needs</div>
+                  <div class="col-lg-9 col-md-8">{{ $profile->needs}}</div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">latitude</div>
+                  <div class="col-lg-9 col-md-8">{{ $profile->latitude}}</div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">longitude</div>
+                  <div class="col-lg-9 col-md-8">{{ $profile->longitude}}</div>
+                </div>
               </div>
 
               <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
@@ -108,6 +147,64 @@
                       <input name="email" type="text" class="form-control" id="email" value="{{ $profile->email }}">
                     </div>
                   </div>
+
+                  <div class="row mb-3">
+                    <label for="web" class="col-md-4 col-lg-3 col-form-label">Web</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="web" type="text" class="form-control" id="web" value="{{ $profile->web }}">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="web" class="col-md-4 col-lg-3 col-form-label">Image Url</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="image_url" type="text" class="form-control" id="image_url" value="{{ $profile->image_url }}">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="product_name" class="col-md-4 col-lg-3 col-form-label">Product Name</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="product_name" type="text" class="form-control" id="product_name" value="{{ $profile->product_name }}">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="product_desc" class="col-md-4 col-lg-3 col-form-label">Product Desc</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="product_desc" type="text" class="form-control" id="product_desc" value="{{ $profile->product_desc }}">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="qty" class="col-md-4 col-lg-3 col-form-label">QTY</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="qty" type="text" class="form-control" id="qty" value="{{ $profile->qty }}">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="needs" class="col-md-4 col-lg-3 col-form-label">Purchase Needs</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="needs" type="text" class="form-control" id="needs" value="{{ $profile->needs }}">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="latitude" class="col-md-4 col-lg-3 col-form-label">Latitude</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="latitude" type="text" class="form-control" id="latitude" value="{{ $profile->latitude }}">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="longitude" class="col-md-4 col-lg-3 col-form-label">Longitude</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="longitude" type="text" class="form-control" id="longitude" value="{{ $profile->longitude }}">
+                    </div>
+                  </div>
+
+
 
                   <div class="text-center">
                     <button type="submit" class="btn btn-primary">Save Changes</button>

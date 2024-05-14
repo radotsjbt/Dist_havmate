@@ -18,8 +18,10 @@ use Illuminate\Support\Facades\Broadcast;
 // });
 
 Broadcast::channel('user.{userId}', function ($user, $userId) {
+    // dd($user);
     return (int) $user->id === (int) $userId;
 });
 Broadcast::channel('chat.{id}', function ($user, $id) {
+    // dd($user);
     return (int) $user->id === (int) $id;
 });
