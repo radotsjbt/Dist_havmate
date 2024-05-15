@@ -66,6 +66,8 @@ class UserController extends Controller
             }
    
         $user->save(); //insert to users table
+
+        
         return redirect('/auth/login');
     }
 

@@ -1,6 +1,7 @@
 @extends('auth.layout')
 
 @section('container')
+<html>
 <body>
   <main>
     <div class="container">
@@ -60,7 +61,7 @@
                       </div>
                     </div>
                     <div class="col-12"><br>
-                      <button class="btn-login w-50 position-relative top-98 start-50 translate-middle" type="submit" >
+                      <button class="btn-login w-50 position-relative top-98 start-50 translate-middle" type="submit" id="login">
                         Login
                       </button>
                     </div>
@@ -81,8 +82,14 @@
 
     </div>
   </main><!-- End #main -->
-
-
 </body>
-
+{{-- <script>
+  $('#login').click(function(){
+      Swal.fire({
+        title: "Successful Login!",
+        icon: "success"
+      });
+    });
+</script> --}}
+</html>
 @endsection

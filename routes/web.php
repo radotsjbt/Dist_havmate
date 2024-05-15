@@ -128,8 +128,11 @@ Route::post('/dashboard/notification/notif', [DistributorController::class, 'upd
 
 
 // Order
-// Show order status
+// Show order status to farmer's page
 Route::get('/dashboard/ordering/fromDistributor/index', [OrderController::class, 'showToFarmer'])->middleware('auth');
+
+// Show order status to distributor's page
+Route::get('/dashboard/ordering/fromDistributor/index', [OrderController::class, 'showToDistributor'])->middleware('auth');
 
 // Show products from farmers
 Route::get('/dashboard/products/index', [HarvestController::class, 'show'])->middleware('auth');

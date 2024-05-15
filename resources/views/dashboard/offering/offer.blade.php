@@ -35,7 +35,7 @@
       </div>
 
       <div class="col-md-3">
-        <label for="inputHarvStock">Stock (/kg)</label>
+        <label for="inputHarvStock">Stock (kg)</label>
         <input type="text" name="inputHarvStock" class="form-control" id="inputHarvStock"  readonly>
       </div>
 
@@ -47,7 +47,7 @@
       
               
       <div class="col-md-6">
-        <label for="inputHarvQty">Quantity (/kg)</label>
+        <label for="inputHarvQty">Quantity (kg)</label>
         <input type="text" name="inputHarvQty" class="form-control" id="inputHarvQty" placeholder="ex : 20" required>
       </div>
 
@@ -88,11 +88,11 @@
           $('[name=inputHarvStock]').val(stock);   
 
            // when the inputTotalPrice onfocus, calculate the total price
-           $('#inputTotalPrice').on('focus', function(){
+           $('#inputTotalPrice').change( function(){
             
               // collect the quantity value from user input
               const qty = document.getElementById('inputHarvQty').value;
-                $('[name=inputHarvQty]').val(qty);
+              $('[name=inputHarvQty]').val(qty);
 
                     // if products are out-of-stock
                     if(qty > stock){

@@ -38,18 +38,19 @@ class OrderController extends Controller
         $ord->Harv_Id = $id;
         $ord->Harv_Name = $harv->Harv_Name;
         $ord->Qty= request('inputQty');
+        $ord->Price= $harv->Harv_Price;
         $ord->Total_Price= request('inputTotalPrice');
         $ord->Notes= request('inputNotes');
         $ord->status= 'Waiting';
 
         $ord->save(); 
-     return redirect('/dashboard/ordering/index');
+     return redirect('/dashboard/ordering/fromDistributor/index');
     }
 
     public function showToFarmer() : View
     {
         return view('/dashboard/ordering/index', [
-            'title' => 'Order Status',  
+            'title' => 'Incoming Orders',  
             'ordering' => Order::paginate(10),
         ]);
     }
@@ -95,6 +96,14 @@ class OrderController extends Controller
         return view('/dashboard/ordering/index', [
             'title' => 'Order Status',
             'ordering' => Order::all()
+        ]);
+    }
+
+    public function showToDistributor() : View
+    {
+        return view('/dashboard/ordering/index', [
+            'title' => 'Order Status',  
+            'ordering' => Order::paginate(10),
         ]);
     }
 }

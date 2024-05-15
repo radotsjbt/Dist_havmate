@@ -73,7 +73,7 @@
                         <br>
                        
                         <div class="col-12"><br>
-                          <button class="btn-regist btn-primary w-50 position-relative top-99 start-50 translate-middle" type="submit" id="regist-btn">Create Account</button>
+                          <button class="btn-regist btn-primary w-50 position-relative top-99 start-50 translate-middle" type="submit" id="regist">Create Account</button>
                         </div>
                         <br>
                         <div class="col-12">                       
@@ -91,8 +91,17 @@
           </section>
         
         </div>
-      </main><!-- End #main --
- 
+      </main><!-- End #main -->
+ <script>
+  
+    $('#regist').click(function(){
+      Swal.fire({
+        title: "Your data has been saved!",
+        icon: "success"
+      });
+    });
+  
+ </script>
     
 @endsection
   
