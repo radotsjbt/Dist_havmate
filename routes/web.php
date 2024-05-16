@@ -196,30 +196,30 @@ Route::post('/dashboard/ordering/update/{id}', [OrderController::class, 'updateO
 
 Route::get('/chat', [ChatController::class, 'getDistributors'])->name('chat.page');
 Route::post('/send-message', [ChatController::class, 'sendMessage'])->name('send-message');
-Route::resource('distributors',RadotDistributorController::class);
-Route::resource('products',RadotProductController::class);
+// Route::resource('distributors',RadotDistributorController::class);
+// Route::resource('products',RadotProductController::class);
 // Route::get('dashboard',[AuthController::class,'dashboard'])->name('dashboard');
 // Route::get('login',[AuthController::class,'login'])->name('login');
 Route::get('/fetch-messages/{receiverId}', [ChatController::class, 'fetchMessages']);
 // Route::get('logout',[AuthController::class,'logout'])->name('logout');
 Route::post('post-login',[AuthController::class,'postlogin'])->name('post.login');
-Route::post('/import-excel', [RadotDistributorController::class, 'store'])->name('import.excel');
-Route::get('order-form/{id}',[RadotProductController::class,'order_page'])->name('order.form');
-Route::post('order-post',[RadotProductController::class,'ordering'])->name('order.post');
+// Route::post('/import-excel', [RadotDistributorController::class, 'store'])->name('import.excel');
+// Route::get('order-form/{id}',[RadotProductController::class,'order_page'])->name('order.form');
+// Route::post('order-post',[RadotProductController::class,'ordering'])->name('order.post');
 
-Route::get('offering',[RadotOfferingController::class,'index'])->name('offering.index');
-Route::post('offering-submit',[RadotOfferingController::class,'store'])->name('offering.store');
+// Route::get('offering',[RadotOfferingController::class,'index'])->name('offering.index');
+// Route::post('offering-submit',[RadotOfferingController::class,'store'])->name('offering.store');
 
-Route::get('history-ordering',[OrderingController::class,'index'])->name('ordering.history');
-Route::post('accept-ordering/{id}',[OrderingController::class,'acceptOrdering'])->name('accept.ordering');
-Route::post('decline-ordering/{id}',[OrderingController::class,'declineOrdering'])->name('decline.ordering');
-Route::post('accept-offering/{id}',[OfferingController::class,'acceptOffering'])->name('offering.accept');
-Route::post('decline-offering/{id}',[OfferingController::class,'declineOffering'])->name('offering.decline');
-Route::post('search-product',[RadotProductController::class,'searchProduct'])->name('search.product');
-Route::get('history-ordering-distributor',[OrderingController::class,'historyOrderingForDistributor'])->name('history.distributor');
-Route::get('get-history-offering-distributor',[RadotOfferingController::class,'getHistoryDistributor'])->name('historydistributor.offering');
+// Route::get('history-ordering',[OrderingController::class,'index'])->name('ordering.history');
+// Route::post('accept-ordering/{id}',[OrderingController::class,'acceptOrdering'])->name('accept.ordering');
+// Route::post('decline-ordering/{id}',[OrderingController::class,'declineOrdering'])->name('decline.ordering');
+// Route::post('accept-offering/{id}',[OfferingController::class,'acceptOffering'])->name('offering.accept');
+// Route::post('decline-offering/{id}',[OfferingController::class,'declineOffering'])->name('offering.decline');
+// Route::post('search-product',[RadotProductController::class,'searchProduct'])->name('search.product');
+// Route::get('history-ordering-distributor',[OrderingController::class,'historyOrderingForDistributor'])->name('history.distributor');
+// Route::get('get-history-offering-distributor',[RadotOfferingController::class,'getHistoryDistributor'])->name('historydistributor.offering');
 
-Route::get('farmer-recomendation',[RadotProductController::class,'recomendationFarmer'])->name('farmer.recomendation');
+// Route::get('farmer-recomendation',[RadotProductController::class,'recomendationFarmer'])->name('farmer.recomendation');
 Route::get('/broadcast', function() {
     $message = Message::create([
         'receiver_id' => 2,
