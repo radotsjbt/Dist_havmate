@@ -137,7 +137,7 @@
 
         <li class="nav-item">
           
-            <form action="/logout" method="POST" >
+            <form action="/logout" method="GET" >
               @csrf
               <button type="submit" class="nav-link collapsed" id="logout">
                 <i class="bi bi-box-arrow-right"></i>

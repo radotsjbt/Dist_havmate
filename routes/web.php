@@ -38,7 +38,7 @@ Route::get('/auth/regist', function () {
     return view('/auth/regist', [
         "title" => "Register"
     ]);
-})->middleware('guest');
+});
 
 //post the new user's data to database using controller
 Route::post('/auth/regist', [UserController::class, 'store']);
@@ -53,7 +53,7 @@ Route::get('/login', function () {
     return view('/auth/login', [
         "title" => "Login"
     ]);
-});
+})->name('login');
 
 //Post Login
 Route::post('/auth/login',[UserController::class,'authenticate']);
@@ -127,6 +127,10 @@ Route::get('/dashboard/offering/fromFarmer/acceptOffering/{id}', [OfferingContro
 Route::get('/dashboard/offering/fromFarmer/declineOffering/{id}', [OfferingController::class, 'declineOffering'])->middleware('auth');
 
 
+Route::get('/dashboard/ordering/accept/{id}', [OrderController::class, 'diterima'])->middleware('auth')->name('accept_order');
+Route::get('/dashboard/ordering/decline/{id}', [OrderController::class, 'dikembalikan'])->middleware('auth')->name('decline_order');
+
+
 // notif pusher offering
 // Route::get('/dashboard/index', [DashboardProductsController::class, 'show'])->middleware('auth');
 
@@ -157,7 +161,7 @@ Route::get('/dashboard/distributor/rekomendasi', [DistributorController::class, 
 Route::get('/dashboard/ordering/fromDistributor/index', [OrderController::class, 'showToFarmer'])->middleware('auth');
 
 // Show order status to distributor's page
-Route::get('/dashboard/ordering/fromDistributor/index', [OrderController::class, 'showToDistributor'])->middleware('auth');
+Route::get('/dashboard/ordering/fromFarmer/index', [OrderController::class, 'showToDistributor'])->middleware('auth');
 
 // Show products from farmers
 Route::get('/dashboard/products/index', [HarvestController::class, 'show'])->middleware('auth');

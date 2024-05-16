@@ -12,15 +12,12 @@
       <thead>
         <tr>
           <th scope="col">Offer_ID</th>
-<<<<<<< HEAD
-          <th scope="col">Farm Name</th>
-          <th scope="col">Harvest Name</th>
-          <th scope="col">Quantity</th>
-=======
+          <!-- <th scope="col">Farm Name</th> -->
+          <!-- <th scope="col">Harvest Name</th> -->
+          <!-- <th scope="col">Quantity</th> -->
           <th scope="col">Distributor</th>
           <th scope="col">Product</th>
           <th scope="col">Quantity (/kg)</th>
->>>>>>> 7f18663ccf1d41debb5fe9fa1d6de3493169742d
           <th scope="col">Total Price</th>
           <th scope="col">Notes</th>
           <th scope="col">Status</th>
@@ -43,30 +40,19 @@
               <td id="farmer_status">{{ $off->status }}</td> 
               <td id="farmer_action">
                 {{-- delete button --}}
-<<<<<<< HEAD
                 @if ($off->status=='Waiting')
-                <a href="/dashboard/offering/accept/{{ $off->id }}" class="btn btn-primary">
+                <!-- <a href="/dashboard/offering/accept/{{ $off->id }}" class="btn btn-primary">
                    Accept
                 </a>
 
                 {{-- edit button --}}
                 <a href="/dashboard/offering/decline/{{ $off->id }}" class="btn btn-warning">
                    Decline
-                </a>
+                </a> -->
+                
                 @endif
                
-              </td>          
-=======
-                <a href="/dashboard/offering/index/{{ $off->id }}" class="btn btn-danger" id="btnDelete" style="color: white; text-decoration:none">
-                  <i class="bi bi-trash3" style="color: white;"></i> Delete
-                </a>
-
-                {{-- edit button --}}
-                <a href="/dashboard/offering/editOff/{{ $off->id }}" class="btn btn-primary" id="btnEdit" style="color: white;text-decoration:none">
-                  <i class="bi bi-pen" style="color: white;"></i> Edit
-                </a>
-              </td>  
->>>>>>> 7f18663ccf1d41debb5fe9fa1d6de3493169742d
+                
           </tr>
          @endif
          @endforeach
@@ -96,6 +82,7 @@
             <tr>
               @foreach ($offering as $off)
               {{-- check the user with their offering data --}}
+
               @if(auth()->user()->username === $off->Dist_Name)
               <tr>
                   <td>{{ $off->Offer_ID}}</td>
@@ -106,7 +93,7 @@
                   <td>{{ $off->Notes}}</td>
                   <td>{{ $off->status }}</td> 
                   <td>
-                    
+                    @if ($off->status=='Waiting')
                     {{-- accept button --}}
                     <a href="/dashboard/offering/fromFarmer/acceptOffering/{{ $off->id }}" class="btn btn-success" id= "btnAccept"  style="color: white; text-decoration:none;">
                       <i class="bi bi-check-circle" style="color: white;"></i> Accept
@@ -116,6 +103,7 @@
                     <a href="/dashboard/offering/fromFarmer/declineOffering/{{ $off->id }}" class="btn btn-danger" id= "btnDecline"  style="color: white; text-decoration:none;">
                       <i class="bi bi-ban" style="color: white;"></i> Decline
                     </a> 
+                    @endif
                   </td>  
               </tr>
             @endif

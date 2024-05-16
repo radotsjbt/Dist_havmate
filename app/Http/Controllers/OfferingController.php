@@ -217,10 +217,47 @@ class OfferingController extends Controller
     public function acceptOffering($id): View
     {
         // update into offering table
-        DB::update('update offering set status=? where id=?', ["Accepted", $id]);
+        // DB::update('update offering set status=? where id=?', ["Accepted", $id]);
+
+        // return view('/dashboard/offering/index', [
+        //     'title' => 'Incoming Offers',  
+        //     'offering' => Offering::paginate(10),
+        // ]);
+        $offering = Offering::find($id);
+
+        $ord = new Order();
+        
+        $dist = auth()->user()->id;
+        $harv = Harvest::find($offering->Harv_Id);
+        
+        // dd($offering);
+
+        $ord->Order_ID = IdGenerator::generate([
+         'table' => 'orders',
+         'field' => 'Order_ID',
+         'length' => 7,
+         'prefix' => 'ORD'
+     ]);
+        $ord->Dist_Id = auth()->user()->id;
+        $ord->Dist_Name= auth()->user()->username;
+        $ord->Farmer_Id = $harv->Farmer_Id;
+        $ord->Farmer_Name = $harv->Farmer_Name;
+        $ord->Harv_Id = $id;
+        $ord->Harv_Name = $harv->Harv_Name;
+        $ord->Qty= $offering->Qty;
+        $ord->Price= $offering->Offer_Price ;
+        $ord->Total_Price= $offering->Offer_Price * $offering->Qty ;
+        $ord->Notes= 'base on order';
+        $ord->status= 'Waiting';
+
+        $ord->save();
+
+        $offering->status ="Accept";
+        $offering->update();
+
 
         return view('/dashboard/offering/index', [
-            'title' => 'Incoming Offers',  
+            'title' => 'Offering Status',  
             'offering' => Offering::paginate(10),
         ]);
     }

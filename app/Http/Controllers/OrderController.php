@@ -49,9 +49,10 @@ class OrderController extends Controller
 
     public function showToFarmer() : View
     {
+        // dd(Order::all());
         return view('/dashboard/ordering/index', [
             'title' => 'Incoming Orders',  
-            'ordering' => Order::paginate(10),
+            'ordering' => Order::all(),
         ]);
     }
 
@@ -64,7 +65,27 @@ class OrderController extends Controller
             ]);
     }
 
-    
+    public function diterima($id){
+        $order = Order::find($id);
+        if ($order){
+            $order->status = 'Diterima';
+            $order->update();
+        }
+
+        return redirect('/dashboard/ordering/fromDistributor/index');
+
+    }
+
+    public function dikembalikan($id){
+        $order = Order::find($id);
+        if ($order){
+            $order->status = 'Dikembalikan';
+            $order->update();
+        }
+
+        return redirect('/dashboard/ordering/fromDistributor/index');
+
+    }
 
     public function new_order()
     {
@@ -102,7 +123,7 @@ class OrderController extends Controller
         // dd($ord);
 
         $ord->save(); 
-     return redirect('/dashboard/ordering/index');
+     return redirect('/dashboard/ordering/fromDistributor/index');
     }
 
     public function deleteOrder($id)

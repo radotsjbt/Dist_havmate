@@ -19,7 +19,6 @@
 <!-- Template Main CSS File -->
 <link href="{{ asset("assets/css/style.css") }}" rel="stylesheet">
 
-<<<<<<< HEAD
 <!-- Include SweetAlert2 CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
@@ -38,13 +37,11 @@
 
 {{-- Sweet alert --}}
 <script src="{{ asset("https://unpkg.com/sweetalert/dist/sweetalert.min.js") }}"></script>
-=======
 {{-- jquery --}}
 <script src="{{ asset("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js") }}"></script>
 
 {{-- sweetalert2 --}}
 <script src="{{ asset("https://cdn.jsdelivr.net/npm/sweetalert2@11") }}"></script>
->>>>>>> 7f18663ccf1d41debb5fe9fa1d6de3493169742d
 
 <!-- Vendor JS Files -->
 <script src="{{ asset("assets/vendor/apexcharts/apexcharts.min.js") }}"></script>

@@ -41,7 +41,7 @@
 
       <div class="col-md-5">
         <label for="inputHarvPrice">Harvest Price (/kg)</label>
-          <input type="text" name="inputHarvPrice"class="form-control" id="inputHarvPrice"  readonly>
+          <input type="text" name="inputHarvPrice"class="form-control" readonly id="inputHarvPrice" >
       </div>
 
       
@@ -55,7 +55,7 @@
         <label for="inputTotalPrice">Total Price</label>
           <div class="input-group col-sm-10">
             <span class="input-group-text" id="inputGroupPrepend">Rp</span>
-            <input type="text" name="inputTotalPrice" class="form-control" id="inputTotalPrice"  readonly>
+            <input type="text" name="inputTotalPrice" class="form-control" id="inputTotalPrice" >
             
           </div>
       </div>
@@ -87,35 +87,37 @@
           $('[name=inputHarvPrice]').val(price);
           $('[name=inputHarvStock]').val(stock);   
 
-           // when the inputTotalPrice onfocus, calculate the total price
-           $('#inputTotalPrice').change( function(){
-            
-              // collect the quantity value from user input
-              const qty = document.getElementById('inputHarvQty').value;
-              $('[name=inputHarvQty]').val(qty);
-
-                    // if products are out-of-stock
-                    if(qty > stock){
-                      const needStock = qty - stock;
-                        Swal.fire({
-                        icon: "info",
-                        title: "Out of Stock",
-                        text: "You need " + needStock + " kg more!",
-                        
-                        }).then(
-                            // set the number of qty = 0
-                            $('#inputHarvQty').val(0)
-                          
-                        );
-              
-                    }else{
-                      // calculate the total price based on the quantity
-                      const totalPrice = parseInt(qty) * parseInt(price);
-                      $('[name=inputTotalPrice]').val(totalPrice);
-                    }
-                    
-            });
+           
       });
+
+      // when the inputTotalPrice onfocus, calculate the total price
+      $('#inputTotalPrice').change( function(){
+            
+            // collect the quantity value from user input
+            const qty = document.getElementById('inputHarvQty').value;
+            $('[name=inputHarvQty]').val(qty);
+
+                  // if products are out-of-stock
+                  if(qty > stock){
+                    const needStock = qty - stock;
+                      Swal.fire({
+                      icon: "info",
+                      title: "Out of Stock",
+                      text: "You need " + needStock + " kg more!",
+                      
+                      }).then(
+                          // set the number of qty = 0
+                          $('#inputHarvQty').val(0)
+                        
+                      );
+            
+                  }else{
+                    // calculate the total price based on the quantity
+                    const totalPrice = parseInt(qty) * parseInt(price);
+                    $('[name=inputTotalPrice]').val(totalPrice);
+                  }
+                  
+          });
            
            
   });
