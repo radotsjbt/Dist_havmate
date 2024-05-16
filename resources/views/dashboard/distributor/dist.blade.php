@@ -23,10 +23,10 @@
             <h2>{{ $distributor->Dist_Name }}</h2>
             <h5>{{ $distributor->Dist_ID}}</h5> 
             <div class="social-links mt-2">
-                <a href="/dashboard/offering/offer/{{ $distributor->id }}" >
+                <a href="/dashboard/offering/offer/{{ $distributor->id }}" style="text-decoration: none" >
                     <button type="button" class="btn btn-primary">Offer</button>
                 </a>
-                <a href="/chat/{{ $distributor->Dist_ID }}">
+                <a href="/chat/{{ $distributor->Dist_ID }}"  style="text-decoration: none">
                 <button type="button" class="btn btn-primary">Chat</button>
                 </a>
               </div>  

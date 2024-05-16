@@ -34,13 +34,13 @@
               <td>
 
                 {{-- delete button --}}
-                <a href="/dashboard/ordering/index/{{ $order->id }}" class="btn btn-danger">
-                  <i class="bi bi-trash3"></i> Delete
+                <a href="/dashboard/ordering/index/{{ $order->id }}" class="btn btn-danger" style="color: white;">
+                  <i class="bi bi-trash3" style="color: white;"></i> Delete
                 </a>
 
                 {{-- edit button --}}
-                <a href="/dashboard/ordering/editOrder/{{ $order->id }}" class="btn btn-primary">
-                  <i class="bi bi-pen"></i> Edit
+                <a href="/dashboard/ordering/editOrder/{{ $order->id }}" class="btn btn-primary" style="color: white;">
+                  <i class="bi bi-pen" style="color: white;"></i> Edit
                 </a>
                
               </td>          

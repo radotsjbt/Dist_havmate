@@ -30,6 +30,7 @@
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
        
+<<<<<<< HEAD
 
         {{-- notification --}}
         <li class="nav-item dropdown">
@@ -119,6 +120,8 @@
 
         </li><!-- End Messages Nav -->
 
+=======
+>>>>>>> 7f18663ccf1d41debb5fe9fa1d6de3493169742d
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
@@ -148,7 +151,7 @@
             <li>
               <form action="/logout" method="GET">
                 @csrf
-                <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i>
+                <button type="submit" class="dropdown-item" id="logout"><i class="bi bi-box-arrow-right"></i>
                   <span>Log Out</span></button>
               </form> 
             </li>
@@ -160,5 +163,32 @@
 
   </header><!-- End Header -->
 </body>
+<script>
+//   $('#logout').click(function(){
+//   const swalWithBootstrapButtons = Swal.mixin({
+//   customClass: {
+//     confirmButton: "btn btn-success",
+//     cancelButton: "btn btn-danger"
+//   },
+//   buttonsStyling: false
+// });
+// swalWithBootstrapButtons.fire({
+//   title: "Are you sure?",
+//   text: "Logout",
+//   icon: "warning",
+//   showCancelButton: true,
+//   confirmButtonText: "Yes",
+//   cancelButtonText: "No",
+//   reverseButtons: true
+// }).then((result) => {
+//   if (result.isConfirmed) {
+//     swalWithBootstrapButtons.fire({
+//       title: "Logout!",
+//       icon: "success"
+//     });
+//   }
+// });
+//   });
+</script>
 </html>
 

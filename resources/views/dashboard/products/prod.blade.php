@@ -19,7 +19,7 @@
         <div class="card">
           <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-            <img src="{{ $products->Image_Harv }}" alt="Profile" class="rounded-circle">
+            <img src="{{ $products->Image_Harv }}" alt="Profile" style="height: 100px; width: 400px;">
             <h2>{{ $products->Harv_Name }}</h2>
             <h5>{{ $products->Harv_ID}}</h5> 
             <div class="social-links mt-2">
