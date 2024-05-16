@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreignId('Farmer_Id');
             $table->string('Farmer_Name');
             $table->integer('Qty');
+            $table->integer('Price');
             $table->integer('Total_Price');
             $table->string('Notes');
             $table->string('status');

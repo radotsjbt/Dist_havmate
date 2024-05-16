@@ -38,7 +38,7 @@ Route::get('/auth/regist', function () {
     return view('/auth/regist', [
         "title" => "Register"
     ]);
-})->middleware('guest');
+});
 
 //post the new user's data to database using controller
 Route::post('/auth/regist', [UserController::class, 'store']);
@@ -49,6 +49,11 @@ Route::get('/auth/login', function () {
         "title" => "Login"
     ]);
 });
+Route::get('/login', function () {
+    return view('/auth/login', [
+        "title" => "Login"
+    ]);
+})->name('login');
 
 //Post Login
 Route::post('/auth/login',[UserController::class,'authenticate']);
@@ -92,6 +97,11 @@ Route::post('/dashboard/products/update/{id}', [HarvestController::class, 'updat
 // Offering
 // Show offering 
 Route::get('/dashboard/offering/index',[OfferingController::class, 'show'])->name('offering_index');
+// Show offering to farmer (distributor's page)
+Route::get('/dashboard/offering/toDistributor/index',[OfferingController::class, 'showToFarmer']);
+
+// Show offering to distributor (farmer's page)
+Route::get('/dashboard/offering/fromFarmer/index',[OfferingController::class, 'showToDistributor']);
 
 //show offering form
 Route::get('/dashboard/offering/offer/{id}', [OfferingController::class, 'showForm']);
@@ -109,7 +119,16 @@ Route::get('/dashboard/offering/editOff/{id}', [OfferingController::class, 'edit
 Route::post('/dashboard/offering/update/{id}', [OfferingController::class, 'update'])->middleware('auth');
 
 Route::get('/dashboard/offering/accept/{id}', [OfferingController::class, 'accept'])->middleware('auth');
-Route::get('/dashboard/offering/accept/{id}', [OfferingController::class, 'accept'])->middleware('auth');
+// Route::get('/dashboard/offering/accept/{id}', [OfferingController::class, 'accept'])->middleware('auth');
+// accept offering
+Route::get('/dashboard/offering/fromFarmer/acceptOffering/{id}', [OfferingController::class, 'acceptOffering'])->middleware('auth');
+
+// decline offering
+Route::get('/dashboard/offering/fromFarmer/declineOffering/{id}', [OfferingController::class, 'declineOffering'])->middleware('auth');
+
+
+Route::get('/dashboard/ordering/accept/{id}', [OrderController::class, 'diterima'])->middleware('auth')->name('accept_order');
+Route::get('/dashboard/ordering/decline/{id}', [OrderController::class, 'dikembalikan'])->middleware('auth')->name('decline_order');
 
 
 // notif pusher offering
@@ -138,8 +157,11 @@ Route::post('/dashboard/notification/notif', [DistributorController::class, 'upd
 Route::get('/dashboard/distributor/rekomendasi', [DistributorController::class, 'rekomendasi'])->middleware('auth')->name('rekomendasi');
 
 // Order
-// Show order status
-Route::get('/dashboard/ordering/index', [OrderController::class, 'showAll'])->middleware('auth');
+// Show order status to farmer's page
+Route::get('/dashboard/ordering/fromDistributor/index', [OrderController::class, 'showToFarmer'])->middleware('auth');
+
+// Show order status to distributor's page
+Route::get('/dashboard/ordering/fromFarmer/index', [OrderController::class, 'showToDistributor'])->middleware('auth');
 
 // Show products from farmers
 Route::get('/dashboard/products/index', [HarvestController::class, 'show'])->middleware('auth');
@@ -174,30 +196,30 @@ Route::post('/dashboard/ordering/update/{id}', [OrderController::class, 'updateO
 
 Route::get('/chat', [ChatController::class, 'getDistributors'])->name('chat.page');
 Route::post('/send-message', [ChatController::class, 'sendMessage'])->name('send-message');
-Route::resource('distributors',RadotDistributorController::class);
-Route::resource('products',RadotProductController::class);
+// Route::resource('distributors',RadotDistributorController::class);
+// Route::resource('products',RadotProductController::class);
 // Route::get('dashboard',[AuthController::class,'dashboard'])->name('dashboard');
 // Route::get('login',[AuthController::class,'login'])->name('login');
 Route::get('/fetch-messages/{receiverId}', [ChatController::class, 'fetchMessages']);
 // Route::get('logout',[AuthController::class,'logout'])->name('logout');
 Route::post('post-login',[AuthController::class,'postlogin'])->name('post.login');
-Route::post('/import-excel', [RadotDistributorController::class, 'store'])->name('import.excel');
-Route::get('order-form/{id}',[RadotProductController::class,'order_page'])->name('order.form');
-Route::post('order-post',[RadotProductController::class,'ordering'])->name('order.post');
+// Route::post('/import-excel', [RadotDistributorController::class, 'store'])->name('import.excel');
+// Route::get('order-form/{id}',[RadotProductController::class,'order_page'])->name('order.form');
+// Route::post('order-post',[RadotProductController::class,'ordering'])->name('order.post');
 
-Route::get('offering',[RadotOfferingController::class,'index'])->name('offering.index');
-Route::post('offering-submit',[RadotOfferingController::class,'store'])->name('offering.store');
+// Route::get('offering',[RadotOfferingController::class,'index'])->name('offering.index');
+// Route::post('offering-submit',[RadotOfferingController::class,'store'])->name('offering.store');
 
-Route::get('history-ordering',[OrderingController::class,'index'])->name('ordering.history');
-Route::post('accept-ordering/{id}',[OrderingController::class,'acceptOrdering'])->name('accept.ordering');
-Route::post('decline-ordering/{id}',[OrderingController::class,'declineOrdering'])->name('decline.ordering');
-Route::post('accept-offering/{id}',[OfferingController::class,'acceptOffering'])->name('offering.accept');
-Route::post('decline-offering/{id}',[OfferingController::class,'declineOffering'])->name('offering.decline');
-Route::post('search-product',[RadotProductController::class,'searchProduct'])->name('search.product');
-Route::get('history-ordering-distributor',[OrderingController::class,'historyOrderingForDistributor'])->name('history.distributor');
-Route::get('get-history-offering-distributor',[RadotOfferingController::class,'getHistoryDistributor'])->name('historydistributor.offering');
+// Route::get('history-ordering',[OrderingController::class,'index'])->name('ordering.history');
+// Route::post('accept-ordering/{id}',[OrderingController::class,'acceptOrdering'])->name('accept.ordering');
+// Route::post('decline-ordering/{id}',[OrderingController::class,'declineOrdering'])->name('decline.ordering');
+// Route::post('accept-offering/{id}',[OfferingController::class,'acceptOffering'])->name('offering.accept');
+// Route::post('decline-offering/{id}',[OfferingController::class,'declineOffering'])->name('offering.decline');
+// Route::post('search-product',[RadotProductController::class,'searchProduct'])->name('search.product');
+// Route::get('history-ordering-distributor',[OrderingController::class,'historyOrderingForDistributor'])->name('history.distributor');
+// Route::get('get-history-offering-distributor',[RadotOfferingController::class,'getHistoryDistributor'])->name('historydistributor.offering');
 
-Route::get('farmer-recomendation',[RadotProductController::class,'recomendationFarmer'])->name('farmer.recomendation');
+// Route::get('farmer-recomendation',[RadotProductController::class,'recomendationFarmer'])->name('farmer.recomendation');
 Route::get('/broadcast', function() {
     $message = Message::create([
         'receiver_id' => 2,

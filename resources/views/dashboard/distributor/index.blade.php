@@ -23,7 +23,7 @@
     <div class="flex-container" >  
        @foreach ($distributor as $dist) 
           <div class="card">
-            <a href = "/dashboard/distributor/dist/{{ $dist->id}}">
+            <a href = "/dashboard/distributor/dist/{{ $dist->id}}" style="text-decoration: none" >
               <img src="{{ asset("assets/img/default.jpg") }}" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title"> {{ $dist->Dist_Name }}</h5>

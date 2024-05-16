@@ -27,6 +27,11 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+<<<<<<< HEAD
+=======
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    <script src="{{ asset('build/assets/app2.js') }}"></script>
+>>>>>>> 373c0e618a37c52f082a47d0a86a39e852ac0444
 
     <!-- <script src="https://js.pusher.com/7.0/pusher.min.js"></script> -->
 
@@ -35,6 +40,11 @@
 
 {{-- Sweet alert --}}
 <script src="{{ asset("https://unpkg.com/sweetalert/dist/sweetalert.min.js") }}"></script>
+{{-- jquery --}}
+<script src="{{ asset("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js") }}"></script>
+
+{{-- sweetalert2 --}}
+<script src="{{ asset("https://cdn.jsdelivr.net/npm/sweetalert2@11") }}"></script>
 
 <!-- Vendor JS Files -->
 <script src="{{ asset("assets/vendor/apexcharts/apexcharts.min.js") }}"></script>

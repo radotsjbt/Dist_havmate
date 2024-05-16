@@ -19,10 +19,10 @@
         <label for="inputHarvName">Harvest Result</label>
         <div class="input-group ">
           <select class="form-select mt-0" id="floatingSelect"  name="inputHarvName" aria-label="Harvest Type">
-            <option selected>{{$off->Harv_Name }}</option>
+            <option ></option>
               @foreach($product as $item)
                   @if(auth()->user()->username === $item->Farmer_Name)
-                      <option value="{{ $item->Harv_Name }}">{{ $item->Harv_Name }}</option>
+                      <option value="{{ $item->Harv_Name }}" selected>{{ $item->Harv_Name }}</option>
                   @endif
               @endforeach 
           </select>

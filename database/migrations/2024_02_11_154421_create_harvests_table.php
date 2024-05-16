@@ -21,8 +21,7 @@ return new class extends Migration
             $table->string('Harv_Type');
             $table->integer('Harv_Stock');
             $table->integer('Harv_Price');
-            $table->string('Image_Harv');
-            
+            $table->binary('Image_Harv');
             $table->timestamps();
         });
     }

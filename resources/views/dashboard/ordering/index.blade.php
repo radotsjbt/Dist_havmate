@@ -22,7 +22,7 @@
       <tbody>
         <tr>
           @foreach ($ordering as $order)
-          @if(auth()->user()->username === $order->Dist_Name)
+          @if(auth()->user()->username === $order->Dist_Name || auth()->user()->username === $order->Farmer_Name )
           <tr>
               <td>{{ $order->Order_ID}}</td>
               <td>{{ $order->Harv_Name}}</td>
@@ -33,15 +33,30 @@
               <td>{{ $order->status}}</td>
               <td>
 
+                @if ($order->status == 'dikirim')
+                  <a href="{{route('accept_order',$order->id)}}" class="btn btn-success" id= "btnAccept"  style="color: white; text-decoration:none;">
+                      <i class="bi bi-check-circle" style="color: white;"></i> Diterima
+                    </a>
+
+                    {{-- decline button --}}
+                    <a href="{{route('decline_order',$order->id)}}" class="btn btn-danger" id= "btnDecline"  style="color: white; text-decoration:none;">
+                      <i class="bi bi-ban" style="color: white;"></i> Ditolak
+                    </a> 
+                @else
                 {{-- delete button --}}
-                <a href="/dashboard/ordering/index/{{ $order->id }}" class="btn btn-danger">
-                  <i class="bi bi-trash3"></i> Delete
-                </a>
+                <!-- <a href="/dashboard/ordering/index/{{ $order->id }}" class="btn btn-danger" style="color: white;">
+                  <i class="bi bi-trash3" style="color: white;"></i> Delete
+                </a> -->
 
                 {{-- edit button --}}
-                <a href="/dashboard/ordering/editOrder/{{ $order->id }}" class="btn btn-primary">
-                  <i class="bi bi-pen"></i> Edit
-                </a>
+                <!-- <a href="/dashboard/ordering/editOrder/{{ $order->id }}" class="btn btn-primary" style="color: white;">
+                  <i class="bi bi-pen" style="color: white;"></i> Edit
+                </a> -->
+
+
+                @endif
+
+                
                
               </td>          
           </tr>

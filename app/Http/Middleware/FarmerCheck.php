@@ -16,9 +16,11 @@ class FarmerCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // if the user not login as the farmer
         if(!auth()->check() || auth()->user()->role!== 'Farmer'){
             abort('403');
         }
+            // if the user login as farmer, continue the request
              return $next($request);
     }
 }

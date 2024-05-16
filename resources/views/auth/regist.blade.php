@@ -1,7 +1,7 @@
 @extends('auth.layout')
 
 @section('container')
-    <body>
+  
       <main>
         <div class="container">
           <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center ">
@@ -73,12 +73,10 @@
                         <br>
                        
                         <div class="col-12"><br>
-                          <button class="btn-regist btn-primary w-50 position-relative top-99 start-50 translate-middle" type="submit">Create Account</button>
+                          <button class="btn-regist btn-primary w-50 position-relative top-99 start-50 translate-middle" type="submit" id="regist">Create Account</button>
                         </div>
                         <br>
-                        <div class="col-12">
-                          <p class="small mb-0"><a href="/login">Forgot password?</a></p>
-                          
+                        <div class="col-12">                       
                           <p class="small mb-1">Already have an account? <a href="/auth/login">Log in</a></p>
                         </div>
                       </form>
@@ -94,7 +92,17 @@
         
         </div>
       </main><!-- End #main -->
-    </body>
+ <script>
+  
+    $('#regist').click(function(){
+      Swal.fire({
+        title: "Your data has been saved!",
+        icon: "success"
+      });
+    });
+  
+ </script>
+    
 @endsection
   
     

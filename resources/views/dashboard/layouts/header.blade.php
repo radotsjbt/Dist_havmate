@@ -148,7 +148,7 @@
             <li>
               <form action="/logout" method="GET">
                 @csrf
-                <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i>
+                <button type="submit" class="dropdown-item" id="logout"><i class="bi bi-box-arrow-right"></i>
                   <span>Log Out</span></button>
               </form> 
             </li>
@@ -160,5 +160,32 @@
 
   </header><!-- End Header -->
 </body>
+<script>
+//   $('#logout').click(function(){
+//   const swalWithBootstrapButtons = Swal.mixin({
+//   customClass: {
+//     confirmButton: "btn btn-success",
+//     cancelButton: "btn btn-danger"
+//   },
+//   buttonsStyling: false
+// });
+// swalWithBootstrapButtons.fire({
+//   title: "Are you sure?",
+//   text: "Logout",
+//   icon: "warning",
+//   showCancelButton: true,
+//   confirmButtonText: "Yes",
+//   cancelButtonText: "No",
+//   reverseButtons: true
+// }).then((result) => {
+//   if (result.isConfirmed) {
+//     swalWithBootstrapButtons.fire({
+//       title: "Logout!",
+//       icon: "success"
+//     });
+//   }
+// });
+//   });
+</script>
 </html>
 

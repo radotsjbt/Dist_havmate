@@ -13,8 +13,8 @@
         <tr>
           <th scope="col">Harvest Id</th>
           <th scope="col">Harvest Result</th>
-          <th scope="col">Price</th>
-          <th scope="col">Stock</th>
+          <th scope="col">Price (/kg)</th>
+          <th scope="col">Stock (kg)</th>
           <th scope="col">Image</th>
           <th scope="col">Action</th>
         </tr>
@@ -34,13 +34,13 @@
               <td>
 
                 {{-- delete button --}}
-                <a href="/dashboard/products/index/{{ $prod->id }}" class="btn-delete">
-                  <i class="bi bi-trash3"></i> Delete
+                <a href="/dashboard/products/index/{{ $prod->id }}" class="btn btn-danger" style="color: white; text-decoration: none">
+                  <i class="bi bi-trash3" style="color: white;text-decoration: none"></i> Delete
                 </a>
 
                 {{-- edit button --}}
-                <a href="/dashboard/products/editProd/{{ $prod->id }}" class="btn-edit">
-                  <i class="bi bi-pen"></i> Edit
+                <a href="/dashboard/products/editProd/{{ $prod->id }}" class="btn btn-primary" style="color: white;text-decoration: none">
+                  <i class="bi bi-pen" style="color: white;text-decoration: none"></i> Edit
                 </a>
                
               </td>
@@ -63,7 +63,7 @@
   <div class="col-md-8">
     <div class="search">
       <i class="fa fa-search"></i>
-      <input type="text" class="form-control" placeholder="Search distributor here...">
+      <input type="text" class="form-control" placeholder="Search products here...">
       <button class="btn">Search</button>
     </div>
   </div>
@@ -75,8 +75,8 @@
     <div class="flex-container" >  
        @foreach ($products as $prod) 
           <div class="card">
-            <a href = "/dashboard/products/prod/{{ $prod->id}}">
-              <img src="{{ $prod->Image_Harv }}" class="card-img-top" alt="...">
+            <a href = "/dashboard/products/prod/{{ $prod->id}}"  style="text-decoration: none;">
+              <img src="{{ $prod->Image_Harv }}" class="card-img-top" alt="..."  style="height: 200px; width: 250px; margin-top: 20px">
               <div class="card-body">
                 <h5 class="card-title"> {{ $prod->Harv_Name }}</h5>
                 <p class="card-text">
