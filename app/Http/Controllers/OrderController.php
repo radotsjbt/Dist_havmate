@@ -64,6 +64,8 @@ class OrderController extends Controller
             ]);
     }
 
+    
+
     public function new_order()
     {
         return view('dashboard/ordering/new_order', [ 

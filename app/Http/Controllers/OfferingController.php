@@ -16,34 +16,28 @@ use Illuminate\View\View;
 
 class OfferingController extends Controller
 {
-<<<<<<< HEAD
 
     public function getNotificationCount(){
         $notificationCount = Offering::where('Dist_Id','=',Auth::user()->id)->get()->count(); // Replace with your actual logic to get the count
         // dd($notificationCount);
         return response()->json(['count' => $notificationCount]);
     }
-=======
     // when farmer send the offering to the distributor
->>>>>>> 7f18663ccf1d41debb5fe9fa1d6de3493169742d
     public function sendOffer($id)
     { 
         // create new offering
         $off = new Offering();
-<<<<<<< HEAD
         $farm = auth()->user()->id;
         // dd($farm);
         $dist = Distributor::find($id);
         
         
-=======
         
         // save the user id (farmer) in a variable
         $farm = auth()->user()->id;
 
         // find distributor data based on the id from the route
         $dist = Distributor::find($id);
->>>>>>> 7f18663ccf1d41debb5fe9fa1d6de3493169742d
 
         // find the farmer's product based on the harvest name
         $harv= Harvest::where('Harv_Name','=',request('inputHarvName'))->first();
@@ -59,14 +53,11 @@ class OfferingController extends Controller
         $off->Dist_Name= $dist->Dist_Name;
         $off->Farmer_Id = $farm;
         $off->Farmer_Name = auth()->user()->username;
-<<<<<<< HEAD
         
         $harv= Harvest::where('Harv_Name','=',request('inputHarvName'))->first();
         
-        $off->Harv_Id = $harv->id;
-=======
+        // $off->Harv_Id = $harv->id;
         $off->Harv_Id = $harv->id; 
->>>>>>> 7f18663ccf1d41debb5fe9fa1d6de3493169742d
         $off->Harv_Name = request('inputHarvName');
         $off->Qty= request('inputHarvQty');
         $off->Offer_Price= request('inputTotalPrice');
@@ -105,14 +96,15 @@ class OfferingController extends Controller
             ]);
     }
  
-<<<<<<< HEAD
-    public function show(){
-        // dd(Offering::all());
-=======
+    public function show() {
+        return view('/dashboard/offering/index', [
+        'title' => 'Offering Status',  
+        'offering' => Offering::paginate(10),
+        ]);
+    }
     // show all the offering to the farmer
     public function showToFarmer() : View
     {
->>>>>>> 7f18663ccf1d41debb5fe9fa1d6de3493169742d
         return view('/dashboard/offering/index', [
         'title' => 'Offering Status',  
         'offering' => Offering::paginate(10),
@@ -137,7 +129,6 @@ class OfferingController extends Controller
         ]);
     }
 
-<<<<<<< HEAD
     public function accept($id)
     {
         $offering = Offering::find($id);
@@ -192,11 +183,8 @@ class OfferingController extends Controller
     }
 
 
-    public function update(Request $request, $id)
-=======
-    // update the offering's data 
+    
     public function update(Request $request, $id): View
->>>>>>> 7f18663ccf1d41debb5fe9fa1d6de3493169742d
     {
         
         $off = Offering::find($id);

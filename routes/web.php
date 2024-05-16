@@ -95,16 +95,13 @@ Route::post('/dashboard/products/update/{id}', [HarvestController::class, 'updat
 
 
 // Offering
-<<<<<<< HEAD
 // Show offering 
 Route::get('/dashboard/offering/index',[OfferingController::class, 'show'])->name('offering_index');
-=======
 // Show offering to farmer (distributor's page)
 Route::get('/dashboard/offering/toDistributor/index',[OfferingController::class, 'showToFarmer']);
 
 // Show offering to distributor (farmer's page)
 Route::get('/dashboard/offering/fromFarmer/index',[OfferingController::class, 'showToDistributor']);
->>>>>>> 7f18663ccf1d41debb5fe9fa1d6de3493169742d
 
 //show offering form
 Route::get('/dashboard/offering/offer/{id}', [OfferingController::class, 'showForm']);
@@ -121,16 +118,13 @@ Route::get('/dashboard/offering/editOff/{id}', [OfferingController::class, 'edit
 // update offering data
 Route::post('/dashboard/offering/update/{id}', [OfferingController::class, 'update'])->middleware('auth');
 
-<<<<<<< HEAD
 Route::get('/dashboard/offering/accept/{id}', [OfferingController::class, 'accept'])->middleware('auth');
-Route::get('/dashboard/offering/accept/{id}', [OfferingController::class, 'accept'])->middleware('auth');
-=======
+// Route::get('/dashboard/offering/accept/{id}', [OfferingController::class, 'accept'])->middleware('auth');
 // accept offering
 Route::get('/dashboard/offering/fromFarmer/acceptOffering/{id}', [OfferingController::class, 'acceptOffering'])->middleware('auth');
 
 // decline offering
 Route::get('/dashboard/offering/fromFarmer/declineOffering/{id}', [OfferingController::class, 'declineOffering'])->middleware('auth');
->>>>>>> 7f18663ccf1d41debb5fe9fa1d6de3493169742d
 
 
 // notif pusher offering

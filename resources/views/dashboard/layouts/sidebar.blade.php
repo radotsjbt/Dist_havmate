@@ -100,7 +100,6 @@
 
 
       <li class="nav-item">
-<<<<<<< HEAD
         <a class="nav-link collapsed" href="{{route('rekomendasi')}}">
           <i class="bi bi-person"></i>
           <span>Rekomendasi</span>
@@ -118,18 +117,6 @@
         <a class="nav-link collapsed" href="pages-contact.html">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
-=======
-        <a class="nav-link collapsed" href="/dashboard/chat/index/{{ auth()->user()->id }}">
-          <i class="bi bi-chat"></i>
-          <span>Chat <span class="badge badge-number" id="chat" style="background: #0D261D;">0</span></span>
-        </a>
-      </li><!-- End Chat Page Nav -->
-     
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="/dashboard/notification/index/{{ auth()->user()->id }}">
-         <i class="bi bi-bell"></i>
-          <span>Notification  <span class="badge badge-number" style="background: #0D261D;">0</span></span>
->>>>>>> 7f18663ccf1d41debb5fe9fa1d6de3493169742d
         </a>
       </li><!-- End Notification Page Nav -->
      

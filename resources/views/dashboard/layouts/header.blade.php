@@ -30,7 +30,6 @@
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
        
-<<<<<<< HEAD
 
         {{-- notification --}}
         <li class="nav-item dropdown">
@@ -120,8 +119,6 @@
 
         </li><!-- End Messages Nav -->
 
-=======
->>>>>>> 7f18663ccf1d41debb5fe9fa1d6de3493169742d
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">

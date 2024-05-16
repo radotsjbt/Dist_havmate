@@ -18,13 +18,8 @@
       </div>
 
       <div class="col-md-6">
-<<<<<<< HEAD
-        <label for="inputHarvStock">Stock (/kg)</label>
-          <input type="text" name="inputHarvStock"class="form-control" id="inputHarvStock" value="{{ $product->Harv_Stock }}" disabled>
-=======
         <label for="inputHarvStock">Stock (kg)</label>
           <input type="text" name="inputHarvStock" class="form-control" id="inputHarvStock" value="{{ $product->Harv_Stock }}" readonly style="background: #E9FEDF;">
->>>>>>> 7f18663ccf1d41debb5fe9fa1d6de3493169742d
       </div>
 
       <div class="col-md-6">
@@ -67,38 +62,35 @@
 
   </div>
 </div>
-<<<<<<< HEAD
 
 <script>
-  $(document).ready(function() {
-      // Attach a change event listener to the input field
-      $('#inputQty').change(function() {
-          // Get the current value of the input field
+  // $(document).ready(function() {
+  //     // Attach a change event listener to the input field
+  //     $('#inputQty').change(function() {
+  //         // Get the current value of the input field
 
-          if (parseInt($('#inputQty').val()) > parseInt($('#inputHarvStock').val())) {
-              const res = parseInt($('#inputQty').val()) - parseInt($('#inputHarvStock').val());
-              Swal.fire({
-                  title: 'Out of Stock',
-                  text: 'kamu membutuhkan sekitar ' + res + 'pcs lagi',
-                  icon: 'info',
-                  confirmButtonText: 'OK'
-              }).then((result) => {
-                  if (result.isConfirmed) {
-                      $('#inputQty').val($('#inputHarvStock').val())
-                  }
-              });
+  //         if (parseInt($('#inputQty').val()) > parseInt($('#inputHarvStock').val())) {
+  //             const res = parseInt($('#inputQty').val()) - parseInt($('#inputHarvStock').val());
+  //             Swal.fire({
+  //                 title: 'Out of Stock',
+  //                 text: 'kamu membutuhkan sekitar ' + res + 'pcs lagi',
+  //                 icon: 'info',
+  //                 confirmButtonText: 'OK'
+  //             }).then((result) => {
+  //                 if (result.isConfirmed) {
+  //                     $('#inputQty').val($('#inputHarvStock').val())
+  //                 }
+  //             });
 
-          }
-          let inputValue = $(this).val();
-          const price = $('#price').val();
-          const res = parseInt(inputValue) * parseInt(price);
-          let total_value = $('#inputTotalPrice').val(res);
-          console.log('The input value has changed to: ' + res);
-      });
-  });
-=======
-<script>
-  $(document).ready(function() {
+  //         }
+  //         let inputValue = $(this).val();
+  //         const price = $('#price').val();
+  //         const res = parseInt(inputValue) * parseInt(price);
+  //         let total_value = $('#inputTotalPrice').val(res);
+  //         console.log('The input value has changed to: ' + res);
+  //     });
+  // });
+    $(document).ready(function() {
 
       // fill the input field based on the selected product
       $('#inputTotalPrice').on('focus' ,function(){         
@@ -132,7 +124,6 @@
           });
       });
               
->>>>>>> 7f18663ccf1d41debb5fe9fa1d6de3493169742d
 </script>
 @endsection
 
